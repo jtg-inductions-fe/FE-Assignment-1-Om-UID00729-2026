@@ -1,1 +1,7 @@
-// TODO: Add styles as per the requirement
+@import './abstracts/mixins';
+@import './abstracts/typography';
+@import './abstracts/variables';
+
+@import './base/reset';
+
+@import './themes/theme';

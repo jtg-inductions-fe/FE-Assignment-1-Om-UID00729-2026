@@ -1,0 +1,12 @@
+///Breakpoints for responsiveness
+/// @type map
+/// @props {string} desktop(min-width:1024px)
+/// @props {string} tablet(min-width:430px)
+$breakpoints: (
+    'desktop': (
+        min-width: 1024px,
+    ),
+    'tablet': (
+        min-width: 430px,
+    ),
+);
