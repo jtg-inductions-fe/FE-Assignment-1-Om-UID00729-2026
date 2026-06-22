@@ -3,8 +3,17 @@
 $gray-primary: #191825bf;
 $gray-secondary: #19182580;
 $link: #222831;
+$primary-font-col: #000;
+$secondary-font-col: #f85e9f;
+$tertiary-font-col: #ff5722;
 
 ///Variables for font-size
 /// @type string
 $primary-font: CircularStd, sans-serif;
 $secondary-font: 'Inter', sans-serif;
+
+///Variables for font-weight
+/// @type number
+$primary-font-weight: 700;
+$secondary-font-weight: 400;
+$tertiary-font-weight: 450;
