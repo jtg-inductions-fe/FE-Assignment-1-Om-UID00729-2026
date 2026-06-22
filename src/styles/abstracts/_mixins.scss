@@ -73,3 +73,23 @@
     font-family: $family;
     color: $color;
 }
+
+/// Sets width and height of a box
+/// @param {string} width - For width of box
+/// @param {string} height - For height of box
+/// @return a box with given height and width
+///
+/// Example usage
+/// body{
+///     @include box(16px, 16px)
+/// }
+///
+/// Compiled CSS
+/// body{
+///     width: 16px;
+///     height: 16x;
+/// }
+@mixin box($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
