@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @use '../themes' as *;
 @use '../abstracts/' as *;
 
@@ -35,6 +36,8 @@
     background-color: $primary-btn;
 >>>>>>> fd3c035 ([OH_A1_01] Header: Worked on responsiveness)
 =======
+=======
+>>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
 @use '../themes' as *;
 @use '../abstracts/' as *;
 
@@ -66,6 +69,20 @@
 =======
     color: $active-link;
     font-weight: 700;
+=======
+.navbar__buttonsCont__login {
+    @include box(to-rem(105px), to-rem(49px));
+    @include font-design(to-rem(14px), 700, $primary-font, $link);
+    border-radius: 100px;
+    background-color: #fff;
+}
+
+.navbar__buttonsCont__signup {
+    @include box(to-rem(115px), to-rem(49px));
+    @include font-design(to-rem(14px), 700, $primary-font, $bg);
+    border-radius: 100px;
+    background-color: $blue;
+>>>>>>> 0fb20e3 ([OH_A1_01] Header Section: Created Structure for header)
 }
 >>>>>>> 701139a ([OH_A1_01] Confilcts solved and files updated)
 >>>>>>> b1c05ea ([OH_A1_01] Confilcts solved and files updated)

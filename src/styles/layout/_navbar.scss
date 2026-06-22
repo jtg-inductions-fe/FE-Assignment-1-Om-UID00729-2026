@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> a7abbba ([OH_A1_01] Header Section- Updated according to change in base setup)
+=======
+>>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
 @use '../abstracts' as *;
 @use '../themes' as *;
 @use '../components' as *;
@@ -57,11 +60,31 @@
 =======
             flex: 0.1;
             @include flex-set(space-between);
+<<<<<<< HEAD
 >>>>>>> a7abbba ([OH_A1_01] Header Section- Updated according to change in base setup)
+=======
+=======
+.navbar {
+    @include flex-set(space-between);
+    padding: to-rem(38px) to-rem(18px);
+    position: relative;
+
+    &__logo {
+        @include flex-set(center, center);
+        @include respond(tablet) {
+            order: 2;
+            flex: 1;
+        }
+
+        @include respond(desktop) {
+            flex: 0.2;
+>>>>>>> 0fb20e3 ([OH_A1_01] Header Section: Created Structure for header)
+>>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
         }
     }
 
     &__cont {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         width: 60vw;
@@ -72,11 +95,20 @@
         display: none;
 >>>>>>> 6f52821 ([OH_A1_01] Header Section: Created Structure for header)
 =======
+=======
+>>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
         width: 60vw;
         height: auto;
         display: none;
         z-index: 999;
+<<<<<<< HEAD
 >>>>>>> a7abbba ([OH_A1_01] Header Section- Updated according to change in base setup)
+=======
+=======
+        @include box(60vw, auto);
+        display: none;
+>>>>>>> 0fb20e3 ([OH_A1_01] Header Section: Created Structure for header)
+>>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
 
         &--open {
             @include flex-set(center, center, column);
@@ -93,6 +125,7 @@
         @include respond(tablet) {
 =======
             padding: to-rem(24px) 0;
+<<<<<<< HEAD
             box-shadow: 0 0 to-rem(10px) to-rem(5px) gray;
             background-color: $bg;
         }
@@ -104,7 +137,17 @@
 =======
             height: auto;
             width: auto;
+<<<<<<< HEAD
 >>>>>>> a7abbba ([OH_A1_01] Header Section- Updated according to change in base setup)
+=======
+=======
+            box-shadow: 0 0 to-rem(10px) to-rem(5px) $gray-secondary;
+        }
+
+        @include respond(tablet) {
+            @include box(auto, auto);
+>>>>>>> 0fb20e3 ([OH_A1_01] Header Section: Created Structure for header)
+>>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
             display: block;
             order: 3;
             flex: 1;
@@ -113,20 +156,28 @@
         @include respond(desktop) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
             @include flex-set(space-between, center);
             flex: 0.75;
 =======
             @include flex-set(space-around, center);
             flex: 0.8;
+<<<<<<< HEAD
 >>>>>>> 6f52821 ([OH_A1_01] Header Section: Created Structure for header)
 =======
             @include flex-set(space-between, center);
             flex: 0.75;
 >>>>>>> a7abbba ([OH_A1_01] Header Section- Updated according to change in base setup)
+=======
+>>>>>>> 0fb20e3 ([OH_A1_01] Header Section: Created Structure for header)
+>>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
         }
     }
 
     &__ul {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         @include flex-set(center, center, column);
@@ -153,6 +204,8 @@
         @include font-design(to-rem(14px), 700, $primary-font, $gray-secondary);
 =======
 >>>>>>> a7abbba ([OH_A1_01] Header Section- Updated according to change in base setup)
+=======
+>>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
         @include flex-set(center, center, column);
         gap: to-rem(20px);
         z-index: 999;
@@ -172,26 +225,47 @@
             transform: translateY(-2px);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             transition: transform 0.2s ease;
 <<<<<<< HEAD
 =======
 =======
         @include font-design(to-rem(14px), 700, $primary-font, $gray-secondary);
         @include flex-set(center, center, column);
+=======
+=======
+        @include font-design(to-rem(14px), 700, $primary-font, $gray-secondary);
+>>>>>>> e700230 ([OH_A1_01] Header Section: Created Structure for header)
         gap: to-rem(20px);
 
         li:hover {
             color: $link;
+<<<<<<< HEAD
 =======
 >>>>>>> 5e012ca ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
 =======
 >>>>>>> 701139a ([OH_A1_01] Confilcts solved and files updated)
+=======
+        }
+
+        &--open {
+            @include flex-set(center, center, column);
+            @include box(20vw, auto);
+            gap: to-rem(20px);
+            position: absolute;
+            top: to-rem(100px);
+            left: 10px;
+            padding: to-rem(24px) 0;
+            box-shadow: 0 0 10px 5px $gray-secondary;
+>>>>>>> 0fb20e3 ([OH_A1_01] Header Section: Created Structure for header)
+>>>>>>> e700230 ([OH_A1_01] Header Section: Created Structure for header)
         }
 
         @include respond(tablet) {
             display: none;
         }
 
+<<<<<<< HEAD
         &--open {
             @include flex-set(center, center, column);
 <<<<<<< HEAD
@@ -265,30 +339,46 @@
 =======
             gap: to-rem(64px);
             flex: 0.8;
+<<<<<<< HEAD
 >>>>>>> a7abbba ([OH_A1_01] Header Section- Updated according to change in base setup)
+=======
+=======
+        @include respond(desktop) {
+            @include flex-set(space-between, center);
+            gap: 50px;
+>>>>>>> 0fb20e3 ([OH_A1_01] Header Section: Created Structure for header)
+>>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
         }
     }
 
     &__hamburgerCont {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
         @include respond(tablet) {
             flex: 1;
         }
 =======
         flex: 1;
+<<<<<<< HEAD
 >>>>>>> 6f52821 ([OH_A1_01] Header Section: Created Structure for header)
 =======
         @include respond(tablet) {
             flex: 1;
         }
 >>>>>>> fd3c035 ([OH_A1_01] Header: Worked on responsiveness)
+=======
+>>>>>>> 0fb20e3 ([OH_A1_01] Header Section: Created Structure for header)
+>>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
         @include respond(desktop) {
             display: none;
         }
     }
 
     &__hamburger {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -311,11 +401,15 @@
 >>>>>>> 6981416 ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
 =======
 >>>>>>> b1c05ea ([OH_A1_01] Confilcts solved and files updated)
+=======
+>>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
         @include flex-set();
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> e700230 ([OH_A1_01] Header Section: Created Structure for header)
         @include flex-set;
 >>>>>>> 5e012ca ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
 >>>>>>> c6dfeac ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
@@ -344,6 +438,14 @@
                 transform: rotate(90deg);
             }
         }
+=======
+        @include flex-set();
+        @include box(to-rem(40px));
+        @include font-design(to-rem(26px), 700, $primary-font, $bg);
+        background-color: $blue;
+        border-radius: to-rem(10px);
+        color: white;
+>>>>>>> 0fb20e3 ([OH_A1_01] Header Section: Created Structure for header)
 
         &__close--hidden {
             display: none;
@@ -361,6 +463,9 @@
     &__buttonsCont {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
         @include flex-set;
         max-width: 100%;
 
@@ -415,6 +520,22 @@
 >>>>>>> 6f52821 ([OH_A1_01] Header Section: Created Structure for header)
 =======
         padding-top: to-rem(70px);
+<<<<<<< HEAD
 >>>>>>> a7abbba ([OH_A1_01] Header Section- Updated according to change in base setup)
+=======
+=======
+        @include flex-set();
+        max-width: 100%;
+        gap: to-rem(20px);
+        justify-content: end;
+    }
+
+    @include respond(tablet) {
+        padding: to-rem(32px) to-rem(60px);
+    }
+    @include respond(desktop) {
+        padding: to-rem(64px) 0;
+>>>>>>> 0fb20e3 ([OH_A1_01] Header Section: Created Structure for header)
+>>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
     }
 }
