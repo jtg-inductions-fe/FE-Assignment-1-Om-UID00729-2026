@@ -1,0 +1,115 @@
+.navbar {
+    @include flex-set(space-between);
+    padding: to-rem(38px) to-rem(18px);
+    position: relative;
+
+    &__logo {
+        @include flex-set(center, center);
+        @include respond(tablet) {
+            order: 2;
+            flex: 1;
+        }
+
+        @include respond(desktop) {
+            flex: 0.2;
+        }
+    }
+
+    &__cont {
+        @include box(60vw, auto);
+        display: none;
+
+        &--open {
+            @include flex-set(center, center, column);
+            gap: to-rem(20px);
+            position: absolute;
+            top: to-rem(90px);
+            right: to-rem(10px);
+            padding: to-rem(24px) 0;
+            box-shadow: 0 0 to-rem(10px) to-rem(5px) $gray-secondary;
+        }
+
+        @include respond(tablet) {
+            @include box(auto, auto);
+            display: block;
+            order: 3;
+            flex: 1;
+        }
+
+        @include respond(desktop) {
+            @include flex-set(space-around, center);
+            flex: 0.8;
+        }
+    }
+
+    &__ul {
+        @include font-design(to-rem(14px), 700, $primary-font, $gray-secondary);
+        gap: to-rem(20px);
+
+        li:hover {
+            color: $link;
+        }
+
+        &--open {
+            @include flex-set(center, center, column);
+            @include box(20vw, auto);
+            gap: to-rem(20px);
+            position: absolute;
+            top: to-rem(100px);
+            left: 10px;
+            padding: to-rem(24px) 0;
+            box-shadow: 0 0 10px 5px $gray-secondary;
+        }
+
+        @include respond(tablet) {
+            display: none;
+        }
+
+        @include respond(desktop) {
+            @include flex-set(space-between, center);
+            gap: 50px;
+        }
+    }
+
+    &__hamburgerCont {
+        flex: 1;
+        @include respond(desktop) {
+            display: none;
+        }
+    }
+
+    &__hamburger {
+        @include flex-set();
+        @include box(to-rem(40px));
+        @include font-design(to-rem(26px), 700, $primary-font, $bg);
+        background-color: $blue;
+        border-radius: to-rem(10px);
+        color: white;
+
+        &__close--hidden {
+            display: none;
+        }
+        &__bars--hidden {
+            display: none;
+        }
+
+        @include respond(tablet) {
+            order: 1;
+            flex: 1;
+        }
+    }
+
+    &__buttonsCont {
+        @include flex-set();
+        max-width: 100%;
+        gap: to-rem(20px);
+        justify-content: end;
+    }
+
+    @include respond(tablet) {
+        padding: to-rem(32px) to-rem(60px);
+    }
+    @include respond(desktop) {
+        padding: to-rem(64px) 0;
+    }
+}
