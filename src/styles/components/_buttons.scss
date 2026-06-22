@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @use '../themes' as *;
 @use '../abstracts/' as *;
 
@@ -14,4 +15,18 @@
     font-size: to-rem(16px);
     color: $active-link;
     font-weight: $bold;
+=======
+.navbar__buttonsCont__login {
+    @include box(to-rem(105px), to-rem(49px));
+    @include font-design(to-rem(14px), 700, $primary-font, $link);
+    border-radius: 100px;
+    background-color: #fff;
+}
+
+.navbar__buttonsCont__signup {
+    @include box(to-rem(115px), to-rem(49px));
+    @include font-design(to-rem(14px), 700, $primary-font, $bg);
+    border-radius: 100px;
+    background-color: $blue;
+>>>>>>> 6f52821 ([OH_A1_01] Header Section: Created Structure for header)
 }
