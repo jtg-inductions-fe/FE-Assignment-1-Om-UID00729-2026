@@ -1,5 +1,3 @@
-@use 'sass:math';
-
 @function to-rem($px) {
     @return calc($px/ 16px) * 1rem;
 }
