@@ -4,9 +4,9 @@
 /// @props {string} tablet(min-width:430px)
 $breakpoints: (
     'desktop': (
-        min-width: 1440px,
+        min-width: 1024px,
     ),
     'tablet': (
-        min-width: 1024px,
+        min-width: 430px,
     ),
 );
