@@ -23,3 +23,17 @@ if (window.innerWidth <= 430) {
             .classList.toggle('navbar__hamburger__bars--hidden');
     });
 }
+let lastwidth = getWidth();
+
+function getWidth() {
+    if (window.innerWidth <= 430) return 'mobile';
+    if (window.innerWidth <= 1024) return 'tablet';
+    return 'desktop';
+}
+
+window.addEventListener('resize', () => {
+    const currWidth = getWidth();
+    if (currWidth !== lastwidth) {
+        location.reload();
+    }
+});
