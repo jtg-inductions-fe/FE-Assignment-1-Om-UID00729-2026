@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 /// Set a mixin for media queries
 /// @param {string} breakpoint - name of breakpoint (desktop or tablet)
 /// @return media query for given param
@@ -46,50 +48,4 @@
     align-items: $align;
     justify-content: $justify;
     flex-direction: $dir;
-}
-
-/// Sets font design
-/// @param {string} size - For size of font
-/// @param {numeric} weight - For weight of font
-/// @param {string} family - For font-family
-/// @param {string} color - For color of font
-/// @return styling for the font
-///
-/// Example usage
-/// body{
-///     @include font-design(16px, 700, $primary-font, $primary-gray)
-/// }
-///
-/// Compiled CSS
-/// body{
-///     font-size: 16px;
-///     font-weight: 700;
-///     font-family: CircularStd, sans-serif;
-///     color: #191825BF;
-/// }
-@mixin font-design($size, $weight, $family, $color) {
-    font-size: $size;
-    font-weight: $weight;
-    font-family: $family;
-    color: $color;
-}
-
-/// Sets width and height of a box
-/// @param {string} width - For width of box
-/// @param {string} height - For height of box
-/// @return a box with given height and width
-///
-/// Example usage
-/// body{
-///     @include box(16px, 16px)
-/// }
-///
-/// Compiled CSS
-/// body{
-///     width: 16px;
-///     height: 16x;
-/// }
-@mixin box($width, $height: $width) {
-    width: $width;
-    height: $height;
 }

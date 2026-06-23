@@ -1,7 +1,10 @@
+@use '../abstracts/' as *;
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: $primary-font;
 }
 
 *::after,
@@ -15,8 +18,23 @@ ul {
 
 a {
     text-decoration: none;
-    color: $link;
+    color: $primary-link;
 }
 button {
     border: none;
+}
+
+nav,
+main,
+section,
+footer {
+    padding: 0 to-rem(16.86px);
+
+    @include respond(tablet) {
+        padding: 0 to-rem(64px);
+    }
+
+    @include respond(desktop) {
+        padding: 0 to-rem(117.36px) 0 to-rem(130px);
+    }
 }
