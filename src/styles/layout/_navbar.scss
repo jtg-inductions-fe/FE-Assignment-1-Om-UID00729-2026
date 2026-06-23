@@ -227,6 +227,7 @@
 =======
             box-shadow: 0 0 to-rem(10px) to-rem(5px) $gray-secondary;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             box-shadow: 0 0 to-rem(10px) to-rem(5px) gray;
 >>>>>>> cd5607d ([OH_A1_01] Header Section- Updated according to change in base setup)
@@ -248,6 +249,9 @@
 >>>>>>> dd034bf ([OH_A1_01] Header Section- Updated according to change in base setup)
 =======
 =======
+=======
+            background-color: $bg;
+>>>>>>> ac11174 ([OH_A1_01] Header: Worked on responsiveness)
         }
 
         @include respond(tablet) {
@@ -405,27 +409,36 @@
 =======
 =======
         @include font-design(to-rem(14px), 700, $primary-font, $gray-secondary);
+        @include flex-set(center, center, column);
         gap: to-rem(20px);
 
         li:hover {
             color: $link;
         }
 
+        @include respond(tablet) {
+            display: none;
+        }
+
         &--open {
             @include flex-set(center, center, column);
-            @include box(20vw, auto);
+            @include box(40vw, auto);
             gap: to-rem(20px);
             position: absolute;
             top: to-rem(100px);
             left: 10px;
             padding: to-rem(24px) 0;
             box-shadow: 0 0 10px 5px $gray-secondary;
+<<<<<<< HEAD
 >>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
 >>>>>>> 5ab5016 ([OH_A1_01] Header Section: Created Structure for header)
         }
 
         @include respond(tablet) {
             display: none;
+=======
+            background-color: $bg;
+>>>>>>> a018159 ([OH_A1_01] Header: Worked on responsiveness)
         }
 
 <<<<<<< HEAD
@@ -568,6 +581,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
 =======
@@ -576,6 +590,12 @@
 =======
 >>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
 >>>>>>> 52db70a ([OH_A1_01] Header Section: Created Structure for header)
+=======
+=======
+>>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
+=======
+>>>>>>> ac11174 ([OH_A1_01] Header: Worked on responsiveness)
+>>>>>>> 00b5dce ([OH_A1_01] Header: Worked on responsiveness)
         @include respond(tablet) {
             flex: 1;
         }
@@ -606,8 +626,19 @@
 =======
 =======
 >>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
+<<<<<<< HEAD
 >>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
+<<<<<<< HEAD
 >>>>>>> 52db70a ([OH_A1_01] Header Section: Created Structure for header)
+=======
+=======
+=======
+        @include respond(tablet) {
+            flex: 1;
+        }
+>>>>>>> a018159 ([OH_A1_01] Header: Worked on responsiveness)
+>>>>>>> ac11174 ([OH_A1_01] Header: Worked on responsiveness)
+>>>>>>> 00b5dce ([OH_A1_01] Header: Worked on responsiveness)
         @include respond(desktop) {
             display: none;
         }
@@ -712,12 +743,21 @@
 =======
         @include box(to-rem(40px));
         @include font-design(to-rem(26px), 700, $primary-font, $bg);
-        background-color: $blue;
+        background-color: $primary-btn;
         border-radius: to-rem(10px);
+<<<<<<< HEAD
         color: white;
 >>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
+<<<<<<< HEAD
 >>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
+=======
+=======
+>>>>>>> a018159 ([OH_A1_01] Header: Worked on responsiveness)
+>>>>>>> ac11174 ([OH_A1_01] Header: Worked on responsiveness)
 
+        &__bars svg {
+            color: white;
+        }
         &__close--hidden {
             display: none;
         }

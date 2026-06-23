@@ -118,16 +118,23 @@
     @include box(to-rem(105px), to-rem(49px));
     @include font-design(to-rem(14px), 700, $primary-font, $link);
     border-radius: 100px;
-    background-color: #fff;
+    background-color: $bg;
 }
 
 .navbar__buttonsCont__signup {
     @include box(to-rem(115px), to-rem(49px));
     @include font-design(to-rem(14px), 700, $primary-font, $bg);
     border-radius: 100px;
+<<<<<<< HEAD
     background-color: $blue;
 >>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
+<<<<<<< HEAD
 >>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
+=======
+=======
+    background-color: $primary-btn;
+>>>>>>> a018159 ([OH_A1_01] Header: Worked on responsiveness)
+>>>>>>> ac11174 ([OH_A1_01] Header: Worked on responsiveness)
 }
 >>>>>>> 701139a ([OH_A1_01] Confilcts solved and files updated)
 >>>>>>> b1c05ea ([OH_A1_01] Confilcts solved and files updated)
