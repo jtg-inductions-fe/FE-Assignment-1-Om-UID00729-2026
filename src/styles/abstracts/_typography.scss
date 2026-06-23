@@ -32,61 +32,61 @@ $primary-spacing: 120%;
 $secondary-spacing: 160%;
 
 h1 {
-    font-size: to-rem(40px);
+    font-size: 40px;
     font-weight: $primary-font-weight;
     line-height: $primary-spacing;
     color: $primary-font-col;
 
     @include respond(tablet) {
-        font-size: to-rem(56px);
+        font-size: 56px;
     }
 
     @include respond(desktop) {
-        font-size: to-rem(69px);
+        font-size: 69px;
     }
 }
 
 h2 {
-    font-size: to-rem(32px);
+    font-size: 32px;
     font-weight: $primary-font-weight;
     line-height: $primary-spacing;
     color: $tertiary-font-col;
 
     @include respond(tablet) {
-        font-size: to-rem(40px);
+        font-size: 40px;
     }
 
     @include respond(desktop) {
-        font-size: to-rem(44px);
+        font-size: 44px;
     }
 }
 
 h3 {
-    font-size: to-rem(16px);
+    font-size: 16px;
     font-weight: $primary-font-weight;
     line-height: $primary-spacing;
     color: $secondary-font-col;
 
     @include respond(tablet) {
-        font-size: to-rem(23px);
+        font-size: 23px;
     }
 
     @include respond(desktop) {
-        font-size: to-rem(23px);
+        font-size: 23px;
     }
 }
 
 p {
-    font-size: to-rem(16px);
+    font-size: 16px;
     font-weight: $secondary-font-weight;
     line-height: $secondary-spacing;
     color: $secondary-para-col;
 
     @include respond(tablet) {
-        font-size: to-rem(18px);
+        font-size: 18px;
     }
 
     @include respond(desktop) {
-        font-size: to-rem(18px);
+        font-size: 18px;
     }
 }
