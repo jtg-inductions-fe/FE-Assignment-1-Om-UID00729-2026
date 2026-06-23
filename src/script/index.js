@@ -28,4 +28,21 @@ if (window.innerWidth <= 430) {
             .classList.toggle('navbar__hamburger__bars--hidden');
     });
 }
+<<<<<<< HEAD
 >>>>>>> 0fb20e3 ([OH_A1_01] Header Section: Created Structure for header)
+=======
+let lastwidth = getWidth();
+
+function getWidth() {
+    if (window.innerWidth <= 430) return 'mobile';
+    if (window.innerWidth <= 1024) return 'tablet';
+    return 'desktop';
+}
+
+window.addEventListener('resize', () => {
+    const currWidth = getWidth();
+    if (currWidth !== lastwidth) {
+        location.reload();
+    }
+});
+>>>>>>> 5b62b49 ([OH_A1_01] Header: Worked on responsiveness)
