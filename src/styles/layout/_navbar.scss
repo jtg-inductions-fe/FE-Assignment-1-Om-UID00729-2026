@@ -163,6 +163,9 @@
 
         @include respond(tablet) {
             display: none;
+=======
+            background-color: $bg;
+>>>>>>> a018159 ([OH_A1_01] Header: Worked on responsiveness)
         }
 
         &--open {
@@ -278,6 +281,9 @@
             }
         }
 
+        &__bars svg {
+            color: white;
+        }
         &__close--hidden {
             display: none;
         }
