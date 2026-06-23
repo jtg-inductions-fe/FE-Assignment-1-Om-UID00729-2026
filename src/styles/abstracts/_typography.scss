@@ -1,4 +1,14 @@
-///Variables for font-color
+@font-face {
+    font-family: circularstd;
+    src: url('public/assets/fonts/circularStd.ttf');
+}
+
+@font-face {
+    font-family: inter;
+    src: url('public/assets/fonts/Inter.ttf');
+}
+
+/// Variables for font-color
 /// @type color
 $gray-primary: #191825bf;
 $gray-secondary: #19182580;
@@ -7,13 +17,18 @@ $primary-font-col: #000;
 $secondary-font-col: #f85e9f;
 $tertiary-font-col: #ff5722;
 
-///Variables for font-size
+/// Variables for font-size
 /// @type string
-$primary-font: CircularStd, sans-serif;
-$secondary-font: 'Inter', sans-serif;
+$primary-font: circularstd, sans-serif;
+$secondary-font: inter, sans-serif;
 
-///Variables for font-weight
+/// Variables for font-weight
 /// @type number
 $primary-font-weight: 700;
 $secondary-font-weight: 400;
 $tertiary-font-weight: 450;
+
+/// Variables for Line Spacing
+/// @type string
+$primary-spacing: 160%;
+$secondary-spacing: 120%;
