@@ -100,12 +100,18 @@
         gap: to-rem(20px);
         z-index: 999;
         font-size: to-rem(14px);
-        color: $primary-para-col;
+        color: $inactive-link;
+        font-weight: 700;
+
+        li {
+            transition: transform 0.2s ease;
+        }
 
         li:hover,
-        li:focus {
-            color: $primary-link;
+        li:focus-within {
+            color: $active-link;
             transform: translateY(-2px);
+<<<<<<< HEAD
             transition: transform 0.2s ease;
 =======
         @include font-design(to-rem(14px), 700, $primary-font, $gray-secondary);
@@ -114,6 +120,8 @@
 
         li:hover {
             color: $link;
+=======
+>>>>>>> 5e012ca ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
         }
 
         @include respond(tablet) {
@@ -186,8 +194,12 @@
     }
 
     &__hamburger {
+<<<<<<< HEAD
         @include flex-set();
 <<<<<<< HEAD
+=======
+        @include flex-set;
+>>>>>>> 5e012ca ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
         height: to-rem(40px);
         width: to-rem(40px);
         background-color: $primary-btn;
@@ -230,18 +242,18 @@
     }
 
     &__buttonsCont {
-        @include flex-set();
+        @include flex-set;
         max-width: 100%;
 <<<<<<< HEAD
 
         &__login {
-            @extend .secondary-btn;
+            @include secondary-btn;
             height: to-rem(50px);
             width: to-rem(105px);
         }
 
         &__signup {
-            @extend .primary-btn;
+            @include primary-btn;
             height: to-rem(50px);
             width: to-rem(115px);
         }
