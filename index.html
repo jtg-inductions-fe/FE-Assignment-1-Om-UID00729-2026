@@ -15,6 +15,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <nav class="navbar">
             <span class="icon-logo navbar__logo"></span>
             <div id="navbar__cont" class="navbar__cont">
@@ -92,22 +93,50 @@
                     <li><a href=""></a>Discover</li>
                     <li><a href=""></a>Special Deals</li>
                     <li><a href=""></a>Contact</li>
+=======
+        <nav class="navbar">
+            <span class="icon-logo navbar__logo"></span>
+            <div id="navbar__cont" class="navbar__cont">
+                <ul
+                    id="navbar__ul"
+                    aria-label="Navbar links"
+                    class="navbar__ul"
+                >
+                    <li><a href="#" class="navbar__links"></a>Home</li>
+                    <li><a href="#" class="navbar__links"></a>Discover</li>
+                    <li><a href="#" class="navbar__links"></a>Special Deals</li>
+                    <li><a href="#" class="navbar__links"></a>Contact</li>
+>>>>>>> 6981416 ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
                 </ul>
                 <div class="navbar__buttonsCont">
-                    <button class="navbar__buttonsCont__login">Log In</button>
-                    <button class="navbar__buttonsCont__signup">Sign Up</button>
+                    <button
+                        type="button"
+                        aria-label="Log In Button"
+                        class="navbar__buttonsCont__login navbar__links"
+                    >
+                        Log In
+                    </button>
+                    <button
+                        type="button"
+                        aria-label="Sign Up Button"
+                        class="navbar__buttonsCont__signup navbar__links"
+                    >
+                        Sign Up
+                    </button>
                 </div>
             </div>
             <div class="navbar__hamburgerCont">
-                <div
+                <button
+                    type="button"
                     class="navbar__hamburger"
                     aria-label="Open hamburger menu"
                     aria-expanded="false"
+                    aria-controls="navbar__ul navbar__cont"
                 >
                     <span
                         class="icon-bars-solid navbar__hamburger__bars"
                     ></span>
-                </div>
+                </button>
             </div>
         </nav>
 <<<<<<< HEAD

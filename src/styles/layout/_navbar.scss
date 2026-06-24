@@ -152,13 +152,48 @@
         gap: to-rem(20px);
         z-index: 999;
         font-size: to-rem(14px);
-        color: $primary-para-col;
+        color: $inactive-link;
+        font-weight: 700;
+
+        li {
+            transition: transform 0.2s ease;
+        }
 
         li:hover,
-        li:focus {
-            color: $primary-link;
+        li:focus-within {
+            color: $active-link;
             transform: translateY(-2px);
+<<<<<<< HEAD
             transition: transform 0.2s ease;
+<<<<<<< HEAD
+=======
+=======
+        @include font-design(to-rem(14px), 700, $primary-font, $gray-secondary);
+        @include flex-set(center, center, column);
+        gap: to-rem(20px);
+
+        li:hover {
+            color: $link;
+=======
+>>>>>>> 5e012ca ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
+        }
+
+        @include respond(tablet) {
+            display: none;
+        }
+
+        &--open {
+            @include flex-set(center, center, column);
+            @include box(40vw, auto);
+            gap: to-rem(20px);
+            position: absolute;
+            top: to-rem(100px);
+            left: 10px;
+            padding: to-rem(24px) 0;
+            box-shadow: 0 0 10px 5px $gray-secondary;
+<<<<<<< HEAD
+>>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
+>>>>>>> c6dfeac ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
         }
 
         @include respond(tablet) {
@@ -242,6 +277,7 @@
 
     &__hamburger {
 <<<<<<< HEAD
+<<<<<<< HEAD
         @include flex-set;
         @include primary-btn;
         height: to-rem(40px);
@@ -257,7 +293,16 @@
             }
         }
 =======
+=======
+>>>>>>> 6981416 ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
         @include flex-set();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        @include flex-set;
+>>>>>>> 5e012ca ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
+>>>>>>> c6dfeac ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
         height: to-rem(40px);
         width: to-rem(40px);
         background-color: $primary-btn;
@@ -299,6 +344,7 @@
 
     &__buttonsCont {
 <<<<<<< HEAD
+<<<<<<< HEAD
         @include flex-set;
         max-width: 100%;
 
@@ -326,16 +372,19 @@
         padding-top: 66px;
 =======
         @include flex-set();
+=======
+        @include flex-set;
+>>>>>>> 6981416 ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
         max-width: 100%;
 
         &__login {
-            @extend .secondary-btn;
+            @include secondary-btn;
             height: to-rem(50px);
             width: to-rem(105px);
         }
 
         &__signup {
-            @extend .primary-btn;
+            @include primary-btn;
             height: to-rem(50px);
             width: to-rem(115px);
         }
