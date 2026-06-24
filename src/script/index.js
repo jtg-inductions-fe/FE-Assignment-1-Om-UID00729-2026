@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import handleHamburgerClick from './navbar.js';
 
 handleHamburgerClick();
@@ -46,3 +47,8 @@ window.addEventListener('resize', () => {
     }
 });
 >>>>>>> 5b62b49 ([OH_A1_01] Header: Worked on responsiveness)
+=======
+import handleHamburgerClick from './navbar.js';
+
+handleHamburgerClick();
+>>>>>>> cd5607d ([OH_A1_01] Header Section- Updated according to change in base setup)
