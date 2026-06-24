@@ -2,7 +2,16 @@
 
 @font-face {
     font-family: 'icomoon';
+<<<<<<< HEAD:src/styles/vendors/_icomoon.scss
     src: url('#{$font-path}icomoon.woff?4r1wnf') format('woff');
+=======
+    src: url('fonts/icomoon.eot?qe4f6r');
+    src:
+        url('fonts/icomoon.eot?qe4f6r#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?qe4f6r') format('truetype'),
+        url('fonts/icomoon.woff?qe4f6r') format('woff'),
+        url('fonts/icomoon.svg?qe4f6r#icomoon') format('svg');
+>>>>>>> 474d9e0 ([OH_A1_00] Base Setup - Review fixes: typograpphy and font-face):public/assets/icomoon/style.css
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -23,6 +32,7 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+<<<<<<< HEAD:src/styles/vendors/_icomoon.scss
 .icon-expedia:before {
     content: '\e912';
 }
@@ -38,6 +48,8 @@
 .icon-booking:before {
     content: '\e934';
 }
+=======
+>>>>>>> 474d9e0 ([OH_A1_00] Base Setup - Review fixes: typograpphy and font-face):public/assets/icomoon/style.css
 .icon-arrow-right:before {
     content: '\e90d';
 }
