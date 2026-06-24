@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @use '../themes' as *;
 @use '../abstracts/' as *;
 
@@ -13,28 +12,6 @@
     border-radius: to-rem(100px);
     background-color: $bg;
     font-size: 16px;
-<<<<<<< HEAD
-    color: $primary-link;
-=======
-.navbar__buttonsCont__login {
-    @include box(to-rem(105px), to-rem(49px));
-    @include font-design(to-rem(14px), 700, $primary-font, $link);
-    border-radius: 100px;
-    background-color: $bg;
-}
-
-.navbar__buttonsCont__signup {
-    @include box(to-rem(115px), to-rem(49px));
-    @include font-design(to-rem(14px), 700, $primary-font, $bg);
-    border-radius: 100px;
-<<<<<<< HEAD
-    background-color: $blue;
->>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
-=======
-    background-color: $primary-btn;
->>>>>>> a018159 ([OH_A1_01] Header: Worked on responsiveness)
-=======
     color: $active-link;
     font-weight: 700;
->>>>>>> 5e012ca ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
 }

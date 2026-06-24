@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @use '../abstracts' as *;
 @use '../themes' as *;
 @use '../components' as *;
@@ -25,35 +24,14 @@
         @include respond(desktop) {
             flex: 0.1;
             @include flex-set(space-between);
-=======
-.navbar {
-    @include flex-set(space-between);
-    padding: to-rem(38px) to-rem(18px);
-    position: relative;
-
-    &__logo {
-        @include flex-set(center, center);
-        @include respond(tablet) {
-            order: 2;
-            flex: 1;
-        }
-
-        @include respond(desktop) {
-            flex: 0.2;
->>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
         }
     }
 
     &__cont {
-<<<<<<< HEAD
         width: 60vw;
         height: auto;
         display: none;
         z-index: 999;
-=======
-        @include box(60vw, auto);
-        display: none;
->>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
 
         &--open {
             @include flex-set(center, center, column);
@@ -62,7 +40,6 @@
             top: to-rem(90px);
             right: to-rem(10px);
             padding: to-rem(24px) 0;
-<<<<<<< HEAD
             box-shadow: 0 0 to-rem(10px) to-rem(5px) gray;
             background-color: $bg;
         }
@@ -70,85 +47,39 @@
         @include respond(tablet) {
             height: auto;
             width: auto;
-=======
-            box-shadow: 0 0 to-rem(10px) to-rem(5px) $gray-secondary;
-            background-color: $bg;
-        }
-
-        @include respond(tablet) {
-            @include box(auto, auto);
->>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
             display: block;
             order: 3;
             flex: 1;
         }
 
         @include respond(desktop) {
-<<<<<<< HEAD
             @include flex-set(space-between, center);
             flex: 0.75;
-=======
-            @include flex-set(space-around, center);
-            flex: 0.8;
->>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
         }
     }
 
     &__ul {
-<<<<<<< HEAD
         @include flex-set(center, center, column);
         gap: to-rem(20px);
         z-index: 999;
         font-size: to-rem(14px);
-        color: $primary-para-col;
+        color: $inactive-link;
+        font-weight: 700;
 
         li {
             transition: transform 0.2s ease;
         }
 
         li:hover,
-        li:focus {
+        li:focus-within {
             color: $active-link;
-            font-weight: 700;
             transform: translateY(-2px);
-<<<<<<< HEAD
-            transition: transform 0.2s ease;
-=======
-        @include font-design(to-rem(14px), 700, $primary-font, $gray-secondary);
-        @include flex-set(center, center, column);
-        gap: to-rem(20px);
-
-        li:hover {
-            color: $link;
-=======
->>>>>>> 5e012ca ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
         }
 
         @include respond(tablet) {
             display: none;
         }
 
-        &--open {
-            @include flex-set(center, center, column);
-            @include box(40vw, auto);
-            gap: to-rem(20px);
-            position: absolute;
-            top: to-rem(100px);
-            left: 10px;
-            padding: to-rem(24px) 0;
-            box-shadow: 0 0 10px 5px $gray-secondary;
-<<<<<<< HEAD
->>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
-        }
-
-        @include respond(tablet) {
-            display: none;
-=======
-            background-color: $bg;
->>>>>>> a018159 ([OH_A1_01] Header: Worked on responsiveness)
-        }
-
-<<<<<<< HEAD
         &--open {
             @include flex-set(center, center, column);
             width: 40vw;
@@ -166,40 +97,20 @@
             @include flex-set(start, center);
             gap: to-rem(64px);
             flex: 0.8;
-=======
-        @include respond(desktop) {
-            @include flex-set(space-between, center);
-            gap: 50px;
->>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
         }
     }
 
     &__hamburgerCont {
-<<<<<<< HEAD
-<<<<<<< HEAD
         @include respond(tablet) {
             flex: 1;
         }
-=======
-        flex: 1;
->>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
-=======
-        @include respond(tablet) {
-            flex: 1;
-        }
->>>>>>> a018159 ([OH_A1_01] Header: Worked on responsiveness)
         @include respond(desktop) {
             display: none;
         }
     }
 
     &__hamburger {
-<<<<<<< HEAD
-        @include flex-set();
-<<<<<<< HEAD
-=======
         @include flex-set;
->>>>>>> 5e012ca ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
         height: to-rem(40px);
         width: to-rem(40px);
         background-color: $primary-btn;
@@ -214,20 +125,7 @@
                 transform: rotate(90deg);
             }
         }
-=======
-        @include box(to-rem(40px));
-        @include font-design(to-rem(26px), 700, $primary-font, $bg);
-        background-color: $primary-btn;
-        border-radius: to-rem(10px);
-<<<<<<< HEAD
-        color: white;
->>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
-=======
->>>>>>> a018159 ([OH_A1_01] Header: Worked on responsiveness)
 
-        &__bars svg {
-            color: white;
-        }
         &__close--hidden {
             display: none;
         }
@@ -244,7 +142,6 @@
     &__buttonsCont {
         @include flex-set;
         max-width: 100%;
-<<<<<<< HEAD
 
         &__login {
             @include secondary-btn;
@@ -264,16 +161,5 @@
     }
     @include respond(desktop) {
         padding-top: to-rem(70px);
-=======
-        gap: to-rem(20px);
-        justify-content: end;
-    }
-
-    @include respond(tablet) {
-        padding: to-rem(32px) to-rem(60px);
-    }
-    @include respond(desktop) {
-        padding: to-rem(64px) 0;
->>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
     }
 }
