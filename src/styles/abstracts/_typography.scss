@@ -2,7 +2,14 @@
 
 @font-face {
     font-family: circularstd;
+    font-weight: 400;
     src: url('../../../assets/fonts/CircularStd-Book.woff2');
+}
+
+@font-face {
+    font-family: circularstd;
+    font-weight: 700;
+    src: url('../../../assets/fonts/CircularStd-Bold.woff2');
 }
 
 /// Variables for font-color
@@ -13,7 +20,8 @@ $tertiary-font-col: #191825;
 $primary-deatils-col: #ff5722;
 $primary-para-col: #191825bf;
 $secondary-para-col: #19182580;
-$primary-link: #222831;
+$active-link: #222831;
+$inactive-link: #19182580;
 $primary-btn-col: #eee;
 
 /// Variables for font-size
@@ -32,7 +40,7 @@ $primary-spacing: 120%;
 $secondary-spacing: 160%;
 
 h1 {
-    font-size: 40px;
+    font-size: 70px;
     font-weight: $primary-font-weight;
     line-height: $primary-spacing;
     color: $primary-font-col;
@@ -74,6 +82,27 @@ h3 {
     @include respond(desktop) {
         font-size: 23px;
     }
+}
+
+h4 {
+    font-size: 35px;
+    font-weight: $primary-font-weight;
+    line-height: $primary-spacing;
+    color: $primary-deatils-col;
+}
+
+h5 {
+    font-size: 28px;
+    font-weight: $primary-font-weight;
+    line-height: $primary-spacing;
+    color: $primary-font-col;
+}
+
+h6 {
+    font-size: 23px;
+    font-weight: $primary-font-weight;
+    line-height: $primary-spacing;
+    color: $tertiary-font-col;
 }
 
 p {

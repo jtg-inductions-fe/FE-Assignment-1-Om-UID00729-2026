@@ -8,7 +8,7 @@
 }
 
 *::after,
-::before {
+*::before {
     box-sizing: border-box;
 }
 
@@ -18,7 +18,7 @@ ul {
 
 a {
     text-decoration: none;
-    color: $primary-link;
+    color: $inactive-link;
 }
 button {
     border: none;
