@@ -134,7 +134,11 @@
         z-index: 999;
         font-size: to-rem(14px);
         color: $inactive-link;
+<<<<<<< HEAD
         font-weight: $bold;
+=======
+        font-weight: 700;
+>>>>>>> b1c05ea ([OH_A1_01] Confilcts solved and files updated)
 
         li {
             transition: transform 0.2s ease;
@@ -142,6 +146,7 @@
 
         li:hover,
         li:focus-within {
+<<<<<<< HEAD
             color: $active-link;
             transform: translateY(-2px);
 =======
@@ -161,8 +166,11 @@
 
         li:hover,
         li:focus-within {
+=======
+>>>>>>> b1c05ea ([OH_A1_01] Confilcts solved and files updated)
             color: $active-link;
             transform: translateY(-2px);
+<<<<<<< HEAD
 <<<<<<< HEAD
             transition: transform 0.2s ease;
 <<<<<<< HEAD
@@ -176,6 +184,8 @@
             color: $link;
 =======
 >>>>>>> 5e012ca ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
+=======
+>>>>>>> 701139a ([OH_A1_01] Confilcts solved and files updated)
         }
 
         @include respond(tablet) {
@@ -184,6 +194,7 @@
 
         &--open {
             @include flex-set(center, center, column);
+<<<<<<< HEAD
             @include box(40vw, auto);
             gap: to-rem(20px);
             position: absolute;
@@ -205,6 +216,8 @@
 
         &--open {
             @include flex-set(center, center, column);
+=======
+>>>>>>> 701139a ([OH_A1_01] Confilcts solved and files updated)
             width: 40vw;
             height: auto;
             gap: to-rem(20px);
@@ -278,6 +291,7 @@
     &__hamburger {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         @include flex-set;
         @include primary-btn;
         height: to-rem(40px);
@@ -295,6 +309,8 @@
 =======
 =======
 >>>>>>> 6981416 ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
+=======
+>>>>>>> b1c05ea ([OH_A1_01] Confilcts solved and files updated)
         @include flex-set();
 <<<<<<< HEAD
 =======
@@ -303,6 +319,9 @@
         @include flex-set;
 >>>>>>> 5e012ca ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
 >>>>>>> c6dfeac ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
+=======
+        @include flex-set;
+>>>>>>> 701139a ([OH_A1_01] Confilcts solved and files updated)
         height: to-rem(40px);
         width: to-rem(40px);
         background-color: $primary-btn;
@@ -326,9 +345,6 @@
             }
         }
 
-        &__bars svg {
-            color: white;
-        }
         &__close--hidden {
             display: none;
         }
