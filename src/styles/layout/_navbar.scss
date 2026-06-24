@@ -100,16 +100,16 @@
         gap: to-rem(20px);
         z-index: 999;
         font-size: to-rem(14px);
-        color: $inactive-link;
-        font-weight: 700;
+        color: $primary-para-col;
 
         li {
             transition: transform 0.2s ease;
         }
 
         li:hover,
-        li:focus-within {
+        li:focus {
             color: $active-link;
+            font-weight: 700;
             transform: translateY(-2px);
 <<<<<<< HEAD
             transition: transform 0.2s ease;
