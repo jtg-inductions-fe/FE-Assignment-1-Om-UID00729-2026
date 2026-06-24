@@ -1,6 +1,7 @@
 let navbarHamburger = document.querySelector('.navbar__hamburger');
 let navbarCont = document.querySelector('.navbar__cont');
 let navbarUl = document.querySelector('.navbar__ul');
+<<<<<<< HEAD
 let hamburgerBars = document.querySelector('.icon-bars-solid');
 let links = document.querySelectorAll('.navbar__links');
 
@@ -28,11 +29,33 @@ export default function handleHamburgerClick() {
     });
 
     let lastwidth = getWidth();
+=======
+
+export default function handleHamburgerClick() {
+    if (window.innerWidth <= 430) {
+        navbarHamburger.addEventListener('click', () => {
+            navbarCont.classList.toggle('navbar__cont--open');
+            document
+                .querySelector('.icon-bars-solid')
+                .classList.toggle('navbar__hamburger__bars--open');
+        });
+    } else if (window.innerWidth <= 1024) {
+        navbarHamburger.addEventListener('click', () => {
+            navbarUl.classList.toggle('navbar__ul--open');
+            document
+                .querySelector('.icon-bars-solid')
+                .classList.toggle('navbar__hamburger__bars--open');
+        });
+    }
+    let lastwidth = getWidth();
+
+>>>>>>> a7abbba ([OH_A1_01] Header Section- Updated according to change in base setup)
     function getWidth() {
         if (window.innerWidth <= 430) return 'mobile';
         if (window.innerWidth <= 1024) return 'tablet';
         return 'desktop';
     }
+<<<<<<< HEAD
     window.addEventListener('resize', () => {
         const currWidth = getWidth();
         if (currWidth !== lastwidth) {
@@ -64,6 +87,13 @@ export default function handleHamburgerClick() {
         if (e.key === 'Tab' && e.shiftKey) {
             e.preventDefault();
             navbarHamburger.focus();
+=======
+
+    window.addEventListener('resize', () => {
+        const currWidth = getWidth();
+        if (currWidth !== lastwidth) {
+            location.reload();
+>>>>>>> a7abbba ([OH_A1_01] Header Section- Updated according to change in base setup)
         }
     });
 }
