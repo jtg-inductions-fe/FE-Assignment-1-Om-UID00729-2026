@@ -387,7 +387,12 @@
         gap: to-rem(20px);
         z-index: 999;
         font-size: to-rem(14px);
-        color: $primary-para-col;
+        color: $inactive-link;
+        font-weight: 700;
+
+        li {
+            transition: transform 0.2s ease;
+        }
 
 <<<<<<< HEAD
         li:hover {
@@ -400,9 +405,10 @@
 =======
 =======
         li:hover,
-        li:focus {
-            color: $primary-link;
+        li:focus-within {
+            color: $active-link;
             transform: translateY(-2px);
+<<<<<<< HEAD
             transition: transform 0.2s ease;
 <<<<<<< HEAD
 >>>>>>> 7c9889c ([OH_A1_01] Header Section- Updated according to change in base setup)
@@ -414,6 +420,8 @@
 
         li:hover {
             color: $link;
+=======
+>>>>>>> 5e012ca ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
         }
 
         @include respond(tablet) {
@@ -650,6 +658,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         @include flex-set;
         @include primary-btn;
         height: to-rem(40px);
@@ -673,6 +682,8 @@
 >>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
 =======
 >>>>>>> 52db70a ([OH_A1_01] Header Section: Created Structure for header)
+=======
+>>>>>>> e766a8e ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
         @include flex-set();
 <<<<<<< HEAD
 =======
@@ -687,12 +698,24 @@
         @include flex-set;
 >>>>>>> 701139a ([OH_A1_01] Confilcts solved and files updated)
 =======
+=======
+>>>>>>> 5dbbd39 ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
         @include flex-set;
 =======
         @include flex-set();
 <<<<<<< HEAD
 >>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
+<<<<<<< HEAD
 >>>>>>> 5ab5016 ([OH_A1_01] Header Section: Created Structure for header)
+=======
+=======
+        @include flex-set();
+<<<<<<< HEAD
+=======
+        @include flex-set;
+>>>>>>> 5e012ca ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
+>>>>>>> ee87c01 ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
+>>>>>>> 5dbbd39 ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
         height: to-rem(40px);
         width: to-rem(40px);
         background-color: $primary-btn;
@@ -775,8 +798,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
+=======
+>>>>>>> e766a8e ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
         @include flex-set;
         max-width: 100%;
 
@@ -836,17 +862,20 @@
 =======
 =======
         @include flex-set();
+=======
+        @include flex-set;
+>>>>>>> ee87c01 ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
         max-width: 100%;
 <<<<<<< HEAD
 
         &__login {
-            @extend .secondary-btn;
+            @include secondary-btn;
             height: to-rem(50px);
             width: to-rem(105px);
         }
 
         &__signup {
-            @extend .primary-btn;
+            @include primary-btn;
             height: to-rem(50px);
             width: to-rem(115px);
         }
