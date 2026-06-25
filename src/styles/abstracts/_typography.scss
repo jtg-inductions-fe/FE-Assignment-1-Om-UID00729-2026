@@ -1,5 +1,6 @@
 @use 'mixins' as *;
 @use 'variables' as *;
+@use 'functions' as *;
 
 /// Variables for font-color
 /// @type color
@@ -20,13 +21,13 @@ $font-family: circularstd;
 /// Variables for font-weight
 /// @type number
 $bold: 700;
-$medium: 400;
-$regular: 450;
+$medium: 450;
+$regular: 400;
 
 /// Variables for Line Spacing
 /// @type string
-$primary-spacing: 120%;
-$secondary-spacing: 160%;
+$primary-spacing: 1.2;
+$secondary-spacing: 1.6;
 
 //Hosted font Circular std
 @font-face {
@@ -42,82 +43,82 @@ $secondary-spacing: 160%;
 }
 
 h1 {
-    font-size: 40px;
+    font-size: to-rem(40px);
     font-weight: $bold;
     line-height: $primary-spacing;
     color: $primary-font;
 
     @include respond(tablet) {
-        font-size: 56px;
+        font-size: to-rem(56px);
     }
 
     @include respond(desktop) {
-        font-size: 69px;
+        font-size: to-rem(69px);
     }
 }
 
 h2 {
-    font-size: 32px;
+    font-size: to-rem(32px);
     font-weight: $bold;
     line-height: $primary-spacing;
     color: $tertiary-font;
 
     @include respond(tablet) {
-        font-size: 40px;
+        font-size: to-rem(40px);
     }
 
     @include respond(desktop) {
-        font-size: 44px;
+        font-size: to-rem(44px);
     }
 }
 
 h3 {
-    font-size: 16px;
+    font-size: to-rem(16px);
     font-weight: $bold;
     line-height: $primary-spacing;
     color: $secondary-font;
 
     @include respond(tablet) {
-        font-size: 23px;
+        font-size: to-rem(23px);
     }
 
     @include respond(desktop) {
-        font-size: 23px;
+        font-size: to-rem(23px);
     }
 }
 
 h4 {
-    font-size: 35px;
+    font-size: to-rem(35px);
     font-weight: $bold;
     line-height: $primary-spacing;
     color: $primary-details;
 }
 
 h5 {
-    font-size: 28px;
+    font-size: to-rem(28px);
     font-weight: $bold;
     line-height: $primary-spacing;
     color: $primary-font;
 }
 
 h6 {
-    font-size: 23px;
+    font-size: to-rem(23px);
     font-weight: $bold;
     line-height: $primary-spacing;
     color: $tertiary-font;
 }
 
 p {
-    font-size: 16px;
-    font-weight: $medium;
+    font-size: to-rem(16px);
+    font-weight: $regular;
     line-height: $secondary-spacing;
     color: $secondary-para;
 
     @include respond(tablet) {
-        font-size: 18px;
+        font-size: to-rem(18px);
     }
 
     @include respond(desktop) {
-        font-size: 18px;
+        font-size: to-rem(18px);
     }
 }
