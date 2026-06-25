@@ -1,0 +1,294 @@
+@use '../abstracts' as *;
+@use '../themes' as *;
+@use '../components' as *;
+
+main {
+    @include flex-set(center, center, column);
+    gap: to-rem(62px);
+}
+
+.hero {
+    @include flex-set(center, center, column);
+    margin-top: to-rem(33px);
+    gap: to-rem(38px);
+
+    &__ellipse {
+        width: 50vw;
+        height: 35vh;
+        background-color: $primary-blur;
+        border-radius: 50%;
+        filter: blur(150px);
+        opacity: 0.5;
+        position: absolute;
+        top: to-rem(-75px);
+        left: to-rem(-75px);
+    }
+
+    &__imgSection {
+        @include flex-set(center, end);
+        aspect-ratio: 396/366;
+
+        &__bg {
+            align-self: start;
+            position: absolute;
+            padding: 0 to-rem(16.86px);
+
+            img {
+                width: 100%;
+            }
+        }
+
+        @include respond(tablet) {
+            aspect-ratio: 772/713;
+            padding: 64px 62px 57px 62px;
+        }
+        @include respond(desktop) {
+            order: 2;
+            flex: 0.65;
+            padding: 0;
+        }
+    }
+
+    &__textSection {
+        @include flex-set(center, center, column);
+        gap: to-rem(19px);
+        text-align: center;
+
+        &__h3 {
+            padding: 1rem 2rem;
+            box-shadow: 0 34px 75px 0px #00000012;
+
+            h3 {
+                @include flex-set();
+                gap: to-rem(17px);
+                font-size: 14px;
+
+                span {
+                    font-size: 20px;
+                }
+            }
+
+            @include respond(desktop) {
+                align-self: flex-start;
+            }
+        }
+        &__h1 {
+            width: 84%;
+            span {
+                color: $secondary-font-col;
+            }
+            @include respond(tablet) {
+                width: 70%;
+            }
+            @include respond(desktop) {
+                width: 100%;
+            }
+        }
+
+        p {
+            @include respond(tablet) {
+                width: 47%;
+            }
+            @include respond(desktop) {
+                width: 100%;
+            }
+        }
+
+        &__buttons {
+            @include flex-set(center, center, column);
+            min-width: 40%;
+            gap: to-rem(28px);
+            padding-top: to-rem(12px);
+
+            &__getStarted {
+                @include primary-btn;
+                font-size: 14px;
+                padding: to-rem(24px) to-rem(160px);
+                box-shadow: 0 5px 11px 0 #0000001a;
+                transition: all 0.3s;
+                &:hover,
+                &:focus-within {
+                    transform: translateY(-3px);
+                    box-shadow: 0 0 30px 10px $secondary-para-col;
+                }
+
+                @include respond(tablet) {
+                    padding: 17px 0;
+                    width: to-rem(141px);
+                }
+                @include respond(desktop) {
+                    padding: 17px 0;
+                    width: 141px;
+                }
+            }
+            &__watchDemo {
+                @include secondary-btn;
+                gap: to-rem(9px);
+                @include flex-set();
+                color: $primary-btn;
+                padding: 24px 130px;
+                font-size: 14px;
+                border: 1px solid #eee;
+                transition: all 0.3s;
+
+                &:hover,
+                &:focus-within {
+                    transform: translateY(-3px);
+                    box-shadow: 0 0 30px 10px $secondary-para-col;
+                }
+
+                span {
+                    font-size: 20px;
+                }
+                @include respond(tablet) {
+                    padding: 17px 0;
+                    width: 181px;
+                }
+                @include respond(desktop) {
+                    padding: 17px 0;
+                    width: 181px;
+                }
+            }
+            @include respond(desktop) {
+                @include flex-set;
+                padding: 0;
+                gap: 18px;
+                align-self: flex-start;
+            }
+            @include respond(tablet) {
+                @include flex-set;
+                gap: 18px;
+                padding: 0;
+            }
+        }
+        @include respond(tablet) {
+            gap: to-rem(43px);
+        }
+        @include respond(desktop) {
+            gap: to-rem(54px);
+            flex: 0.35;
+            text-align: start;
+        }
+    }
+
+    @include respond(tablet) {
+        margin: 0;
+        gap: to-rem(18px);
+    }
+    @include respond(desktop) {
+        margin-top: to-rem(90px);
+        gap: 0;
+        @include flex-set();
+    }
+}
+
+.imgSectionWrapper {
+    width: 74%;
+    aspect-ratio: 9/10;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: to-rem(16px);
+    position: relative;
+    margin-left: 11%;
+    margin-right: 13%;
+
+    &__left,
+    &__right {
+        @include flex-set(center, center, column);
+        gap: to-rem(18px);
+        overflow: hidden;
+        border-radius: to-rem(16px);
+
+        &__img {
+            height: 50%;
+            width: 100%;
+            img {
+                height: 100%;
+                border-radius: to-rem(16px);
+                width: 100%;
+                object-position: center;
+                object-fit: cover;
+                display: block;
+
+                @include respond(tablet) {
+                    border-radius: to-rem(30px);
+                }
+            }
+        }
+        @include respond(tablet) {
+            gap: to-rem(36px);
+            border-radius: to-rem(30px);
+        }
+    }
+    &__right__img {
+        height: auto;
+    }
+
+    &__telegram {
+        position: absolute;
+        background-color: $secondary-font-col;
+        width: to-rem(32px);
+        height: to-rem(32px);
+        font-size: to-rem(16px);
+        @include flex-set();
+        border-radius: 50%;
+        bottom: 48%;
+        left: to-rem(-18px);
+
+        @include respond(tablet) {
+            width: to-rem(64px);
+            height: to-rem(64px);
+            font-size: to-rem(32px);
+            left: -37px;
+            bottom: 47%;
+        }
+        @include respond(desktop) {
+            margin: 0;
+        }
+    }
+
+    &__addUser {
+        @extend .imgSectionWrapper__telegram;
+        background-color: $primary-blur;
+        bottom: 0%;
+        left: 67%;
+
+        @include respond(tablet) {
+            left: 66.5%;
+            bottom: to-rem(-7px);
+        }
+        @include respond(desktop) {
+            margin: 0;
+        }
+    }
+
+    &__topPlaces {
+        @include flex-set();
+        padding: to-rem(10px);
+        gap: to-rem(10px);
+        position: absolute;
+        background-color: $bg;
+        width: to-rem(85px);
+        border-radius: to-rem(500px);
+        bottom: 25.5%;
+        left: 87%;
+        font-size: 7px;
+        @include respond(tablet) {
+            font-size: to-rem(14px);
+            bottom: 25%;
+            left: 87%;
+            width: to-rem(166px);
+            padding: to-rem(18px);
+            p {
+                font-weight: 700;
+                font-family: $primary-font;
+                color: $primary-font-col;
+            }
+        }
+    }
+
+    @include respond(tablet) {
+        gap: to-rem(33px);
+    }
+}

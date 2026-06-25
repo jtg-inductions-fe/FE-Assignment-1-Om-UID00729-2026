@@ -1,0 +1,34 @@
+@use '../abstracts' as *;
+@use '../themes' as *;
+@use '../components' as *;
+
+.partners {
+    @include flex-set;
+    flex-wrap: wrap;
+    gap: to-rem(27px);
+
+    a {
+        color: $inactive-link;
+        &:focus-within,
+        &:hover {
+            color: $active-link;
+        }
+    }
+
+    &__icons {
+        font-size: 20px;
+
+        @include respond(tablet) {
+            font-size: 32px;
+        }
+    }
+    @include respond(tablet) {
+        width: 80%;
+        padding: to-rem(65px);
+    }
+    @include respond(desktop) {
+        width: 100%;
+        padding: to-rem(65px) 0;
+        justify-content: space-between;
+    }
+}
