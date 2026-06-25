@@ -1,49 +1,51 @@
 @use 'mixins' as *;
-
-@font-face {
-    font-family: circularstd;
-    font-weight: 400;
-    src: url('../../../assets/fonts/CircularStd-Book.woff2');
-}
-
-@font-face {
-    font-family: circularstd;
-    font-weight: 700;
-    src: url('../../../assets/fonts/CircularStd-Bold.woff2');
-}
+@use 'variables' as *;
 
 /// Variables for font-color
 /// @type color
-$primary-font-col: #000;
-$secondary-font-col: #f85e9f;
-$tertiary-font-col: #191825;
-$primary-deatils-col: #ff5722;
-$primary-para-col: #191825bf;
-$secondary-para-col: #19182580;
+$primary-font: #000;
+$secondary-font: #f85e9f;
+$tertiary-font: #191825;
+$primary-details: #ff5722;
+$primary-para: #191825bf;
+$secondary-para: #19182580;
 $active-link: #222831;
 $inactive-link: #19182580;
-$primary-btn-col: #eee;
+$primary-btn: #eee;
 
 /// Variables for font-size
 /// @type string
-$primary-font: circularstd;
+$font-family: circularstd;
 
 /// Variables for font-weight
 /// @type number
-$primary-font-weight: 700;
-$secondary-font-weight: 400;
-$tertiary-font-weight: 450;
+$bold: 700;
+$medium: 400;
+$regular: 450;
 
 /// Variables for Line Spacing
 /// @type string
 $primary-spacing: 120%;
 $secondary-spacing: 160%;
 
+//Hosted font Circular std
+@font-face {
+    font-family: circularstd;
+    font-weight: $regular;
+    src: url('#{$font-path}CircularStd-Book.woff2');
+}
+
+@font-face {
+    font-family: circularstd;
+    font-weight: $bold;
+    src: url('#{$font-path}CircularStd-Bold.woff2');
+}
+
 h1 {
-    font-size: 70px;
-    font-weight: $primary-font-weight;
+    font-size: 40px;
+    font-weight: $bold;
     line-height: $primary-spacing;
-    color: $primary-font-col;
+    color: $primary-font;
 
     @include respond(tablet) {
         font-size: 56px;
@@ -56,9 +58,9 @@ h1 {
 
 h2 {
     font-size: 32px;
-    font-weight: $primary-font-weight;
+    font-weight: $bold;
     line-height: $primary-spacing;
-    color: $tertiary-font-col;
+    color: $tertiary-font;
 
     @include respond(tablet) {
         font-size: 40px;
@@ -71,9 +73,9 @@ h2 {
 
 h3 {
     font-size: 16px;
-    font-weight: $primary-font-weight;
+    font-weight: $bold;
     line-height: $primary-spacing;
-    color: $secondary-font-col;
+    color: $secondary-font;
 
     @include respond(tablet) {
         font-size: 23px;
@@ -86,30 +88,30 @@ h3 {
 
 h4 {
     font-size: 35px;
-    font-weight: $primary-font-weight;
+    font-weight: $bold;
     line-height: $primary-spacing;
-    color: $primary-deatils-col;
+    color: $primary-details;
 }
 
 h5 {
     font-size: 28px;
-    font-weight: $primary-font-weight;
+    font-weight: $bold;
     line-height: $primary-spacing;
-    color: $primary-font-col;
+    color: $primary-font;
 }
 
 h6 {
     font-size: 23px;
-    font-weight: $primary-font-weight;
+    font-weight: $bold;
     line-height: $primary-spacing;
-    color: $tertiary-font-col;
+    color: $tertiary-font;
 }
 
 p {
     font-size: 16px;
-    font-weight: $secondary-font-weight;
+    font-weight: $medium;
     line-height: $secondary-spacing;
-    color: $secondary-para-col;
+    color: $secondary-para;
 
     @include respond(tablet) {
         font-size: 18px;
