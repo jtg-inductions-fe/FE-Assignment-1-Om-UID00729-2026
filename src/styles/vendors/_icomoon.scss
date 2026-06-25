@@ -1,11 +1,8 @@
+@use '../abstracts/' as *;
+
 @font-face {
     font-family: 'icomoon';
-    src: url('fonts/icomoon.eot?qe4f6r');
-    src:
-        url('fonts/icomoon.eot?qe4f6r#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.ttf?qe4f6r') format('truetype'),
-        url('fonts/icomoon.woff?qe4f6r') format('woff'),
-        url('fonts/icomoon.svg?qe4f6r#icomoon') format('svg');
+    src: url('#{$font-path}icomoon.woff?4r1wnf') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -15,7 +12,6 @@
 [class*=' icon-'] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
-    speak: never;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -27,6 +23,21 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-expedia:before {
+    content: '\e912';
+}
+.icon-tripadvisor:before {
+    content: '\e920';
+}
+.icon-airbnb:before {
+    content: '\e910';
+}
+.icon-orbitz:before {
+    content: '\e911';
+}
+.icon-booking:before {
+    content: '\e934';
+}
 .icon-arrow-right:before {
     content: '\e90d';
 }
