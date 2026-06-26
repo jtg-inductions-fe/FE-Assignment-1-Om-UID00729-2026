@@ -20,13 +20,6 @@ export default function handleHamburgerClick() {
 
     navbarHamburger.addEventListener('click', toggleNav);
 
-    navbarHamburger.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggleNav();
-        }
-    });
-
     let lastwidth = getWidth();
     function getWidth() {
         if (window.innerWidth <= 430) return 'mobile';
