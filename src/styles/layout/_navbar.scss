@@ -13,14 +13,13 @@
 .navbar {
     @include flex-set(space-between);
     position: relative;
-    height: to-rem(112px);
+    padding-top: 40px;
 
     &__logo {
         @include flex-set(start);
-        font-size: to-rem(42px);
+        font-size: to-rem(40px);
         background: linear-gradient(#5d50c6, #f85e9f);
 
-        -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
 
@@ -90,7 +89,6 @@
 =======
 >>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
         width: 60vw;
-        height: auto;
         display: none;
         z-index: 999;
 =======
@@ -114,6 +112,7 @@
             position: absolute;
             top: to-rem(90px);
             right: to-rem(10px);
+<<<<<<< HEAD
             padding: to-rem(24px) 0;
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -121,10 +120,15 @@
 =======
 >>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
             box-shadow: 0 0 to-rem(10px) to-rem(5px) gray;
+=======
+            padding: 24px 0;
+            box-shadow: 0 0 10px 5px gray;
+>>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
             background-color: $bg;
         }
 
         @include respond(tablet) {
+<<<<<<< HEAD
             height: auto;
             width: auto;
 =======
@@ -155,6 +159,8 @@
             @include box(auto, auto);
 >>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
 >>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
+=======
+>>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
             display: block;
             order: 3;
             flex: 1;
@@ -192,7 +198,7 @@
         z-index: 999;
         font-size: to-rem(14px);
         color: $inactive-link;
-        font-weight: 700;
+        font-weight: $bold;
 
         li {
             transition: transform 0.2s ease;
@@ -242,6 +248,7 @@
 
         &--open {
             @include flex-set(center, center, column);
+<<<<<<< HEAD
             @include box(40vw, auto);
             gap: to-rem(20px);
             position: absolute;
@@ -265,10 +272,13 @@
             @include flex-set(center, center, column);
             width: 40vw;
             height: auto;
+=======
+>>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
             gap: to-rem(20px);
             position: absolute;
             top: to-rem(100px);
             left: to-rem(10px);
+<<<<<<< HEAD
             padding: to-rem(24px) 0;
 <<<<<<< HEAD
             box-shadow: 0 0 10px 5px $gray-secondary;
@@ -295,13 +305,16 @@
             padding: to-rem(24px) 0;
 =======
 >>>>>>> cd5607d ([OH_A1_01] Header Section- Updated according to change in base setup)
+=======
+            padding: 24px 0;
+>>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
             box-shadow: 0 0 10px 5px gray;
             background-color: $bg;
         }
 
         @include respond(desktop) {
             @include flex-set(start, center);
-            gap: to-rem(64px);
+            gap: to-rem(62px);
             flex: 0.8;
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -363,6 +376,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
         @include flex-set;
+<<<<<<< HEAD
 =======
         @include flex-set();
 <<<<<<< HEAD
@@ -374,11 +388,12 @@
         @include flex-set;
 >>>>>>> 5e012ca ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
 >>>>>>> ee87c01 ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
+=======
+        @include primary-btn;
+>>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
         height: to-rem(40px);
         width: to-rem(40px);
-        background-color: $primary-btn;
-        border-radius: to-rem(10px);
-        color: white;
+        border-radius: 10px;
         font-size: to-rem(32px);
 
         &__bars {
@@ -452,21 +467,26 @@
 
         &__login {
             @include secondary-btn;
-            height: to-rem(50px);
-            width: to-rem(105px);
+            font-size: to-rem(14px);
+            padding: 16px 32px;
         }
 
         &__signup {
             @include primary-btn;
-            height: to-rem(50px);
-            width: to-rem(115px);
+            font-size: to-rem(14px);
+            padding: 16px 32px;
         }
 
         @include respond(tablet) {
             justify-self: end;
         }
     }
+
+    @include respond(tablet) {
+        padding-top: 33px;
+    }
     @include respond(desktop) {
+<<<<<<< HEAD
         padding-top: to-rem(70px);
 =======
         @include flex-set();
@@ -513,5 +533,8 @@
         padding: to-rem(64px) 0;
 >>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
 >>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
+=======
+        padding-top: 66px;
+>>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
     }
 }

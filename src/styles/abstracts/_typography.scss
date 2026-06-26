@@ -1,25 +1,9 @@
 @use 'mixins' as *;
-<<<<<<< HEAD
 @use 'variables' as *;
 @use 'functions' as *;
-=======
-
-@font-face {
-    font-family: circularstd;
-    font-weight: 400;
-    src: url('../../../assets/fonts/CircularStd-Book.woff2');
-}
->>>>>>> f8c011d ([OH_A1_00] Base Setup - Review fixes: typograpphy and font-face)
-
-@font-face {
-    font-family: circularstd;
-    font-weight: 700;
-    src: url('../../../assets/fonts/CircularStd-Bold.woff2');
-}
 
 /// Variables for font-color
 /// @type color
-<<<<<<< HEAD
 $primary-font: #000;
 $secondary-font: #f85e9f;
 $tertiary-font: #191825;
@@ -29,17 +13,6 @@ $secondary-para: #19182580;
 $active-link: #222831;
 $inactive-link: #19182580;
 $primary-btn: #eee;
-=======
-$primary-font-col: #000;
-$secondary-font-col: #f85e9f;
-$tertiary-font-col: #191825;
-$primary-deatils-col: #ff5722;
-$primary-para-col: #191825bf;
-$secondary-para-col: #19182580;
-$active-link: #222831;
-$inactive-link: #19182580;
-$primary-btn-col: #eee;
->>>>>>> f8c011d ([OH_A1_00] Base Setup - Review fixes: typograpphy and font-face)
 
 /// Variables for font-size
 /// @type string
@@ -70,13 +43,8 @@ $secondary-spacing: 1.6;
 }
 
 h1 {
-<<<<<<< HEAD
     font-size: to-rem(40px);
     font-weight: $bold;
-=======
-    font-size: 70px;
-    font-weight: $primary-font-weight;
->>>>>>> f8c011d ([OH_A1_00] Base Setup - Review fixes: typograpphy and font-face)
     line-height: $primary-spacing;
     color: $primary-font;
 
@@ -120,7 +88,6 @@ h3 {
 }
 
 h4 {
-<<<<<<< HEAD
     font-size: to-rem(35px);
     font-weight: $bold;
     line-height: $primary-spacing;
@@ -139,26 +106,6 @@ h6 {
     font-weight: $bold;
     line-height: $primary-spacing;
     color: $tertiary-font;
-=======
-    font-size: 35px;
-    font-weight: $primary-font-weight;
-    line-height: $primary-spacing;
-    color: $primary-deatils-col;
-}
-
-h5 {
-    font-size: 28px;
-    font-weight: $primary-font-weight;
-    line-height: $primary-spacing;
-    color: $primary-font-col;
-}
-
-h6 {
-    font-size: 23px;
-    font-weight: $primary-font-weight;
-    line-height: $primary-spacing;
-    color: $tertiary-font-col;
->>>>>>> f8c011d ([OH_A1_00] Base Setup - Review fixes: typograpphy and font-face)
 }
 
 p {
