@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> a7abbba ([OH_A1_01] Header Section- Updated according to change in base setup)
 =======
@@ -17,12 +18,17 @@
 =======
 >>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
 >>>>>>> 52db70a ([OH_A1_01] Header Section: Created Structure for header)
+=======
+>>>>>>> 0e78776 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
 @use '../abstracts' as *;
 @use '../themes' as *;
 @use '../components' as *;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0e78776 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
 .navbar {
     @include flex-set(space-between);
     position: relative;
@@ -44,6 +50,7 @@
         @include respond(desktop) {
             flex: 0.1;
             @include flex-set(space-between);
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> a7abbba ([OH_A1_01] Header Section- Updated according to change in base setup)
@@ -132,10 +139,13 @@
 >>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
 >>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
 >>>>>>> 52db70a ([OH_A1_01] Header Section: Created Structure for header)
+=======
+>>>>>>> 0e78776 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
         }
     }
 
     &__cont {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -188,6 +198,11 @@
 >>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
 >>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
 >>>>>>> 52db70a ([OH_A1_01] Header Section: Created Structure for header)
+=======
+        width: 60vw;
+        display: none;
+        z-index: 999;
+>>>>>>> 0e78776 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
 
         &--open {
             @include flex-set(center, center, column);
@@ -195,6 +210,7 @@
             position: absolute;
             top: to-rem(90px);
             right: to-rem(10px);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             padding: 24px 0;
@@ -214,13 +230,15 @@
 >>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
             box-shadow: 0 0 to-rem(10px) to-rem(5px) gray;
 =======
+=======
+>>>>>>> 0e78776 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
             padding: 24px 0;
             box-shadow: 0 0 10px 5px gray;
->>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
             background-color: $bg;
         }
 
         @include respond(tablet) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             @include box(auto, auto);
@@ -273,12 +291,15 @@
 =======
 >>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
 >>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
+=======
+>>>>>>> 0e78776 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
             display: block;
             order: 3;
             flex: 1;
         }
 
         @include respond(desktop) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -322,10 +343,15 @@
 >>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
 >>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
 >>>>>>> 52db70a ([OH_A1_01] Header Section: Created Structure for header)
+=======
+            @include flex-set(space-between, center);
+            flex: 0.75;
+>>>>>>> 0e78776 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
         }
     }
 
     &__ul {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -361,6 +387,8 @@
 >>>>>>> dd034bf ([OH_A1_01] Header Section- Updated according to change in base setup)
 =======
 >>>>>>> 52db70a ([OH_A1_01] Header Section: Created Structure for header)
+=======
+>>>>>>> 0e78776 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
         @include flex-set(center, center, column);
         gap: to-rem(20px);
         z-index: 999;
@@ -378,6 +406,7 @@
 >>>>>>> b1c05ea ([OH_A1_01] Confilcts solved and files updated)
             color: $active-link;
             transform: translateY(-2px);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -436,6 +465,8 @@
             color: $link;
 =======
 >>>>>>> 5e012ca ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
+=======
+>>>>>>> f151718 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
         }
 
         @include respond(tablet) {
@@ -444,6 +475,7 @@
 
         &--open {
             @include flex-set(center, center, column);
+<<<<<<< HEAD
 <<<<<<< HEAD
             @include box(40vw, auto);
             gap: to-rem(20px);
@@ -471,10 +503,13 @@
             height: auto;
 =======
 >>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
+=======
+>>>>>>> f151718 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
             gap: to-rem(20px);
             position: absolute;
             top: to-rem(100px);
             left: to-rem(10px);
+<<<<<<< HEAD
 <<<<<<< HEAD
             padding: to-rem(24px) 0;
 <<<<<<< HEAD
@@ -556,9 +591,14 @@
 >>>>>>> dd034bf ([OH_A1_01] Header Section- Updated according to change in base setup)
 =======
 =======
+=======
+>>>>>>> f151718 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
             padding: 24px 0;
+<<<<<<< HEAD
 >>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
 >>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
+=======
+>>>>>>> 0e78776 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
             box-shadow: 0 0 10px 5px gray;
             background-color: $bg;
         }
@@ -571,6 +611,7 @@
 >>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
             gap: to-rem(62px);
             flex: 0.8;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -607,10 +648,13 @@
 >>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
 >>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
 >>>>>>> 52db70a ([OH_A1_01] Header Section: Created Structure for header)
+=======
+>>>>>>> 0e78776 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
         }
     }
 
     &__hamburgerCont {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -674,12 +718,18 @@
 >>>>>>> a018159 ([OH_A1_01] Header: Worked on responsiveness)
 >>>>>>> ac11174 ([OH_A1_01] Header: Worked on responsiveness)
 >>>>>>> 00b5dce ([OH_A1_01] Header: Worked on responsiveness)
+=======
+        @include respond(tablet) {
+            flex: 1;
+        }
+>>>>>>> 0e78776 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
         @include respond(desktop) {
             display: none;
         }
     }
 
     &__hamburger {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -711,6 +761,8 @@
 >>>>>>> 52db70a ([OH_A1_01] Header Section: Created Structure for header)
 =======
 >>>>>>> e766a8e ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
+=======
+>>>>>>> 0e78776 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
         @include flex-set();
 <<<<<<< HEAD
 =======
@@ -750,6 +802,10 @@
         @include primary-btn;
 >>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
 >>>>>>> 0369dcb ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
+=======
+        @include flex-set;
+        @include primary-btn;
+>>>>>>> f151718 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
         height: to-rem(40px);
         width: to-rem(40px);
 <<<<<<< HEAD
@@ -776,49 +832,7 @@
                 transform: rotate(90deg);
             }
         }
-=======
-<<<<<<< HEAD
-        @include flex-set();
-        height: to-rem(40px);
-        width: to-rem(40px);
-        background-color: $primary-btn;
-        border-radius: to-rem(10px);
-<<<<<<< HEAD
-<<<<<<< HEAD
-        color: white;
->>>>>>> 0fb20e3 ([OH_A1_01] Header Section: Created Structure for header)
-=======
->>>>>>> 5b62b49 ([OH_A1_01] Header: Worked on responsiveness)
-=======
-        color: white;
-        font-size: to-rem(32px);
->>>>>>> cd5607d ([OH_A1_01] Header Section- Updated according to change in base setup)
 
-        &__bars {
-            transition: transform 0.5s ease;
-
-            &--open {
-                transform: rotate(90deg);
-            }
-        }
-=======
-        @include box(to-rem(40px));
-        @include font-design(to-rem(26px), 700, $primary-font, $bg);
-        background-color: $primary-btn;
-        border-radius: to-rem(10px);
-<<<<<<< HEAD
-        color: white;
->>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
-<<<<<<< HEAD
->>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
-=======
-=======
->>>>>>> a018159 ([OH_A1_01] Header: Worked on responsiveness)
->>>>>>> ac11174 ([OH_A1_01] Header: Worked on responsiveness)
-
-        &__bars svg {
-            color: white;
-        }
         &__close--hidden {
             display: none;
         }
@@ -837,10 +851,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
 =======
 >>>>>>> e766a8e ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
+=======
+>>>>>>> 0e78776 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
         @include flex-set;
         max-width: 100%;
 
@@ -897,6 +914,7 @@
         padding-top: 33px;
     }
     @include respond(desktop) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         padding: to-rem(64px) 0;
@@ -966,5 +984,8 @@
         padding-top: 66px;
 >>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
 >>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
+=======
+        padding-top: 66px;
+>>>>>>> 0e78776 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
     }
 }
