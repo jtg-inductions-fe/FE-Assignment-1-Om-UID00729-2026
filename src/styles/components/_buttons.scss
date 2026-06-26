@@ -2,16 +2,12 @@
 @use '../abstracts/' as *;
 
 @mixin primary-btn {
-    border-radius: 100px;
-    font-size: to-rem(16px);
     background-color: $primary-btn-bg;
     color: $primary-btn;
     font-weight: $bold;
 }
 @mixin secondary-btn {
-    border-radius: 100px;
     background-color: $bg;
-    font-size: to-rem(16px);
     color: $active-link;
     font-weight: $bold;
 }

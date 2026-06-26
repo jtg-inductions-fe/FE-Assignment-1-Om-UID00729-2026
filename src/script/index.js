@@ -1,3 +1,1 @@
-import handleHamburgerClick from './navbar.js';
-
-handleHamburgerClick();
+import './navbar.js';

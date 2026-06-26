@@ -3,17 +3,26 @@
 @use '../components' as *;
 
 .navbar {
-    @include flex-set(space-between);
     position: relative;
     padding-top: 40px;
 
-    &__logo {
-        @include flex-set(start);
-        font-size: to-rem(40px);
-        background: linear-gradient(#5d50c6, #f85e9f);
+    @include flex-set(space-between);
 
+    @include respond(tablet) {
+        padding-top: 33px;
+    }
+
+    @include respond(desktop) {
+        padding-top: 66px;
+    }
+
+    &__logo {
+        font-size: to-rem(40px);
+        background: linear-gradient($primary-btn-bg, $secondary-font);
         background-clip: text;
         -webkit-text-fill-color: transparent;
+
+        @include flex-set(start);
 
         @include respond(tablet) {
             order: 2;
@@ -21,7 +30,7 @@
         }
 
         @include respond(desktop) {
-            flex: 0.1;
+            flex: 0.246;
             @include flex-set(space-between);
         }
     }
@@ -31,17 +40,6 @@
         display: none;
         z-index: 999;
 
-        &--open {
-            @include flex-set(center, center, column);
-            gap: to-rem(20px);
-            position: absolute;
-            top: to-rem(90px);
-            right: to-rem(10px);
-            padding: 24px 0;
-            box-shadow: 0 0 10px 5px gray;
-            background-color: $bg;
-        }
-
         @include respond(tablet) {
             display: block;
             order: 3;
@@ -50,17 +48,42 @@
 
         @include respond(desktop) {
             @include flex-set(space-between, center);
-            flex: 0.75;
+
+            flex: 0.754;
+        }
+
+        &--open {
+            gap: 20px;
+            position: absolute;
+            top: to-rem(90px);
+            right: to-rem(10px);
+            padding: 24px 0;
+            box-shadow: 0 0 10px 5px gray;
+            background-color: $bg;
+
+            @include flex-set(center, center, column);
         }
     }
 
     &__ul {
-        @include flex-set(center, center, column);
         gap: to-rem(20px);
         z-index: 999;
         font-size: to-rem(14px);
         color: $inactive-link;
         font-weight: $bold;
+
+        @include flex-set(center, center, column);
+
+        @include respond(tablet) {
+            display: none;
+        }
+
+        @include respond(desktop) {
+            gap: to-rem(64px);
+            flex: 0.8;
+
+            @include flex-set(start, center);
+        }
 
         li {
             transition: transform 0.2s ease;
@@ -72,12 +95,7 @@
             transform: translateY(-2px);
         }
 
-        @include respond(tablet) {
-            display: none;
-        }
-
         &--open {
-            @include flex-set(center, center, column);
             gap: to-rem(20px);
             position: absolute;
             top: to-rem(100px);
@@ -85,18 +103,19 @@
             padding: 24px 0;
             box-shadow: 0 0 10px 5px gray;
             background-color: $bg;
-        }
+            width: 40%;
 
-        @include respond(desktop) {
-            @include flex-set(start, center);
-            gap: to-rem(62px);
-            flex: 0.8;
+            @include flex-set(center, center, column);
         }
     }
 
     &__hamburgerCont {
+        padding-right: 3px;
+
         @include respond(tablet) {
             flex: 1;
+            padding-right: 0;
+            padding-left: 3px;
         }
         @include respond(desktop) {
             display: none;
@@ -104,12 +123,19 @@
     }
 
     &__hamburger {
-        @include flex-set;
-        @include primary-btn;
         height: to-rem(40px);
         width: to-rem(40px);
         border-radius: 10px;
         font-size: to-rem(32px);
+
+        @include flex-set;
+
+        @include primary-btn;
+
+        @include respond(tablet) {
+            order: 1;
+            flex: 1;
+        }
 
         &__bars {
             transition: transform 0.5s ease;
@@ -125,38 +151,31 @@
         &__bars--hidden {
             display: none;
         }
-
-        @include respond(tablet) {
-            order: 1;
-            flex: 1;
-        }
     }
 
     &__buttonsCont {
-        @include flex-set;
         max-width: 100%;
 
-        &__login {
-            @include secondary-btn;
-            font-size: to-rem(14px);
-            padding: 16px 32px;
-        }
-
-        &__signup {
-            @include primary-btn;
-            font-size: to-rem(14px);
-            padding: 16px 32px;
-        }
+        @include flex-set;
 
         @include respond(tablet) {
             justify-self: end;
         }
-    }
 
-    @include respond(tablet) {
-        padding-top: 33px;
-    }
-    @include respond(desktop) {
-        padding-top: 66px;
+        &__login {
+            padding: 16px 32px;
+            border-radius: 100px;
+            font-size: to-rem(14px);
+
+            @include secondary-btn;
+        }
+
+        &__signup {
+            padding: 16px 32px;
+            border-radius: 100px;
+            font-size: to-rem(14px);
+
+            @include primary-btn;
+        }
     }
 }

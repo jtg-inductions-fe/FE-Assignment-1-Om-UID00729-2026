@@ -1,62 +1,74 @@
+import { MOBILE, TABLET } from './constants.js';
+
 let navbarHamburger = document.querySelector('.navbar__hamburger');
 let navbarCont = document.querySelector('.navbar__cont');
 let navbarUl = document.querySelector('.navbar__ul');
 let hamburgerBars = document.querySelector('.icon-bars-solid');
 let links = document.querySelectorAll('.navbar__links');
 
-export default function handleHamburgerClick() {
-    const toggleNav = () => {
-        if (window.innerWidth <= 430) {
-            navbarCont.classList.toggle('navbar__cont--open');
-        } else if (window.innerWidth <= 1024) {
-            navbarUl.classList.toggle('navbar__ul--open');
-        }
-        hamburgerBars.classList.toggle('navbar__hamburger__bars--open');
-        let isExpanded =
-            navbarCont.classList.contains('navbar__cont--open') ||
-            navbarUl.classList.contains('navbar__ul--open');
-        navbarHamburger.setAttribute('aria-expanded', String(isExpanded));
-    };
+const isExpanded = () =>
+    navbarCont.classList.contains('navbar__cont--open') ||
+    navbarUl.classList.contains('navbar__ul--open');
 
-    navbarHamburger.addEventListener('click', toggleNav);
-
-    let lastwidth = getWidth();
-    function getWidth() {
-        if (window.innerWidth <= 430) return 'mobile';
-        if (window.innerWidth <= 1024) return 'tablet';
-        return 'desktop';
+const toggleNav = () => {
+    if (window.innerWidth <= MOBILE) {
+        navbarCont.classList.toggle('navbar__cont--open');
+    } else if (window.innerWidth <= TABLET) {
+        navbarUl.classList.toggle('navbar__ul--open');
     }
-    window.addEventListener('resize', () => {
-        const currWidth = getWidth();
-        if (currWidth !== lastwidth) {
-            navbarCont.classList.remove('navbar__cont--open');
-            navbarUl.classList.remove('navbar__ul--open');
-            hamburgerBars.classList.remove('navbar__hamburger__bars--open');
-            navbarHamburger.setAttribute('aria-expanded', 'false');
-            lastwidth = currWidth;
-        }
-    });
+    hamburgerBars.classList.toggle('navbar__hamburger__bars--open');
+    navbarHamburger.setAttribute('aria-expanded', String(isExpanded()));
+};
 
+const getWidth = () => {
+    if (window.innerWidth <= MOBILE) return 'mobile';
+    if (window.innerWidth <= TABLET) return 'tablet';
+    return 'desktop';
+};
+
+let lastWidth = getWidth();
+
+const classReload = () => {
+    let currWidth = getWidth();
+    if (currWidth !== lastWidth) {
+        navbarCont.classList.remove('navbar__cont--open');
+        navbarUl.classList.remove('navbar__ul--open');
+        hamburgerBars.classList.remove('navbar__hamburger__bars--open');
+        navbarHamburger.setAttribute('aria-expanded', 'false');
+        lastWidth = currWidth;
+    }
+};
+
+let focusTab = () => {
     navbarHamburger.addEventListener('keydown', (e) => {
-        if (e.key === 'Tab' && !e.shiftKey) {
-            e.preventDefault();
-            links[0].focus();
-        }
-        if (e.key === 'Tab' && e.shiftKey) {
-            e.preventDefault();
-            links[links.length - 1].focus();
+        if (isExpanded()) {
+            if (e.key === 'Tab' && !e.shiftKey) {
+                e.preventDefault();
+                links[0].focus();
+            }
+            if (e.key === 'Tab' && e.shiftKey) {
+                e.preventDefault();
+                links[links.length - 1].focus();
+            }
         }
     });
     links[links.length - 1].addEventListener('keydown', (e) => {
-        if (e.key === 'Tab' && !e.shiftKey) {
-            e.preventDefault();
-            navbarHamburger.focus();
+        if (isExpanded()) {
+            if (e.key === 'Tab' && !e.shiftKey) {
+                e.preventDefault();
+                navbarHamburger.focus();
+            }
         }
     });
     links[0].addEventListener('keydown', (e) => {
-        if (e.key === 'Tab' && e.shiftKey) {
-            e.preventDefault();
-            navbarHamburger.focus();
+        if (isExpanded()) {
+            if (e.key === 'Tab' && e.shiftKey) {
+                e.preventDefault();
+                navbarHamburger.focus();
+            }
         }
     });
-}
+};
+navbarHamburger.addEventListener('click', toggleNav);
+window.addEventListener('resize', classReload);
+focusTab();
