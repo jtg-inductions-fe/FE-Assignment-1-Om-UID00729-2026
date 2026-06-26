@@ -1,69 +1,18 @@
 @use 'mixins' as *;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-@use 'variables' as *;
-@use 'functions' as *;
-=======
-
-@font-face {
-    font-family: circularstd;
-    font-weight: 400;
-    src: url('../../../assets/fonts/CircularStd-Book.woff2');
-}
->>>>>>> 474d9e0 ([OH_A1_00] Base Setup - Review fixes: typograpphy and font-face)
-
-@font-face {
-    font-family: circularstd;
-    font-weight: 700;
-    src: url('../../../assets/fonts/CircularStd-Bold.woff2');
-}
-
-/// Variables for font-color
-/// @type color
-<<<<<<< HEAD
-=======
-@use 'variables' as *;
-
-/// Variables for font-color
-/// @type color
->>>>>>> 958d9e4 ([OH_A1_00] Base Setup: Review fixes - naming updated)
-=======
 @use 'variables' as *;
 @use 'functions' as *;
 
 /// Variables for font-color
 /// @type color
->>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
 $primary-font: #000;
 $secondary-font: #f85e9f;
 $tertiary-font: #191825;
 $primary-details: #ff5722;
 $primary-para: #191825bf;
 $secondary-para: #19182580;
-<<<<<<< HEAD
 $active-link: #222831;
 $inactive-link: #19182580;
 $primary-btn: #eee;
-<<<<<<< HEAD
-=======
-$primary-font-col: #000;
-$secondary-font-col: #f85e9f;
-$tertiary-font-col: #191825;
-$primary-deatils-col: #ff5722;
-$primary-para-col: #191825bf;
-$secondary-para-col: #19182580;
-$active-link: #222831;
-$inactive-link: #19182580;
-$primary-btn-col: #eee;
->>>>>>> 474d9e0 ([OH_A1_00] Base Setup - Review fixes: typograpphy and font-face)
-=======
-$active-link: #222831;
-$inactive-link: #19182580;
-$primary-btn: #eee;
->>>>>>> 958d9e4 ([OH_A1_00] Base Setup: Review fixes - naming updated)
-=======
->>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
 
 /// Variables for font-size
 /// @type string
@@ -72,13 +21,8 @@ $font-family: circularstd;
 /// Variables for font-weight
 /// @type number
 $bold: 700;
-<<<<<<< HEAD
 $medium: 450;
 $regular: 400;
-=======
-$medium: 400;
-$regular: 450;
->>>>>>> 958d9e4 ([OH_A1_00] Base Setup: Review fixes - naming updated)
 
 /// Variables for Line Spacing
 /// @type string
@@ -98,37 +42,9 @@ $secondary-spacing: 1.6;
     src: url('#{$font-path}CircularStd-Bold.woff2');
 }
 
-//Hosted font Circular std
-@font-face {
-    font-family: circularstd;
-    font-weight: $regular;
-    src: url('#{$font-path}CircularStd-Book.woff2');
-}
-
-@font-face {
-    font-family: circularstd;
-    font-weight: $bold;
-    src: url('#{$font-path}CircularStd-Bold.woff2');
-}
-
 h1 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     font-size: to-rem(40px);
     font-weight: $bold;
-=======
-    font-size: 70px;
-    font-weight: $primary-font-weight;
->>>>>>> 474d9e0 ([OH_A1_00] Base Setup - Review fixes: typograpphy and font-face)
-=======
-    font-size: 40px;
-    font-weight: $bold;
->>>>>>> 958d9e4 ([OH_A1_00] Base Setup: Review fixes - naming updated)
-=======
-    font-size: to-rem(40px);
-    font-weight: $bold;
->>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
     line-height: $primary-spacing;
     color: $primary-font;
 
@@ -142,11 +58,7 @@ h1 {
 }
 
 h2 {
-<<<<<<< HEAD
     font-size: to-rem(32px);
-=======
-    font-size: 32px;
->>>>>>> 958d9e4 ([OH_A1_00] Base Setup: Review fixes - naming updated)
     font-weight: $bold;
     line-height: $primary-spacing;
     color: $tertiary-font;
@@ -161,11 +73,7 @@ h2 {
 }
 
 h3 {
-<<<<<<< HEAD
     font-size: to-rem(16px);
-=======
-    font-size: 16px;
->>>>>>> 958d9e4 ([OH_A1_00] Base Setup: Review fixes - naming updated)
     font-weight: $bold;
     line-height: $primary-spacing;
     color: $secondary-font;
@@ -198,43 +106,11 @@ h6 {
     font-weight: $bold;
     line-height: $primary-spacing;
     color: $tertiary-font;
-<<<<<<< HEAD
-=======
-    font-size: 35px;
-    font-weight: $bold;
-    line-height: $primary-spacing;
-    color: $primary-details;
-}
-
-h5 {
-    font-size: 28px;
-    font-weight: $bold;
-    line-height: $primary-spacing;
-    color: $primary-font;
-}
-
-h6 {
-    font-size: 23px;
-    font-weight: $bold;
-    line-height: $primary-spacing;
-<<<<<<< HEAD
-    color: $tertiary-font-col;
->>>>>>> 474d9e0 ([OH_A1_00] Base Setup - Review fixes: typograpphy and font-face)
-=======
->>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
 }
 
 p {
     font-size: to-rem(16px);
     font-weight: $regular;
-=======
-    color: $tertiary-font;
-}
-
-p {
-    font-size: 16px;
-    font-weight: $medium;
->>>>>>> 958d9e4 ([OH_A1_00] Base Setup: Review fixes - naming updated)
     line-height: $secondary-spacing;
     color: $secondary-para;
 

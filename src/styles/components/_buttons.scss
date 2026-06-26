@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 @use '../themes' as *;
 @use '../abstracts/' as *;
 
@@ -20,73 +14,4 @@
     font-size: to-rem(16px);
     color: $active-link;
     font-weight: $bold;
-=======
-.navbar__buttonsCont__login {
-    @include box(to-rem(105px), to-rem(49px));
-    @include font-design(to-rem(14px), 700, $primary-font, $link);
-    border-radius: 100px;
-    background-color: $bg;
 }
-
-.navbar__buttonsCont__signup {
-    @include box(to-rem(115px), to-rem(49px));
-    @include font-design(to-rem(14px), 700, $primary-font, $bg);
-    border-radius: 100px;
-<<<<<<< HEAD
-    background-color: $blue;
->>>>>>> 6f52821 ([OH_A1_01] Header Section: Created Structure for header)
-=======
-    background-color: $primary-btn;
->>>>>>> fd3c035 ([OH_A1_01] Header: Worked on responsiveness)
-=======
-=======
->>>>>>> 6649bc5 ([OH_A1_01] Header Section: Created Structure for header)
-=======
->>>>>>> dd034bf ([OH_A1_01] Header Section- Updated according to change in base setup)
-=======
->>>>>>> 52db70a ([OH_A1_01] Header Section: Created Structure for header)
-=======
->>>>>>> 0e78776 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
-@use '../themes' as *;
-@use '../abstracts/' as *;
-
-@mixin primary-btn {
-    border-radius: 100px;
-    font-size: to-rem(16px);
-    background-color: $primary-btn-bg;
-    color: $primary-btn;
-    font-weight: $bold;
-}
-@mixin secondary-btn {
-    border-radius: 100px;
-    background-color: $bg;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    font-size: 16px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    color: $primary-link;
-<<<<<<< HEAD
->>>>>>> a7abbba ([OH_A1_01] Header Section- Updated according to change in base setup)
-}
-=======
-}
->>>>>>> cd50c68 ([OH_A1_01] Header Section: Created Structure for header)
-=======
-}
->>>>>>> 6981416 ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
-=======
-}
-=======
-=======
-=======
->>>>>>> 3623cba ([OH_A1_01] Header Section: Merge Conflicts Resolved)
-    font-size: to-rem(16px);
-    color: $active-link;
-    font-weight: $bold;
-}
-<<<<<<< HEAD
->>>>>>> 701139a ([OH_A1_01] Confilcts solved and files updated)
->>>>>>> b1c05ea ([OH_A1_01] Confilcts solved and files updated)
-=======
->>>>>>> 3623cba ([OH_A1_01] Header Section: Merge Conflicts Resolved)
