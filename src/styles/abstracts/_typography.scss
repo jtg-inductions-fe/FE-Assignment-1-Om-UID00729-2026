@@ -1,6 +1,7 @@
 @use 'mixins' as *;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @use 'variables' as *;
 @use 'functions' as *;
 =======
@@ -27,6 +28,13 @@
 /// Variables for font-color
 /// @type color
 >>>>>>> 958d9e4 ([OH_A1_00] Base Setup: Review fixes - naming updated)
+=======
+@use 'variables' as *;
+@use 'functions' as *;
+
+/// Variables for font-color
+/// @type color
+>>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
 $primary-font: #000;
 $secondary-font: #f85e9f;
 $tertiary-font: #191825;
@@ -37,6 +45,7 @@ $secondary-para: #19182580;
 $active-link: #222831;
 $inactive-link: #19182580;
 $primary-btn: #eee;
+<<<<<<< HEAD
 =======
 $primary-font-col: #000;
 $secondary-font-col: #f85e9f;
@@ -53,6 +62,8 @@ $active-link: #222831;
 $inactive-link: #19182580;
 $primary-btn: #eee;
 >>>>>>> 958d9e4 ([OH_A1_00] Base Setup: Review fixes - naming updated)
+=======
+>>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
 
 /// Variables for font-size
 /// @type string
@@ -103,6 +114,7 @@ $secondary-spacing: 1.6;
 h1 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     font-size: to-rem(40px);
     font-weight: $bold;
 =======
@@ -113,6 +125,10 @@ h1 {
     font-size: 40px;
     font-weight: $bold;
 >>>>>>> 958d9e4 ([OH_A1_00] Base Setup: Review fixes - naming updated)
+=======
+    font-size: to-rem(40px);
+    font-weight: $bold;
+>>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
     line-height: $primary-spacing;
     color: $primary-font;
 
@@ -164,7 +180,6 @@ h3 {
 }
 
 h4 {
-<<<<<<< HEAD
     font-size: to-rem(35px);
     font-weight: $bold;
     line-height: $primary-spacing;
@@ -183,6 +198,7 @@ h6 {
     font-weight: $bold;
     line-height: $primary-spacing;
     color: $tertiary-font;
+<<<<<<< HEAD
 =======
     font-size: 35px;
     font-weight: $bold;
@@ -204,6 +220,8 @@ h6 {
 <<<<<<< HEAD
     color: $tertiary-font-col;
 >>>>>>> 474d9e0 ([OH_A1_00] Base Setup - Review fixes: typograpphy and font-face)
+=======
+>>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
 }
 
 p {

@@ -52,14 +52,13 @@
 .navbar {
     @include flex-set(space-between);
     position: relative;
-    height: to-rem(112px);
+    padding-top: 40px;
 
     &__logo {
         @include flex-set(start);
-        font-size: to-rem(42px);
+        font-size: to-rem(40px);
         background: linear-gradient(#5d50c6, #f85e9f);
 
-        -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
 
@@ -197,6 +196,7 @@
             top: to-rem(90px);
             right: to-rem(10px);
 <<<<<<< HEAD
+<<<<<<< HEAD
             padding: 24px 0;
             box-shadow: 0 0 10px 5px gray;
             background-color: $bg;
@@ -204,6 +204,8 @@
 
         @include respond(tablet) {
 =======
+=======
+>>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
             padding: to-rem(24px) 0;
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -211,14 +213,21 @@
 =======
 >>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
             box-shadow: 0 0 to-rem(10px) to-rem(5px) gray;
+=======
+            padding: 24px 0;
+            box-shadow: 0 0 10px 5px gray;
+>>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
             background-color: $bg;
         }
 
         @include respond(tablet) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             @include box(auto, auto);
 >>>>>>> 6f52821 ([OH_A1_01] Header Section: Created Structure for header)
 =======
+=======
+>>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
             height: auto;
             width: auto;
 <<<<<<< HEAD
@@ -258,7 +267,12 @@
             @include box(auto, auto);
 >>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
 >>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
+<<<<<<< HEAD
 >>>>>>> 52db70a ([OH_A1_01] Header Section: Created Structure for header)
+=======
+=======
+>>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
+>>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
             display: block;
             order: 3;
             flex: 1;
@@ -352,7 +366,7 @@
         z-index: 999;
         font-size: to-rem(14px);
         color: $inactive-link;
-        font-weight: 700;
+        font-weight: $bold;
 
         li {
             transition: transform 0.2s ease;
@@ -430,6 +444,7 @@
 
         &--open {
             @include flex-set(center, center, column);
+<<<<<<< HEAD
             @include box(40vw, auto);
             gap: to-rem(20px);
             position: absolute;
@@ -454,10 +469,13 @@
             @include flex-set(center, center, column);
             width: 40vw;
             height: auto;
+=======
+>>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
             gap: to-rem(20px);
             position: absolute;
             top: to-rem(100px);
             left: to-rem(10px);
+<<<<<<< HEAD
             padding: to-rem(24px) 0;
 <<<<<<< HEAD
             box-shadow: 0 0 10px 5px $gray-secondary;
@@ -534,7 +552,13 @@
 =======
 =======
 >>>>>>> cd5607d ([OH_A1_01] Header Section- Updated according to change in base setup)
+<<<<<<< HEAD
 >>>>>>> dd034bf ([OH_A1_01] Header Section- Updated according to change in base setup)
+=======
+=======
+            padding: 24px 0;
+>>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
+>>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
             box-shadow: 0 0 10px 5px gray;
             background-color: $bg;
         }
@@ -542,6 +566,9 @@
         @include respond(desktop) {
             @include flex-set(start, center);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
             gap: to-rem(62px);
             flex: 0.8;
 <<<<<<< HEAD
@@ -701,6 +728,7 @@
 =======
 >>>>>>> 5dbbd39 ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
         @include flex-set;
+<<<<<<< HEAD
 =======
         @include flex-set();
 <<<<<<< HEAD
@@ -715,9 +743,16 @@
         @include flex-set;
 >>>>>>> 5e012ca ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
 >>>>>>> ee87c01 ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
+<<<<<<< HEAD
 >>>>>>> 5dbbd39 ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
+=======
+=======
+        @include primary-btn;
+>>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
+>>>>>>> 0369dcb ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
         height: to-rem(40px);
         width: to-rem(40px);
+<<<<<<< HEAD
         background-color: $primary-btn;
         border-radius: to-rem(10px);
 <<<<<<< HEAD
@@ -728,6 +763,9 @@
 >>>>>>> fd3c035 ([OH_A1_01] Header: Worked on responsiveness)
 =======
         color: white;
+=======
+        border-radius: 10px;
+>>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
         font-size: to-rem(32px);
 >>>>>>> a7abbba ([OH_A1_01] Header Section- Updated according to change in base setup)
 
@@ -810,6 +848,7 @@
             @include secondary-btn;
             font-size: to-rem(14px);
             padding: 16px 32px;
+<<<<<<< HEAD
         }
 
         &__signup {
@@ -839,23 +878,32 @@
             @include secondary-btn;
             height: to-rem(50px);
             width: to-rem(105px);
+=======
+>>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
         }
 
         &__signup {
             @include primary-btn;
-            height: to-rem(50px);
-            width: to-rem(115px);
+            font-size: to-rem(14px);
+            padding: 16px 32px;
         }
 
         @include respond(tablet) {
             justify-self: end;
         }
     }
+
+    @include respond(tablet) {
+        padding-top: 33px;
+    }
     @include respond(desktop) {
+<<<<<<< HEAD
 <<<<<<< HEAD
         padding: to-rem(64px) 0;
 >>>>>>> 6f52821 ([OH_A1_01] Header Section: Created Structure for header)
 =======
+=======
+>>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
         padding-top: to-rem(70px);
 <<<<<<< HEAD
 >>>>>>> a7abbba ([OH_A1_01] Header Section- Updated according to change in base setup)
@@ -911,6 +959,12 @@
         padding: to-rem(64px) 0;
 >>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
 >>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
+<<<<<<< HEAD
 >>>>>>> 52db70a ([OH_A1_01] Header Section: Created Structure for header)
+=======
+=======
+        padding-top: 66px;
+>>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
+>>>>>>> eec8f1e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
     }
 }
