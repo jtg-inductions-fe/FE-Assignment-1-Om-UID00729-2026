@@ -1,0 +1,15 @@
+///Breakpoints for responsiveness
+/// @type map
+/// @props {string} desktop(min-width:1025px)
+/// @props {string} tablet(min-width:431px)
+$breakpoints: (
+    'desktop': (
+        min-width: 1025px,
+    ),
+    'tablet': (
+        min-width: 431px,
+    ),
+);
+
+///Variable for Font Path
+$font-path: '../../../assets/fonts/';

@@ -1,0 +1,54 @@
+@use 'variables' as *;
+
+/// Set a mixin for media queries
+/// @param {string} breakpoint - name of breakpoint (desktop or tablet)
+/// @return media query for given param
+///
+/// Example usage
+/// body{
+///     @include respond(desktop){
+///         border:2px solid black;
+///     }
+/// }
+///
+/// Compiled CSS
+/// @media (min-width:1024px){
+///     body{
+///         border:2px solid black;
+///     }
+/// }
+///
+@mixin respond($breakpoint) {
+    @if not map-has-key($breakpoints, $breakpoint) {
+        @error "Invalid Breakpoint. Only {tablet or desktop} Allowed";
+    }
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+        @content;
+    }
+}
+
+/// Sets up a flex layout
+/// @param {string} justify - For justify-content value
+/// @param {string} align - For align-items value
+/// @param {string} dir - For flex-direction value
+/// @return flex according to parameters given
+///
+/// Example usage
+/// body{
+///     @include flex-set(center, center, column)
+/// }
+///
+/// Compiled CSS
+/// body{
+///     display:flex;
+///     align-items:center;
+///     justify-content:center;
+///     flex-direction:column;
+/// }
+///
+@mixin flex-set($justify: center, $align: center, $dir: row) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $dir;
+}

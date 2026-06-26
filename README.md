@@ -1,4 +1,21 @@
-## Getting Started
+# Assignment 1 - Travlog
+
+## Overview
+
+Travlog is Assignment 1 built under Josh Technology Group's Frontend induction programme. It is built in HTML, SCSS and JavaScript. This project is accessible and responsive and supports all browsers. The project follows BEM naming conventions and SCSS 7-folder structure.
+
+## Tech Stack
+
+-   HTML
+-   SCSS
+-   JS
+-   Icomoon
+-   ESLint
+-   Prettier
+-   Vite Plugins
+-   Husky
+
+## User Manual
 
 ### Prerequisites
 
@@ -65,3 +82,53 @@ To set up the project on your local environment, follow these steps:
     ```bash
     npm run lint
     ```
+
+## Directory Structure
+
+├── public
+│ └── assets
+│ ├── favicon.svg
+│ ├── fonts
+│ │ ├── CircularStd-Bold.woff2
+│ │ ├── CircularStd-Book.woff2
+│ │ ├── icomoon.woff
+│ │ └── selection.json
+│ └── images
+│ ├── hero-beach.webp
+│ ├── hero-city.webp
+│ ├── hero-earth-bg.webp
+│ ├── hero-mountain.webp
+│ └── travel-point-img.webp
+├── src
+│ ├── script
+│ │ └── index.js
+│ └── styles
+│ ├── abstracts
+│ │ ├── \_functions.scss
+│ │ ├── \_index.scss
+│ │ ├── \_mixins.scss
+│ │ ├── \_typography.scss
+│ │ └── \_variables.scss
+│ ├── base
+│ │ ├── \_index.scss
+│ │ └── \_reset.scss
+│ ├── main.scss
+│ ├── pages
+│ ├── themes
+│ │ ├── \_index.scss
+│ │ └── \_theme.scss
+│ └── vendors
+│ ├── \_icomoon.scss
+│ └── \_index.scss
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+├── prettier.config.js
+├── README.md
+└── vite.config.js
+
+## Browser Support
+
+-   Chrome
+-   Firefox
