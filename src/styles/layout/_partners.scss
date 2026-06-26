@@ -5,7 +5,7 @@
 .partners {
     @include flex-set;
     flex-wrap: wrap;
-    gap: to-rem(27px);
+    gap: 27px;
 
     a {
         color: $inactive-link;
@@ -24,11 +24,11 @@
     }
     @include respond(tablet) {
         width: 80%;
-        padding: to-rem(65px);
+        padding: 65px;
     }
     @include respond(desktop) {
         width: 100%;
-        padding: to-rem(65px) 0;
+        padding: 65px 0;
         justify-content: space-between;
     }
 }
