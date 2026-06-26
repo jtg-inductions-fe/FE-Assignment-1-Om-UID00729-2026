@@ -4,13 +4,13 @@
 
 main {
     @include flex-set(center, center, column);
-    gap: to-rem(62px);
+    gap: 62px;
 }
 
 .hero {
     @include flex-set(center, center, column);
-    margin-top: to-rem(33px);
-    gap: to-rem(38px);
+    margin-top: 65px;
+    gap: 38px;
 
     &__ellipse {
         width: 50vw;
@@ -20,8 +20,9 @@ main {
         filter: blur(150px);
         opacity: 0.5;
         position: absolute;
-        top: to-rem(-75px);
-        left: to-rem(-75px);
+        top: -10%;
+        left: -15%;
+        z-index: -99;
     }
 
     &__imgSection {
@@ -31,7 +32,7 @@ main {
         &__bg {
             align-self: start;
             position: absolute;
-            padding: 0 to-rem(16.86px);
+            padding: 0 16.86px;
 
             img {
                 width: 100%;
@@ -51,7 +52,7 @@ main {
 
     &__textSection {
         @include flex-set(center, center, column);
-        gap: to-rem(19px);
+        gap: 19px;
         text-align: center;
 
         &__h3 {
@@ -60,7 +61,7 @@ main {
 
             h3 {
                 @include flex-set();
-                gap: to-rem(17px);
+                gap: 17px;
                 font-size: 14px;
 
                 span {
@@ -75,7 +76,7 @@ main {
         &__h1 {
             width: 84%;
             span {
-                color: $secondary-font-col;
+                color: $secondary-font;
             }
             @include respond(tablet) {
                 width: 70%;
@@ -86,6 +87,7 @@ main {
         }
 
         p {
+            padding-top: 4px;
             @include respond(tablet) {
                 width: 47%;
             }
@@ -97,24 +99,24 @@ main {
         &__buttons {
             @include flex-set(center, center, column);
             min-width: 40%;
-            gap: to-rem(28px);
-            padding-top: to-rem(12px);
+            gap: 28px;
+            padding-top: 12px;
 
             &__getStarted {
                 @include primary-btn;
                 font-size: 14px;
-                padding: to-rem(24px) to-rem(160px);
+                padding: 24px 160px;
                 box-shadow: 0 5px 11px 0 #0000001a;
                 transition: all 0.3s;
                 &:hover,
                 &:focus-within {
                     transform: translateY(-3px);
-                    box-shadow: 0 0 30px 10px $secondary-para-col;
+                    box-shadow: 0 0 30px 10px $secondary-para;
                 }
 
                 @include respond(tablet) {
                     padding: 17px 0;
-                    width: to-rem(141px);
+                    width: 141px;
                 }
                 @include respond(desktop) {
                     padding: 17px 0;
@@ -123,9 +125,9 @@ main {
             }
             &__watchDemo {
                 @include secondary-btn;
-                gap: to-rem(9px);
+                gap: 9px;
                 @include flex-set();
-                color: $primary-btn;
+                color: $primary-btn-bg;
                 padding: 24px 130px;
                 font-size: 14px;
                 border: 1px solid #eee;
@@ -134,12 +136,13 @@ main {
                 &:hover,
                 &:focus-within {
                     transform: translateY(-3px);
-                    box-shadow: 0 0 30px 10px $secondary-para-col;
+                    box-shadow: 0 0 30px 10px $secondary-para;
                 }
 
                 span {
                     font-size: 20px;
                 }
+
                 @include respond(tablet) {
                     padding: 17px 0;
                     width: 181px;
@@ -162,21 +165,21 @@ main {
             }
         }
         @include respond(tablet) {
-            gap: to-rem(43px);
+            gap: 43px;
         }
         @include respond(desktop) {
-            gap: to-rem(54px);
+            gap: 54px;
             flex: 0.35;
             text-align: start;
         }
     }
 
     @include respond(tablet) {
-        margin: 0;
-        gap: to-rem(18px);
+        margin-top: 31px;
+        gap: 18px;
     }
     @include respond(desktop) {
-        margin-top: to-rem(90px);
+        margin-top: 90px;
         gap: 0;
         @include flex-set();
     }
@@ -188,7 +191,7 @@ main {
     z-index: 1;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: to-rem(16px);
+    gap: 16px;
     position: relative;
     margin-left: 11%;
     margin-right: 13%;
@@ -196,29 +199,27 @@ main {
     &__left,
     &__right {
         @include flex-set(center, center, column);
-        gap: to-rem(18px);
+        gap: 18px;
         overflow: hidden;
-        border-radius: to-rem(16px);
+        border-radius: 16px;
 
         &__img {
             height: 50%;
             width: 100%;
             img {
                 height: 100%;
-                border-radius: to-rem(16px);
+                border-radius: 16px;
                 width: 100%;
-                object-position: center;
                 object-fit: cover;
-                display: block;
 
                 @include respond(tablet) {
-                    border-radius: to-rem(30px);
+                    border-radius: 30px;
                 }
             }
         }
         @include respond(tablet) {
-            gap: to-rem(36px);
-            border-radius: to-rem(30px);
+            gap: 36px;
+            border-radius: 30px;
         }
     }
     &__right__img {
@@ -227,68 +228,50 @@ main {
 
     &__telegram {
         position: absolute;
-        background-color: $secondary-font-col;
+        background-color: $secondary-font;
         width: to-rem(32px);
         height: to-rem(32px);
         font-size: to-rem(16px);
         @include flex-set();
         border-radius: 50%;
         bottom: 48%;
-        left: to-rem(-18px);
+        left: -7%;
 
         @include respond(tablet) {
             width: to-rem(64px);
             height: to-rem(64px);
             font-size: to-rem(32px);
-            left: -37px;
-            bottom: 47%;
-        }
-        @include respond(desktop) {
-            margin: 0;
         }
     }
 
     &__addUser {
         @extend .imgSectionWrapper__telegram;
         background-color: $primary-blur;
-        bottom: 0%;
+        bottom: 0;
         left: 67%;
-
-        @include respond(tablet) {
-            left: 66.5%;
-            bottom: to-rem(-7px);
-        }
-        @include respond(desktop) {
-            margin: 0;
-        }
     }
 
     &__topPlaces {
         @include flex-set();
-        padding: to-rem(10px);
-        gap: to-rem(10px);
+        padding: 10px;
+        gap: 10px;
         position: absolute;
         background-color: $bg;
         width: to-rem(85px);
-        border-radius: to-rem(500px);
-        bottom: 25.5%;
-        left: 87%;
+        border-radius: to-rem(32px);
+        bottom: 26.5%;
+        right: -16%;
         font-size: 7px;
+        font-weight: $bold;
+
         @include respond(tablet) {
             font-size: to-rem(14px);
-            bottom: 25%;
-            left: 87%;
             width: to-rem(166px);
-            padding: to-rem(18px);
-            p {
-                font-weight: 700;
-                font-family: $primary-font;
-                color: $primary-font-col;
-            }
+            padding: 20px;
         }
     }
 
     @include respond(tablet) {
-        gap: to-rem(33px);
+        gap: 33px;
     }
 }
