@@ -406,67 +406,6 @@
 >>>>>>> b1c05ea ([OH_A1_01] Confilcts solved and files updated)
             color: $active-link;
             transform: translateY(-2px);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            transition: transform 0.2s ease;
-<<<<<<< HEAD
-=======
-=======
-        @include font-design(to-rem(14px), 700, $primary-font, $gray-secondary);
-=======
->>>>>>> cd5607d ([OH_A1_01] Header Section- Updated according to change in base setup)
-=======
->>>>>>> b1eafdd ([OH_A1_01] Header Section: Created Structure for header)
-        @include flex-set(center, center, column);
-<<<<<<< HEAD
-=======
-=======
-        @include font-design(to-rem(14px), 700, $primary-font, $gray-secondary);
->>>>>>> e700230 ([OH_A1_01] Header Section: Created Structure for header)
-=======
->>>>>>> 30d4832 ([OH_A1_01] Header: Worked on responsiveness)
-        gap: to-rem(20px);
-        z-index: 999;
-        font-size: to-rem(14px);
-        color: $inactive-link;
-        font-weight: 700;
-
-        li {
-            transition: transform 0.2s ease;
-        }
-
-<<<<<<< HEAD
-        li:hover {
-            color: $link;
-<<<<<<< HEAD
-=======
->>>>>>> 5e012ca ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
-=======
->>>>>>> 701139a ([OH_A1_01] Confilcts solved and files updated)
-=======
-=======
-        li:hover,
-        li:focus-within {
-            color: $active-link;
-            transform: translateY(-2px);
-<<<<<<< HEAD
-            transition: transform 0.2s ease;
-<<<<<<< HEAD
->>>>>>> 7c9889c ([OH_A1_01] Header Section- Updated according to change in base setup)
-=======
-=======
-        @include font-design(to-rem(14px), 700, $primary-font, $gray-secondary);
-        @include flex-set(center, center, column);
-        gap: to-rem(20px);
-
-        li:hover {
-            color: $link;
-=======
->>>>>>> 5e012ca ([OH_A1_01] Header Section - Review Fixes, tab navigation added)
-=======
->>>>>>> f151718 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
         }
 
         @include respond(tablet) {
@@ -475,40 +414,11 @@
 
         &--open {
             @include flex-set(center, center, column);
-<<<<<<< HEAD
-<<<<<<< HEAD
-            @include box(40vw, auto);
-            gap: to-rem(20px);
-            position: absolute;
-            top: to-rem(100px);
-            left: 10px;
-            padding: to-rem(24px) 0;
-            box-shadow: 0 0 10px 5px $gray-secondary;
-<<<<<<< HEAD
->>>>>>> d49fc18 ([OH_A1_01] Header Section: Created Structure for header)
->>>>>>> 5ab5016 ([OH_A1_01] Header Section: Created Structure for header)
-        }
-
-        @include respond(tablet) {
-            display: none;
-=======
-            background-color: $bg;
->>>>>>> a018159 ([OH_A1_01] Header: Worked on responsiveness)
-        }
-
-<<<<<<< HEAD
-        &--open {
-            @include flex-set(center, center, column);
-            width: 40vw;
-            height: auto;
-=======
->>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
-=======
->>>>>>> f151718 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
             gap: to-rem(20px);
             position: absolute;
             top: to-rem(100px);
             left: to-rem(10px);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             padding: to-rem(24px) 0;
@@ -593,6 +503,8 @@
 =======
 =======
 >>>>>>> f151718 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
+=======
+>>>>>>> 3623cba ([OH_A1_01] Header Section: Merge Conflicts Resolved)
             padding: 24px 0;
 <<<<<<< HEAD
 >>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
@@ -736,6 +648,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         @include flex-set;
         @include primary-btn;
         height: to-rem(40px);
@@ -803,9 +716,10 @@
 >>>>>>> 187388e ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
 >>>>>>> 0369dcb ([OH_A1_01] Header Section: Units fixing and rebased to base setup)
 =======
+=======
+>>>>>>> 3623cba ([OH_A1_01] Header Section: Merge Conflicts Resolved)
         @include flex-set;
         @include primary-btn;
->>>>>>> f151718 ([OH_A1_01] Header Section: Merge Conflicts Resolved)
         height: to-rem(40px);
         width: to-rem(40px);
 <<<<<<< HEAD
