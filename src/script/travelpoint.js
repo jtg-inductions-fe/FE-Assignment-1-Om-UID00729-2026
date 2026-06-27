@@ -18,7 +18,7 @@ let renderData = () => {
             `;
         })
         .join('');
-    detailsCont.innerHTML = layout;
+    detailsCont.innerHTML += layout;
 };
 
 renderData();
