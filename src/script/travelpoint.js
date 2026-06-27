@@ -21,4 +21,4 @@ let renderData = () => {
     detailsCont.innerHTML = layout;
 };
 
-export default renderData;
+renderData();
