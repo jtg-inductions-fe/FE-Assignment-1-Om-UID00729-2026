@@ -23,6 +23,13 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-ticket:before {
+    content: '\e914';
+}
+.icon-hero-icon:before {
+    content: '\e913';
+    color: #ff5722;
+}
 .icon-expedia:before {
     content: '\e912';
 }

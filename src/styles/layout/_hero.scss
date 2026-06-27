@@ -19,7 +19,6 @@ main {
 .hero {
     margin-top: 65px;
     gap: 38px;
-
     @include flex-set(center, center, column);
 
     @include respond(tablet) {
@@ -76,6 +75,7 @@ main {
     &__textSection {
         gap: 19px;
         text-align: center;
+        position: relative;
 
         @include flex-set(center, center, column);
 
@@ -210,6 +210,26 @@ main {
                 span {
                     font-size: 20px;
                 }
+            }
+        }
+
+        &__icon {
+            display: none;
+
+            @include respond(tablet) {
+                display: block;
+                font-size: to-rem(167px);
+                position: absolute;
+                left: -25px;
+                bottom: -45px;
+            }
+
+            @include respond(desktop) {
+                display: block;
+                font-size: to-rem(167px);
+                position: absolute;
+                left: -89px;
+                bottom: -184px;
             }
         }
     }
