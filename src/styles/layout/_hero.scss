@@ -3,31 +3,64 @@
 @use '../components' as *;
 
 main {
+    gap: 67px;
+
     @include flex-set(center, center, column);
-    gap: 62px;
+
+    @include respond(tablet) {
+        gap: 60px;
+    }
+
+    @include respond(desktop) {
+        gap: 56px;
+    }
 }
 
 .hero {
-    @include flex-set(center, center, column);
     margin-top: 65px;
     gap: 38px;
+
+    @include flex-set(center, center, column);
+
+    @include respond(tablet) {
+        margin-top: 31px;
+        gap: 18px;
+    }
+
+    @include respond(desktop) {
+        margin-top: 90px;
+        gap: 0;
+        @include flex-set();
+    }
 
     &__ellipse {
         width: 50vw;
         height: 35vh;
         background-color: $primary-blur;
         border-radius: 50%;
-        filter: blur(150px);
         opacity: 0.5;
         position: absolute;
         top: -10%;
         left: -15%;
         z-index: -99;
+        filter: blur(150px);
     }
 
     &__imgSection {
-        @include flex-set(center, end);
         aspect-ratio: 396/366;
+
+        @include flex-set(center, end);
+
+        @include respond(tablet) {
+            aspect-ratio: 772/713;
+            padding: 64px 62px 57px 62px;
+        }
+
+        @include respond(desktop) {
+            order: 2;
+            flex: 0.65;
+            padding: 0;
+        }
 
         &__bg {
             align-self: start;
@@ -38,150 +71,147 @@ main {
                 width: 100%;
             }
         }
-
-        @include respond(tablet) {
-            aspect-ratio: 772/713;
-            padding: 64px 62px 57px 62px;
-        }
-        @include respond(desktop) {
-            order: 2;
-            flex: 0.65;
-            padding: 0;
-        }
     }
 
     &__textSection {
-        @include flex-set(center, center, column);
         gap: 19px;
         text-align: center;
 
+        @include flex-set(center, center, column);
+
+        @include respond(tablet) {
+            gap: 43px;
+        }
+
+        @include respond(desktop) {
+            gap: 40px;
+            flex: 0.35;
+            text-align: start;
+        }
+
         &__h3 {
-            padding: 1rem 2rem;
+            padding: 15px 32px;
             box-shadow: 0 34px 75px 0px #00000012;
 
+            @include respond(desktop) {
+                align-self: flex-start;
+                padding: 20px 32px;
+            }
+
             h3 {
-                @include flex-set();
                 gap: 17px;
                 font-size: 14px;
+
+                @include flex-set();
 
                 span {
                     font-size: 20px;
                 }
             }
-
-            @include respond(desktop) {
-                align-self: flex-start;
-            }
         }
+
         &__h1 {
             width: 84%;
-            span {
-                color: $secondary-font;
-            }
+
             @include respond(tablet) {
                 width: 70%;
+                padding-top: 5px;
             }
+
             @include respond(desktop) {
                 width: 100%;
+            }
+
+            span {
+                color: $secondary-font;
             }
         }
 
         p {
-            padding-top: 4px;
+            width: 96%;
+            padding-top: 6px;
+
             @include respond(tablet) {
                 width: 47%;
+                padding-top: 0;
             }
+
             @include respond(desktop) {
-                width: 100%;
+                @include flex-set(center, start, column);
+                align-self: start;
+                width: 97%;
+                padding-top: 0;
             }
         }
 
         &__buttons {
-            @include flex-set(center, center, column);
-            min-width: 40%;
-            gap: 28px;
+            width: 100%;
+            gap: 24px;
             padding-top: 12px;
 
+            @include flex-set(center, center, column);
+
+            @include respond(tablet) {
+                gap: 18px;
+                padding: 0;
+
+                @include flex-set;
+            }
+            @include respond(desktop) {
+                padding: 0;
+                gap: 18px;
+
+                @include flex-set(start, center, row);
+            }
+
             &__getStarted {
-                @include primary-btn;
                 font-size: 14px;
-                padding: 24px 160px;
+                padding: 24px 0;
                 box-shadow: 0 5px 11px 0 #0000001a;
-                transition: all 0.3s;
-                &:hover,
-                &:focus-within {
-                    transform: translateY(-3px);
-                    box-shadow: 0 0 30px 10px $secondary-para;
-                }
+                border-radius: 100px;
+                box-shadow: 0 10px 50px 5px $secondary-para;
+                width: 100%;
+
+                @include primary-btn;
 
                 @include respond(tablet) {
-                    padding: 17px 0;
+                    transform: translateY(-6px);
+                    padding: 16px 0;
                     width: 141px;
                 }
+
                 @include respond(desktop) {
-                    padding: 17px 0;
+                    transform: translateY(-5px);
+                    padding: 16px 0;
                     width: 141px;
                 }
             }
             &__watchDemo {
-                @include secondary-btn;
                 gap: 9px;
-                @include flex-set();
                 color: $primary-btn-bg;
-                padding: 24px 130px;
+                padding: 24px 0;
                 font-size: 14px;
                 border: 1px solid #eee;
-                transition: all 0.3s;
+                border-radius: 100px;
+                width: 100%;
 
-                &:hover,
-                &:focus-within {
-                    transform: translateY(-3px);
-                    box-shadow: 0 0 30px 10px $secondary-para;
+                @include secondary-btn;
+                @include flex-set();
+
+                @include respond(tablet) {
+                    padding: 17px 0;
+                    width: 181px;
+                }
+                @include respond(desktop) {
+                    padding: 17px 0;
+                    width: 181px;
                 }
 
                 span {
                     font-size: 20px;
                 }
-
-                @include respond(tablet) {
-                    padding: 17px 0;
-                    width: 181px;
-                }
-                @include respond(desktop) {
-                    padding: 17px 0;
-                    width: 181px;
-                }
-            }
-            @include respond(desktop) {
-                @include flex-set;
-                padding: 0;
-                gap: 18px;
-                align-self: flex-start;
-            }
-            @include respond(tablet) {
-                @include flex-set;
-                gap: 18px;
-                padding: 0;
             }
         }
-        @include respond(tablet) {
-            gap: 43px;
-        }
-        @include respond(desktop) {
-            gap: 54px;
-            flex: 0.35;
-            text-align: start;
-        }
-    }
-
-    @include respond(tablet) {
-        margin-top: 31px;
-        gap: 18px;
-    }
-    @include respond(desktop) {
-        margin-top: 90px;
-        gap: 0;
-        @include flex-set();
     }
 }
 
@@ -196,12 +226,26 @@ main {
     margin-left: 11%;
     margin-right: 13%;
 
+    @include respond(tablet) {
+        gap: 33px;
+    }
+
     &__left,
     &__right {
-        @include flex-set(center, center, column);
         gap: 18px;
         overflow: hidden;
         border-radius: 16px;
+
+        @include flex-set(center, center, column);
+
+        @include respond(tablet) {
+            gap: 36px;
+            border-radius: 30px;
+        }
+
+        @include respond(desktop) {
+            gap: 21px;
+        }
 
         &__img {
             height: 50%;
@@ -217,10 +261,6 @@ main {
                 }
             }
         }
-        @include respond(tablet) {
-            gap: 36px;
-            border-radius: 30px;
-        }
     }
     &__right__img {
         height: auto;
@@ -232,46 +272,63 @@ main {
         width: to-rem(32px);
         height: to-rem(32px);
         font-size: to-rem(16px);
-        @include flex-set();
         border-radius: 50%;
-        bottom: 48%;
-        left: -7%;
+        bottom: 48.5%;
+        left: -6.25%;
+
+        @include flex-set();
 
         @include respond(tablet) {
             width: to-rem(64px);
             height: to-rem(64px);
             font-size: to-rem(32px);
+            bottom: 47.5%;
+            left: -6.25%;
+        }
+        @include respond(desktop) {
+            bottom: 48.5%;
         }
     }
 
     &__addUser {
         @extend .imgSectionWrapper__telegram;
+
         background-color: $primary-blur;
-        bottom: 0;
+        bottom: 0%;
         left: 67%;
+
+        @include respond(tablet) {
+            bottom: -1%;
+        }
+
+        @include respond(desktop) {
+            bottom: 0.5%;
+        }
     }
 
     &__topPlaces {
-        @include flex-set();
         padding: 10px;
         gap: 10px;
         position: absolute;
         background-color: $bg;
         width: to-rem(85px);
         border-radius: to-rem(32px);
-        bottom: 26.5%;
-        right: -16%;
+        bottom: 27%;
+        right: -16.5%;
         font-size: 7px;
         font-weight: $bold;
+
+        @include flex-set();
 
         @include respond(tablet) {
             font-size: to-rem(14px);
             width: to-rem(166px);
             padding: 20px;
+            bottom: 26%;
         }
-    }
-
-    @include respond(tablet) {
-        gap: 33px;
+        @include respond(desktop) {
+            bottom: 26.5%;
+            right: -16.5%;
+        }
     }
 }

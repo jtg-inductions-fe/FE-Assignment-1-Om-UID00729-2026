@@ -3,9 +3,20 @@
 @use '../components' as *;
 
 .partners {
-    @include flex-set;
     flex-wrap: wrap;
     gap: 27px;
+
+    @include flex-set;
+
+    @include respond(tablet) {
+        width: 80%;
+        padding: 65px;
+    }
+    @include respond(desktop) {
+        width: 100%;
+        padding: 65px 0;
+        justify-content: space-between;
+    }
 
     a {
         color: $inactive-link;
@@ -21,14 +32,5 @@
         @include respond(tablet) {
             font-size: 32px;
         }
-    }
-    @include respond(tablet) {
-        width: 80%;
-        padding: 65px;
-    }
-    @include respond(desktop) {
-        width: 100%;
-        padding: 65px 0;
-        justify-content: space-between;
     }
 }
