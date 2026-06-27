@@ -5,13 +5,14 @@
 .travelpoint {
     width: 100vw;
     gap: 28px;
-    padding: 55px 0;
+    padding: 27px 0;
+    position: relative;
 
     @include flex-set(center, center, column);
 
     @include respond(tablet) {
         padding: 0;
-        gap: 64px;
+        gap: 66px;
     }
 
     @include respond(desktop) {
@@ -19,6 +20,29 @@
         width: 92vw;
         align-self: end;
         gap: 0;
+    }
+
+    &__ellipse {
+        display: none;
+        z-index: -99;
+        opacity: 0.5;
+        height: 50vw;
+        border-radius: 50%;
+        background-color: $secondary-blur;
+        filter: blur(150px);
+
+        @include respond(tablet) {
+            width: 25vw;
+            display: block;
+            position: absolute;
+            top: -25%;
+            right: 0;
+        }
+        @include respond(tablet) {
+            width: 15vw;
+            top: -50%;
+            right: -5%;
+        }
     }
 
     &__img {
@@ -85,6 +109,7 @@
             width: 90%;
             gap: 16px;
             padding-top: 4px;
+            position: relative;
 
             @include flex-set(center, center, column);
 
@@ -100,6 +125,23 @@
             @include respond(desktop) {
                 width: 100%;
                 text-align: center;
+            }
+
+            &__icon {
+                display: none;
+
+                @include respond(desktop) {
+                    @include flex-set;
+                    position: absolute;
+                    color: $primary-btn;
+                    border-radius: 50%;
+                    background-color: $secondary-blur;
+                    width: to-rem(111px);
+                    height: to-rem(111px);
+                    font-size: to-rem(40px);
+                    top: -4%;
+                    right: -12%;
+                }
             }
 
             &__cont {
