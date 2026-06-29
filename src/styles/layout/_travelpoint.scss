@@ -5,13 +5,13 @@
 .travelpoint {
     width: 100vw;
     gap: 28px;
-    padding: 27px 0;
+    padding: 55px 0;
     position: relative;
 
     @include flex-set(center, center, column);
 
     @include respond(tablet) {
-        padding: 0;
+        padding: 70px 0 0 0;
         gap: 66px;
     }
 
