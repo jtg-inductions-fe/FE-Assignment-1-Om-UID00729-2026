@@ -24,6 +24,7 @@
 
     &__icon {
         display: none;
+        z-index: -99;
 
         @include respond(tablet) {
             display: block;
