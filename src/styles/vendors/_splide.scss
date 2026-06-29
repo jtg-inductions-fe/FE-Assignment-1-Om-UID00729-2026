@@ -5,22 +5,42 @@
 
 .splide {
     width: 100vw;
-    padding-top: 30px;
+    padding-top: 70px;
 
     @include flex-set;
+
+    @include respond(tablet) {
+        padding-top: 20px;
+    }
+
+    @include respond(desktop) {
+        padding-top: 80px;
+    }
 
     &__leftArrow {
         font-size: 16px;
         position: absolute;
-        width: 64px;
-        height: 64px;
+        width: to-rem(64px);
+        height: to-rem(64px);
         border-radius: 100%;
         left: 15px;
-        top: 33%;
+        top: 37%;
         border: 1px solid $secondary-para;
         transform: rotate(180deg);
 
         @include flex-set;
+
+        @include respond(tablet) {
+            width: to-rem(100px);
+            height: to-rem(100px);
+            top: 50%;
+            left: 6%;
+        }
+
+        @include respond(desktop) {
+            top: 54%;
+            left: 9%;
+        }
 
         &:before {
             color: $primary-font;
@@ -43,10 +63,23 @@
         height: 64px;
         border-radius: 100%;
         right: 15px;
-        top: 33%;
+        top: 37%;
         border: 1px solid $secondary-para;
 
         @include flex-set;
+
+        @include respond(tablet) {
+            width: to-rem(100px);
+            height: to-rem(100px);
+            top: 50%;
+            right: 6%;
+        }
+
+        @include respond(desktop) {
+            top: 54%;
+            right: 9%;
+        }
+
         &:before {
             color: $primary-font;
         }
@@ -60,58 +93,22 @@
             }
         }
     }
-}
 
-.testimonial {
-    text-align: center;
-    gap: 64px;
+    &__pagination {
+        width: 100%;
+        bottom: -13%;
 
-    @include flex-set(center, center, column);
+        @include flex-set;
+        gap: 15px;
 
-    &__head {
-        gap: 16px;
+        &__page {
+            width: 25px;
+            height: 25px;
 
-        @include flex-set(center, center, column);
-
-        h3 {
-            letter-spacing: 20%;
-        }
-    }
-
-    &__img {
-        height: 128px;
-        width: 128px;
-        border-radius: 50%;
-    }
-
-    &__details {
-        gap: 32px;
-
-        @include flex-set(center, center, column);
-
-        &__name {
-            @include flex-set;
-
-            span {
-                font-size: to-rem(23px);
-                font-weight: $bold;
+            &.is-active {
+                background-color: $secondary-font;
+                transform: none;
             }
-        }
-
-        &__stars {
-            font-size: to-rem(28px);
-
-            @include flex-set;
-            gap: 19px;
-        }
-    }
-
-    &__content {
-        width: 90%;
-        @include flex-set(center, center, row);
-        p {
-            font-size: to-rem(18px);
-            font-weight: $medium;
         }
     }
 }

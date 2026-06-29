@@ -1,0 +1,70 @@
+@use '../abstracts/' as *;
+@use '../themes/' as *;
+
+.testimonial {
+    text-align: center;
+    gap: 64px;
+
+    @include flex-set(center, center, column);
+
+    @include respond(tablet) {
+        gap: 56px;
+    }
+
+    &__head {
+        gap: 16px;
+
+        @include flex-set(center, center, column);
+
+        h3 {
+            letter-spacing: 20%;
+        }
+    }
+
+    &__img {
+        height: 128px;
+        width: 128px;
+        border-radius: 50%;
+    }
+
+    &__details {
+        gap: 32px;
+
+        @include flex-set(center, center, column);
+
+        &__name {
+            @include flex-set;
+
+            span {
+                font-size: to-rem(23px);
+                font-weight: $bold;
+            }
+        }
+
+        &__stars {
+            font-size: to-rem(28px);
+
+            @include flex-set;
+            gap: 19px;
+        }
+    }
+
+    &__content {
+        width: 90%;
+        @include flex-set(center, center, row);
+        p {
+            font-size: to-rem(18px);
+            font-weight: $medium;
+            padding-top: 5px;
+
+            @include respond(tablet) {
+                font-size: 23px;
+                width: 62%;
+            }
+
+            @include respond(desktop) {
+                width: 64%;
+            }
+        }
+    }
+}
