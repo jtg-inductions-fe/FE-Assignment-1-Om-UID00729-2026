@@ -5,16 +5,17 @@
 .partners {
     flex-wrap: wrap;
     gap: 27px;
+    padding: 67px 0;
 
     @include flex-set;
 
     @include respond(tablet) {
         width: 80%;
-        padding: 65px 65px 0 65px;
+        padding: 97px 65px 55px 65px;
     }
     @include respond(desktop) {
         width: 100%;
-        padding: 65px 0;
+        padding: 90px 0;
         justify-content: space-between;
     }
 

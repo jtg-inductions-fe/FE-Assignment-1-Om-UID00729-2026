@@ -3,17 +3,7 @@
 @use '../components' as *;
 
 main {
-    gap: 67px;
-
     @include flex-set(center, center, column);
-
-    @include respond(tablet) {
-        gap: 60px;
-    }
-
-    @include respond(desktop) {
-        gap: 56px;
-    }
 }
 
 .hero {
@@ -22,7 +12,7 @@ main {
     @include flex-set(center, center, column);
 
     @include respond(tablet) {
-        margin-top: 31px;
+        margin: 31px 0;
         gap: 18px;
     }
 
