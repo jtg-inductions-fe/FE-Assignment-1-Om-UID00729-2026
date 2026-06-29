@@ -1,0 +1,156 @@
+@use '../abstracts/' as *;
+@use '../themes/' as *;
+
+.footer {
+    padding: 0;
+    margin-top: 216px;
+    width: 100%;
+    gap: 79px;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+
+    @include respond(tablet) {
+        margin: 306px 0 64px 0;
+        gap: 64px;
+    }
+
+    @include respond(desktop) {
+        margin: 306px 0 0 0;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &__icon {
+        display: none;
+
+        @include respond(tablet) {
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 27%;
+        }
+
+        @include respond(desktop) {
+            top: 10%;
+        }
+    }
+
+    &__head {
+        gap: 32px;
+        width: 85%;
+
+        @include flex-set(center, flex-start, column);
+
+        @include respond(tablet) {
+            width: 87%;
+        }
+
+        @include respond(desktop) {
+            width: 100%;
+            padding: 25px 0 0 132px;
+        }
+
+        &__name {
+            gap: 20px;
+
+            @include flex-set;
+
+            span {
+                font-size: 40px;
+                background: linear-gradient($primary-btn-bg, $secondary-font);
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+
+        &__socials {
+            gap: 2rem;
+
+            @include flex-set;
+
+            @include respond(desktop) {
+                padding-top: 30px;
+            }
+
+            span {
+                font-size: 2rem;
+            }
+        }
+
+        &__about {
+            @include respond(tablet) {
+                font-size: 23px;
+            }
+        }
+    }
+
+    &__details {
+        width: 85%;
+        gap: 70px;
+
+        display: grid;
+
+        @include respond(tablet) {
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 87%;
+            gap: 35px;
+        }
+
+        @include respond(desktop) {
+            width: 83%;
+            padding: 40px 0 0 5px;
+            justify-self: flex-start;
+        }
+
+        &__cont {
+            width: 100%;
+            gap: 10px;
+
+            @include flex-set(flex-start, center, column);
+
+            @include respond(tablet) {
+                gap: 32px;
+                align-items: flex-start;
+            }
+
+            &__head {
+                width: 100%;
+                @include flex-set(space-between);
+
+                span {
+                    font-size: to-rem(24px);
+
+                    @include respond(tablet) {
+                        display: none;
+                    }
+                }
+            }
+
+            &__text {
+                max-height: 0px;
+                overflow: hidden;
+
+                @include flex-set(flex-start, flex-start, column);
+
+                @include respond(tablet) {
+                    max-height: 100%;
+                    gap: 32px;
+                }
+
+                &--open {
+                    margin: 10px 0;
+                    padding: 20px 0;
+                    box-shadow: 0 10px 10px 10px $primary-btn;
+                    max-height: 100%;
+                    gap: 20px;
+                }
+
+                &:last-child {
+                    width: 90%;
+                }
+            }
+        }
+    }
+}
