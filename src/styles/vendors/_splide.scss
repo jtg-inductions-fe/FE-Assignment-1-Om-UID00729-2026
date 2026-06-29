@@ -6,6 +6,7 @@
 .splide {
     width: 100vw;
     padding-top: 70px;
+    position: relative;
 
     @include flex-set;
 
@@ -109,6 +110,22 @@
                 background-color: $secondary-font;
                 transform: none;
             }
+        }
+    }
+
+    &__bg {
+        width: 100%;
+        z-index: -999;
+        position: absolute;
+        display: none;
+        top: -50%;
+
+        @include respond(tablet) {
+            display: block;
+        }
+
+        @include respond(desktop) {
+            top: -70%;
         }
     }
 }

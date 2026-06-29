@@ -38,12 +38,10 @@ const layout = data.map((e) => {
                 <h3>TESTIMONIALS</h3>
                 <h2>Trust our clients</h2>
             </div>
-            <div class="testimonial__img">
-                <img
-                    src=${e.img}
-                    alt="Testimonial author Profile Picture"
-                />
-            </div>
+            <img
+                src=${e.img}
+                alt="Testimonial author Profile Picture"
+            />
             <div class="testimonial__details">
                 <div class="testimonial__details__name">
                     <h5>${e.name}</h5>
