@@ -4,7 +4,7 @@
 
 .navbar {
     padding-block: to-rem(40px) to-rem(20px);
-    background-color: $bg;
+    background-color: $background;
     position: sticky;
     top: 0;
     left: 0;
@@ -13,7 +13,7 @@
 
     &__logo {
         font-size: to-rem(40px);
-        background: linear-gradient($primary-btn-bg, $secondary-font);
+        background: linear-gradient($primary, $secondary-font);
         background-clip: text;
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: none;
@@ -35,7 +35,7 @@
             top: to-rem(90px);
             box-shadow: $box-shadow;
             position: absolute;
-            background-color: $bg;
+            background-color: $background;
 
             @include flex-set(center, center, column);
         }
@@ -71,7 +71,7 @@
         border-radius: $radius-sm;
 
         @include flex-set;
-        @include button-text(to-rem(32px));
+        @include font-style(to-rem(32px));
     }
 
     &__hamburger-btn-bars {
@@ -94,7 +94,7 @@
         width: 100%;
         outline-offset: 3px;
 
-        @include button-text;
+        @include font-style;
     }
 
     @include respond(tablet) {
@@ -121,7 +121,7 @@
                 padding: $space-lg;
                 border-radius: $radius-md;
                 box-shadow: $box-shadow;
-                background-color: $bg;
+                background-color: $background;
                 gap: to-rem(28px);
                 position: absolute;
                 width: 100%;

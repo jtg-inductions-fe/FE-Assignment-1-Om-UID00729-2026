@@ -8,13 +8,13 @@
     padding: $space-sm $space-lg;
 
     &--primary {
-        background-color: $primary-btn-bg;
-        color: $primary-btn;
+        background-color: $primary;
+        color: $primary-content;
     }
 
     &--secondary {
-        background-color: $bg;
-        color: $active-link;
+        background-color: $secondary;
+        color: $secondary-content;
     }
 
     &:hover,

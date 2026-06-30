@@ -53,25 +53,25 @@
     flex-direction: $dir;
 }
 
-/// Sets up typography for button component
+/// Sets up font style for elements
 /// @param {string} font-size - For font-size value
 /// @param {string} font-weight - For font-weight value
 /// @param {string} line-height - For line-height value
-/// @return typography to the button component
+/// @return font style to the elements
 ///
 /// Example usage
-/// .btn{
-///     @include button-text(14px, 700, 1.2)
+/// body{
+///     @include font-style(14px, 700, 1.2)
 /// }
 ///
 /// Compiled CSS
-/// .btn{
+/// body{
 ///     font-size: 14px;
 ///     font-weight: 700;
 ///     line-height: 1.2;
 /// }
 ///
-@mixin button-text(
+@mixin font-style(
     $font-size: to-rem(14px),
     $font-weight: $bold,
     $line-height: 1.2
