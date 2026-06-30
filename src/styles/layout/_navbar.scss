@@ -70,8 +70,10 @@
 
         @include primary-btn;
 
-        font-size: to-rem(32px);
-        border-radius: $radius-sm;
+        & {
+            font-size: to-rem(32px);
+            border-radius: $radius-sm;
+        }
 
         &__bars {
             transition: transform 0.5s ease;
