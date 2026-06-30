@@ -2,59 +2,38 @@
 @use '../themes' as *;
 @use '../components' as *;
 
-main {
+.main {
     @include flex-set(center, center, column);
 }
 
 .hero {
-    margin-top: 65px;
-    gap: 38px;
+    margin-top: $space-xl;
+    gap: $space-lg;
+
     @include flex-set(center, center, column);
-
-    @include respond(tablet) {
-        margin: 31px 0;
-        gap: 18px;
-    }
-
-    @include respond(desktop) {
-        margin-top: 90px;
-        gap: 0;
-        @include flex-set();
-    }
 
     &__ellipse {
         width: 50vw;
-        height: 35vh;
+        height: 40vh;
         background-color: $primary-blur;
         border-radius: 50%;
-        opacity: 0.5;
+        opacity: 0.4;
         position: absolute;
-        top: -10%;
+        top: -5%;
         left: -15%;
         z-index: -99;
         filter: blur(150px);
     }
 
-    &__imgSection {
+    &__img-section {
         aspect-ratio: 396/366;
 
         @include flex-set(center, end);
 
-        @include respond(tablet) {
-            aspect-ratio: 772/713;
-            padding: 64px 62px 57px 62px;
-        }
-
-        @include respond(desktop) {
-            order: 2;
-            flex: 0.65;
-            padding: 0;
-        }
-
         &__bg {
             align-self: start;
             position: absolute;
-            padding: 0 16.86px;
+            padding: 0 $space-xs;
 
             img {
                 width: 100%;
@@ -62,213 +41,192 @@ main {
         }
     }
 
-    &__textSection {
-        gap: 19px;
+    &__text-section {
+        gap: to-rem(19px);
         text-align: center;
         position: relative;
 
         @include flex-set(center, center, column);
 
-        @include respond(tablet) {
-            gap: 43px;
-        }
+        &__badge {
+            padding: $space-xs $space-lg;
+            box-shadow: $box-shadow;
+            border-radius: $radius-xl;
 
-        @include respond(desktop) {
-            gap: 40px;
-            flex: 0.35;
-            text-align: start;
-        }
+            &__h3 {
+                gap: $space-xs;
+                font-size: to-rem(14px);
 
-        &__h3 {
-            padding: 15px 32px;
-            box-shadow: 0 34px 75px 0px #00000012;
+                @include flex-set;
 
-            @include respond(desktop) {
-                align-self: flex-start;
-                padding: 20px 32px;
-            }
-
-            h3 {
-                gap: 17px;
-                font-size: 14px;
-
-                @include flex-set();
-
-                span {
-                    font-size: 20px;
+                &__icon {
+                    font-size: $icon-sm;
                 }
             }
         }
 
-        &__h1 {
+        &__heading {
             width: 84%;
 
-            @include respond(tablet) {
-                width: 70%;
-                padding-top: 5px;
-            }
-
-            @include respond(desktop) {
-                width: 100%;
-            }
-
-            span {
+            &__span {
+                word-break: break-all;
                 color: $secondary-font;
             }
         }
 
-        p {
+        &__para {
             width: 96%;
-            padding-top: 6px;
-
-            @include respond(tablet) {
-                width: 47%;
-                padding-top: 0;
-            }
-
-            @include respond(desktop) {
-                @include flex-set(center, start, column);
-                align-self: start;
-                width: 97%;
-                padding-top: 0;
-            }
+            padding-top: to-rem(6px);
         }
 
         &__buttons {
             width: 100%;
             gap: 24px;
-            padding-top: 12px;
+            padding-top: to-rem(12px);
 
             @include flex-set(center, center, column);
 
-            @include respond(tablet) {
-                gap: 18px;
-                padding: 0;
-
-                @include flex-set;
-            }
-            @include respond(desktop) {
-                padding: 0;
-                gap: 18px;
-
-                @include flex-set(start, center, row);
-            }
-
-            &__getStarted {
-                font-size: 14px;
-                padding: 24px 0;
-                box-shadow: 0 5px 11px 0 #0000001a;
-                border-radius: 100px;
-                box-shadow: 0 10px 50px 5px $secondary-para;
+            &__get-started {
+                padding: $space-md 0;
                 width: 100%;
+                white-space: nowrap;
 
                 @include primary-btn;
 
-                @include respond(tablet) {
-                    transform: translateY(-6px);
-                    padding: 16px 0;
-                    width: 141px;
-                }
-
-                @include respond(desktop) {
-                    transform: translateY(-5px);
-                    padding: 16px 0;
-                    width: 141px;
-                }
+                @include button-text-primary;
             }
-            &__watchDemo {
-                gap: 9px;
-                color: $primary-btn-bg;
-                padding: 24px 0;
-                font-size: 14px;
+            &__watch-demo {
+                gap: to-rem(9px);
+                padding: $space-md 0;
                 border: 1px solid #eee;
-                border-radius: 100px;
                 width: 100%;
+                white-space: nowrap;
 
                 @include secondary-btn;
-                @include flex-set();
 
-                @include respond(tablet) {
-                    padding: 17px 0;
-                    width: 181px;
-                }
-                @include respond(desktop) {
-                    padding: 17px 0;
-                    width: 181px;
-                }
+                @include button-text-secondary;
+
+                @include flex-set;
 
                 span {
-                    font-size: 20px;
+                    font-size: $icon-sm;
                 }
             }
         }
+    }
 
-        &__icon {
-            display: none;
+    @include respond(tablet) {
+        margin: $space-lg 0;
+        gap: $space-sm;
 
-            @include respond(tablet) {
-                display: block;
-                font-size: to-rem(167px);
-                position: absolute;
-                left: -25px;
-                bottom: -45px;
+        &__img-section {
+            aspect-ratio: 772/713;
+            padding: 7%;
+        }
+
+        &__text-section {
+            gap: to-rem(43px);
+
+            &__heading {
+                width: 70%;
+                padding-top: to-rem(5px);
             }
 
-            @include respond(desktop) {
-                display: block;
-                font-size: to-rem(167px);
-                position: absolute;
-                left: -89px;
-                bottom: -184px;
+            &__para {
+                width: 47%;
+                padding-top: 0;
+            }
+
+            &__buttons {
+                gap: $space-xs;
+                padding: 0;
+                width: 38%;
+
+                @include flex-set;
+
+                &__get-started {
+                    padding: $space-xs $space-lg;
+                }
+
+                &__watch-demo {
+                    padding: $space-xs $space-lg;
+                }
+            }
+        }
+    }
+    @include respond(desktop) {
+        margin-top: to-rem(90px);
+        gap: 0;
+
+        @include flex-set;
+
+        &__img-section {
+            order: 2;
+            width: 65%;
+            padding: 0;
+        }
+
+        &__text-section {
+            gap: to-rem(40px);
+            width: 35%;
+            text-align: start;
+
+            &__badge {
+                align-self: flex-start;
+                padding: $space-md $space-xl;
+            }
+
+            &__heading {
+                width: 100%;
+            }
+
+            &__para {
+                align-self: start;
+                width: 97%;
+                padding-top: 0;
+
+                @include flex-set(center, start, column);
+            }
+
+            &__buttons {
+                padding: 0;
+                gap: $space-xs;
+                width: 100%;
+
+                @include flex-set(start, center, row);
             }
         }
     }
 }
 
-.imgSectionWrapper {
+.img-section-wrapper {
     width: 74%;
     aspect-ratio: 9/10;
     z-index: 1;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: $space-xs;
     position: relative;
     margin-left: 11%;
     margin-right: 13%;
 
-    @include respond(tablet) {
-        gap: 33px;
-    }
-
     &__left,
     &__right {
-        gap: 18px;
+        gap: $space-sm;
         overflow: hidden;
-        border-radius: 16px;
+        border-radius: $radius-md;
 
         @include flex-set(center, center, column);
-
-        @include respond(tablet) {
-            gap: 36px;
-            border-radius: 30px;
-        }
-
-        @include respond(desktop) {
-            gap: 21px;
-        }
 
         &__img {
             height: 50%;
             width: 100%;
+
             img {
                 height: 100%;
-                border-radius: 16px;
+                border-radius: $radius-md;
                 width: 100%;
                 object-fit: cover;
-
-                @include respond(tablet) {
-                    border-radius: 30px;
-                }
             }
         }
     }
@@ -279,66 +237,81 @@ main {
     &__telegram {
         position: absolute;
         background-color: $secondary-font;
-        width: to-rem(32px);
-        height: to-rem(32px);
-        font-size: to-rem(16px);
-        border-radius: 50%;
+        width: $icon-lg;
+        height: $icon-lg;
+        font-size: $icon-sm;
+        border-radius: $radius-round;
         bottom: 48.5%;
         left: -6.25%;
-
-        @include flex-set();
-
-        @include respond(tablet) {
-            width: to-rem(64px);
-            height: to-rem(64px);
-            font-size: to-rem(32px);
-            bottom: 47.5%;
-            left: -6.25%;
-        }
-        @include respond(desktop) {
-            bottom: 48.5%;
-        }
+        @include flex-set;
     }
 
-    &__addUser {
-        @extend .imgSectionWrapper__telegram;
-
+    &__add-user {
+        width: $icon-lg;
+        height: $icon-lg;
+        font-size: $icon-sm;
+        border-radius: $radius-round;
+        position: absolute;
         background-color: $primary-blur;
         bottom: 0;
         left: 67%;
 
-        @include respond(tablet) {
-            bottom: -1%;
-        }
-
-        @include respond(desktop) {
-            bottom: 0.5%;
-        }
+        @include flex-set;
     }
 
-    &__topPlaces {
-        padding: 10px;
-        gap: 10px;
+    &__top-places {
+        padding: to-rem(10px);
+        gap: to-rem(10px);
         position: absolute;
         background-color: $bg;
         width: to-rem(85px);
-        border-radius: to-rem(32px);
+        border-radius: $radius-xl;
         bottom: 27%;
         right: -16.5%;
-        font-size: 7px;
+        font-size: to-rem(7px);
         font-weight: $bold;
 
-        @include flex-set();
+        @include flex-set;
+    }
 
-        @include respond(tablet) {
-            font-size: to-rem(14px);
-            width: to-rem(166px);
-            padding: 20px;
-            bottom: 26%;
+    @include respond(tablet) {
+        &__left,
+        &__right {
+            gap: $space-md;
         }
-        @include respond(desktop) {
-            bottom: 26.5%;
-            right: -16.5%;
+
+        &__telegram {
+            width: $icon-xl;
+            height: $icon-xl;
+            font-size: $icon-lg;
+        }
+
+        &__add-user {
+            width: $icon-xl;
+            height: $icon-xl;
+            font-size: $icon-lg;
+        }
+
+        &__top-places {
+            font-size: to-rem(14px);
+            width: 40%;
+            padding: $space-sm;
+        }
+    }
+
+    @include respond(desktop) {
+        gap: 33px;
+
+        &__left,
+        &__right {
+            gap: $space-lg;
+            border-radius: to-rem(30px);
+        }
+
+        &__img {
+            img {
+                border-radius: to-rem(30px);
+            }
         }
     }
 }

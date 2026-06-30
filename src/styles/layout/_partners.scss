@@ -4,34 +4,38 @@
 
 .partners {
     flex-wrap: wrap;
-    gap: 27px;
-    padding: 67px 0;
+    gap: $space-md;
+    padding: $space-xl 0;
 
     @include flex-set;
 
-    @include respond(tablet) {
-        width: 80%;
-        padding: 97px 65px 55px 65px;
-    }
-    @include respond(desktop) {
-        width: 100%;
-        padding: 90px 0;
-        justify-content: space-between;
-    }
-
-    a {
+    &__links {
         color: $inactive-link;
+
         &:focus-within,
         &:hover {
             color: $active-link;
         }
+
+        &__icons {
+            font-size: to-rem(20px);
+        }
     }
 
-    &__icons {
-        font-size: 20px;
+    @include respond(tablet) {
+        width: 80%;
+        padding: 97px 65px 55px 65px;
 
-        @include respond(tablet) {
-            font-size: 32px;
+        &__links {
+            &__icons {
+                font-size: $icon-lg;
+            }
         }
+    }
+
+    @include respond(desktop) {
+        width: 100%;
+        padding: to-rem(90px) 0;
+        justify-content: space-between;
     }
 }

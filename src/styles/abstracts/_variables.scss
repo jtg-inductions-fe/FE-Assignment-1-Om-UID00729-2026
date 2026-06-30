@@ -27,7 +27,8 @@ $radius-xl: to-rem(100px);
 $radius-round: 50%;
 
 /// Variables for spacing
-$space-sm: to-rem(16px);
+$space-xs: to-rem(16px);
+$space-sm: to-rem(18px);
 $space-md: to-rem(24px);
 $space-lg: to-rem(32px);
 $space-xl: to-rem(64px);
@@ -49,3 +50,9 @@ $regular: 400;
 /// @type string
 $primary-spacing: 1.2;
 $secondary-spacing: 1.6;
+
+/// Variables for Icons
+$icon-sm: to-rem(16px);
+$icon-md: to-rem(20px);
+$icon-lg: to-rem(32px);
+$icon-xl: to-rem(64px);
