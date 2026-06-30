@@ -3,10 +3,11 @@
 @use '../components' as *;
 
 .navbar {
-    padding-top: to-rem(40px);
+    padding-block: to-rem(40px) to-rem(20px);
     background-color: $bg;
     position: sticky;
     top: 0;
+    left: 0;
 
     @include flex-set(space-between);
 
@@ -25,7 +26,7 @@
 
         &--open {
             z-index: $z-index-10;
-            width: 95%;
+            width: 100%;
             left: 50%;
             transform: translateX(-50%);
             border-radius: $radius-lg;
@@ -67,29 +68,17 @@
         height: to-rem(40px);
         width: to-rem(40px);
         padding: 0;
+        border-radius: $radius-sm;
 
         @include flex-set;
-        @include button-text;
+        @include button-text(to-rem(32px));
+    }
 
-        & {
-            font-size: to-rem(32px);
-            border-radius: $radius-sm;
-        }
+    &__hamburger-btn-bars {
+        transition: transform 0.5s ease;
 
-        &__bars {
-            transition: transform 0.5s ease;
-
-            &--open {
-                transform: rotate(90deg);
-            }
-        }
-
-        &__close--hidden {
-            display: none;
-        }
-
-        &__bars--hidden {
-            display: none;
+        &--open {
+            transform: rotate(90deg);
         }
     }
 
@@ -100,13 +89,7 @@
         @include flex-set(center, center, column);
     }
 
-    &__login {
-        width: 100%;
-        outline-offset: 3px;
-
-        @include button-text;
-    }
-
+    &__login,
     &__signup {
         width: 100%;
         outline-offset: 3px;
@@ -115,7 +98,7 @@
     }
 
     @include respond(tablet) {
-        padding-top: $space-lg;
+        padding-block: $space-lg;
 
         &__logo {
             order: 2;
@@ -134,7 +117,7 @@
 
             &--open {
                 left: 0;
-                top: calc(100% + 1rem);
+                top: calc(100% - 1rem);
                 padding: $space-lg;
                 border-radius: $radius-md;
                 box-shadow: $box-shadow;
@@ -166,7 +149,7 @@
     }
 
     @include respond(desktop) {
-        padding-top: $space-xl;
+        padding-block: $space-xl $space-sm;
 
         &__logo {
             @include flex-set(space-between);
