@@ -1,74 +1,95 @@
 import { MOBILE, TABLET } from './constants.js';
 
-let navbarHamburger = document.querySelector('.navbar__hamburger');
-let navbarCont = document.querySelector('.navbar__cont');
-let navbarUl = document.querySelector('.navbar__ul');
-let hamburgerBars = document.querySelector('.icon-bars-solid');
-let links = document.querySelectorAll('.navbar__links');
-
-const isExpanded = () =>
-    navbarCont.classList.contains('navbar__cont--open') ||
-    navbarUl.classList.contains('navbar__ul--open');
-
-const toggleNav = () => {
-    if (window.innerWidth <= MOBILE) {
-        navbarCont.classList.toggle('navbar__cont--open');
-    } else if (window.innerWidth <= TABLET) {
-        navbarUl.classList.toggle('navbar__ul--open');
-    }
-    hamburgerBars.classList.toggle('navbar__hamburger__bars--open');
-    navbarHamburger.setAttribute('aria-expanded', String(isExpanded()));
-};
-
-const getWidth = () => {
-    if (window.innerWidth <= MOBILE) return 'mobile';
-    if (window.innerWidth <= TABLET) return 'tablet';
-    return 'desktop';
-};
+const HamburgerBtn = document.querySelector('.navbar__hamburger-btn');
+const navbarWrapper = document.querySelector('.navbar__wrapper');
+const navbarList = document.querySelector('.navbar__list');
+const hamburgerBars = document.querySelector('.icon-bars-solid');
+const navbarFocusList = document.querySelectorAll('.navbar__focus-tab');
 
 let lastWidth = getWidth();
 
+const isExpanded = () =>
+    navbarWrapper.classList.contains('navbar__wrapper--open') ||
+    navbarList.classList.contains('navbar__list--open');
+
+const toggleNav = () => {
+    if (window.innerWidth <= MOBILE) {
+        navbarWrapper.classList.toggle('navbar__wrapper--open');
+    } else if (window.innerWidth <= TABLET) {
+        navbarList.classList.toggle('navbar__list--open');
+    }
+
+    hamburgerBars.classList.toggle('navbar__hamburger-btn__bars--open');
+    HamburgerBtn.setAttribute('aria-expanded', String(isExpanded()));
+    HamburgerBtn.title = isExpanded()
+        ? 'Close navigation menu'
+        : 'Open navigation menu';
+    HamburgerBtn.setAttribute(
+        'aria-label',
+        isExpanded() ? 'Close navigation menu' : 'Open navigation menu',
+    );
+};
+
+function getWidth() {
+    switch (true) {
+        case window.innerWidth <= MOBILE:
+            return 'mobile';
+        case window.innerWidth <= TABLET:
+            return 'tablet';
+        default:
+            return 'desktop';
+    }
+}
+
 const classReload = () => {
     let currWidth = getWidth();
+
     if (currWidth !== lastWidth) {
-        navbarCont.classList.remove('navbar__cont--open');
-        navbarUl.classList.remove('navbar__ul--open');
-        hamburgerBars.classList.remove('navbar__hamburger__bars--open');
-        navbarHamburger.setAttribute('aria-expanded', 'false');
+        navbarWrapper.classList.remove('navbar__wrapper--open');
+        navbarList.classList.remove('navbar__list--open');
+        hamburgerBars.classList.remove('navbar__hamburger-btn__bars--open');
+        HamburgerBtn.setAttribute('aria-expanded', 'false');
         lastWidth = currWidth;
     }
 };
 
-let focusTab = () => {
-    navbarHamburger.addEventListener('keydown', (e) => {
+const focusTab = () => {
+    HamburgerBtn.addEventListener('keydown', (e) => {
         if (isExpanded()) {
             if (e.key === 'Tab' && !e.shiftKey) {
                 e.preventDefault();
-                links[0].focus();
+                navbarFocusList[0].focus();
             }
+
             if (e.key === 'Tab' && e.shiftKey) {
                 e.preventDefault();
-                links[links.length - 1].focus();
+                navbarFocusList[navbarFocusList.length - 1].focus();
             }
         }
     });
-    links[links.length - 1].addEventListener('keydown', (e) => {
-        if (isExpanded()) {
-            if (e.key === 'Tab' && !e.shiftKey) {
-                e.preventDefault();
-                navbarHamburger.focus();
+
+    navbarFocusList[navbarFocusList.length - 1].addEventListener(
+        'keydown',
+        (e) => {
+            if (isExpanded()) {
+                if (e.key === 'Tab' && !e.shiftKey) {
+                    e.preventDefault();
+                    HamburgerBtn.focus();
+                }
             }
-        }
-    });
-    links[0].addEventListener('keydown', (e) => {
+        },
+    );
+
+    navbarFocusList[0].addEventListener('keydown', (e) => {
         if (isExpanded()) {
             if (e.key === 'Tab' && e.shiftKey) {
                 e.preventDefault();
-                navbarHamburger.focus();
+                HamburgerBtn.focus();
             }
         }
     });
 };
-navbarHamburger.addEventListener('click', toggleNav);
+
+HamburgerBtn.addEventListener('click', toggleNav);
 window.addEventListener('resize', classReload);
 focusTab();

@@ -122,3 +122,15 @@ p {
         font-size: to-rem(18px);
     }
 }
+
+@mixin button-text-primary() {
+    font-size: 14px;
+    color: $primary-btn;
+    font-weight: $bold;
+}
+
+@mixin button-text-secondary() {
+    font-size: 14px;
+    color: $active-link;
+    font-weight: $bold;
+}

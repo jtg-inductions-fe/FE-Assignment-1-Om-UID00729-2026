@@ -12,45 +12,56 @@
     </head>
     <body>
         <nav class="navbar">
-            <span class="icon-logo navbar__logo"></span>
-            <div id="navbar__cont" class="navbar__cont">
-                <ul
-                    id="navbar__ul"
+            <a href="/" class="navbar__logo" title="Travlog"
+                ><span class="icon-logo"></span
+            ></a>
+            <div id="navbar__wrapper" class="navbar__wrapper">
+                <div
+                    id="navbar__list"
                     aria-label="Navbar links"
-                    class="navbar__ul"
+                    class="navbar__list"
                 >
-                    <li><a href="#" class="navbar__links">Home</a></li>
-                    <li><a href="#" class="navbar__links">Discover</a></li>
-                    <li><a href="#" class="navbar__links">Special Deals</a></li>
-                    <li><a href="#" class="navbar__links">Contact</a></li>
-                </ul>
-                <div class="navbar__buttonsCont">
+                    <a href="#" class="navbar__list__links navbar__focus-tab"
+                        >Home</a
+                    >
+                    <a href="#" class="navbar__list__links navbar__focus-tab"
+                        >Discover</a
+                    >
+                    <a href="#" class="navbar__list__links navbar__focus-tab"
+                        >Special Deals</a
+                    >
+                    <a href="#" class="navbar__list__links navbar__focus-tab"
+                        >Contact</a
+                    >
+                </div>
+                <div class="navbar__buttons-wrapper">
                     <button
                         type="button"
                         aria-label="Log In Button"
-                        class="navbar__buttonsCont__login navbar__links"
+                        class="navbar__buttons-wrapper__login navbar__focus-tab"
                     >
-                        Log In
+                        LogIn
                     </button>
                     <button
                         type="button"
                         aria-label="Sign Up Button"
-                        class="navbar__buttonsCont__signup navbar__links"
+                        class="navbar__buttons-wrapper__signup navbar__focus-tab"
                     >
-                        Sign Up
+                        SignUp
                     </button>
                 </div>
             </div>
-            <div class="navbar__hamburgerCont">
+            <div class="navbar__hamburger-wrapper">
                 <button
                     type="button"
-                    class="navbar__hamburger"
+                    class="navbar__hamburger-btn"
                     aria-label="Open hamburger menu"
                     aria-expanded="false"
-                    aria-controls="navbar__ul navbar__cont"
+                    aria-controls="navbar__list navbar__wrapper"
+                    title="Open hamburger menu"
                 >
                     <span
-                        class="icon-bars-solid navbar__hamburger__bars"
+                        class="icon-bars-solid navbar__hamburger-btn__bars"
                     ></span>
                 </button>
             </div>

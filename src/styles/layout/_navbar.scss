@@ -4,138 +4,74 @@
 
 .navbar {
     position: relative;
-    padding-top: 40px;
+    padding-top: to-rem(40px);
 
     @include flex-set(space-between);
-
-    @include respond(tablet) {
-        padding-top: 33px;
-    }
-
-    @include respond(desktop) {
-        padding-top: 66px;
-    }
 
     &__logo {
         font-size: to-rem(40px);
         background: linear-gradient($primary-btn-bg, $secondary-font);
         background-clip: text;
         -webkit-text-fill-color: transparent;
+        -webkit-background-clip: none;
 
         @include flex-set(start);
-
-        @include respond(tablet) {
-            order: 2;
-            @include flex-set(center);
-        }
-
-        @include respond(desktop) {
-            flex: 0.246;
-            @include flex-set(space-between);
-        }
     }
 
-    &__cont {
-        width: 60vw;
+    &__wrapper {
         display: none;
-        z-index: 999;
-
-        @include respond(tablet) {
-            display: block;
-            order: 3;
-            flex: 1;
-        }
-
-        @include respond(desktop) {
-            @include flex-set(space-between, center);
-
-            flex: 0.754;
-        }
+        z-index: 99;
 
         &--open {
-            gap: 20px;
-            position: absolute;
+            width: 95%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: $radius-lg;
+            padding: $space-md;
+            gap: $space-md;
             top: to-rem(90px);
-            right: to-rem(10px);
-            padding: 24px 0;
-            box-shadow: 0 0 10px 5px gray;
-            background-color: $bg;
+            box-shadow: $box-shadow;
+            position: absolute;
 
             @include flex-set(center, center, column);
         }
     }
 
-    &__ul {
-        gap: to-rem(20px);
+    &__list {
+        gap: $space-md;
         z-index: 999;
         font-size: to-rem(14px);
         color: $inactive-link;
         font-weight: $bold;
+        outline-offset: 6px;
 
         @include flex-set(center, center, column);
 
-        @include respond(tablet) {
-            display: none;
-        }
+        &__links {
+            transition: all 0.2s ease;
+            outline-offset: 4px;
 
-        @include respond(desktop) {
-            gap: to-rem(64px);
-            flex: 0.8;
-
-            @include flex-set(start, center);
-        }
-
-        li {
-            transition: transform 0.2s ease;
-        }
-
-        li:hover,
-        li:focus-within {
-            color: $active-link;
-            transform: translateY(-2px);
-        }
-
-        &--open {
-            gap: to-rem(20px);
-            position: absolute;
-            top: to-rem(100px);
-            left: to-rem(10px);
-            padding: 24px 0;
-            box-shadow: 0 0 10px 5px gray;
-            background-color: $bg;
-            width: 40%;
-
-            @include flex-set(center, center, column);
+            &:hover,
+            &:focus-within {
+                color: $active-link;
+                transform: translateY(to-rem(-4px));
+                text-decoration: dashed;
+            }
         }
     }
 
-    &__hamburgerCont {
-        padding-right: 3px;
-
-        @include respond(tablet) {
-            flex: 1;
-            padding-right: 0;
-            padding-left: 3px;
-        }
-        @include respond(desktop) {
-            display: none;
-        }
-    }
-
-    &__hamburger {
+    &__hamburger-btn {
         height: to-rem(40px);
         width: to-rem(40px);
-        border-radius: 10px;
-        font-size: to-rem(32px);
 
         @include flex-set;
 
+        @include button-text-primary;
+
         @include primary-btn;
 
-        @include respond(tablet) {
-            order: 1;
-            flex: 1;
-        }
+        font-size: to-rem(32px);
+        border-radius: $radius-sm;
 
         &__bars {
             transition: transform 0.5s ease;
@@ -148,34 +84,111 @@
         &__close--hidden {
             display: none;
         }
+
         &__bars--hidden {
             display: none;
         }
     }
 
-    &__buttonsCont {
+    &__buttons-wrapper {
         max-width: 100%;
+        gap: to-rem(10px);
 
-        @include flex-set;
-
-        @include respond(tablet) {
-            justify-self: end;
-        }
+        @include flex-set(center, center, column);
 
         &__login {
-            padding: 16px 32px;
-            border-radius: 100px;
-            font-size: to-rem(14px);
+            width: 100%;
+            padding: $space-sm $space-lg;
+            outline-offset: 3px;
+
+            @include button-text-secondary;
 
             @include secondary-btn;
         }
 
         &__signup {
-            padding: 16px 32px;
-            border-radius: 100px;
-            font-size: to-rem(14px);
+            width: 100%;
+            padding: $space-sm $space-lg;
+            outline-offset: 3px;
+
+            @include button-text-primary;
 
             @include primary-btn;
+        }
+    }
+
+    @include respond(tablet) {
+        padding-top: $space-lg;
+
+        &__logo {
+            order: 2;
+
+            @include flex-set(center);
+        }
+
+        &__wrapper {
+            display: block;
+            order: 3;
+            flex: 1;
+        }
+
+        &__list {
+            display: none;
+
+            &--open {
+                left: 0;
+                top: calc(100% + to-rem(16px));
+                padding: $space-lg;
+                border-radius: $radius-md;
+                box-shadow: $box-shadow;
+                background-color: $bg;
+                gap: to-rem(28px);
+
+                position: absolute;
+                width: 100%;
+
+                @include flex-set(center, center, column);
+            }
+        }
+
+        &__hamburger-wrapper {
+            flex: 1;
+            padding-right: 0;
+            padding-left: to-rem(3px);
+        }
+
+        &__hamburger-btn {
+            order: 1;
+            flex: 1;
+        }
+
+        &__buttons-wrapper {
+            justify-self: end;
+            flex-direction: row;
+        }
+    }
+
+    @include respond(desktop) {
+        padding-top: $space-xl;
+
+        &__logo {
+            @include flex-set(space-between);
+        }
+
+        &__wrapper {
+            max-width: 75%;
+
+            @include flex-set(space-between, center);
+        }
+
+        &__list {
+            gap: $space-xl;
+
+            @include flex-set(start, center);
+        }
+
+        &__hamburger-wrapper {
+            display: none;
         }
     }
 }
