@@ -122,13 +122,3 @@ p {
         font-size: to-rem(18px);
     }
 }
-
-@mixin button-text(
-    $font-size: to-rem(14px),
-    $font-weight: $bold,
-    $line-height: 1.2
-) {
-    font-size: $font-size;
-    font-weight: $font-weight;
-    line-height: $line-height;
-}

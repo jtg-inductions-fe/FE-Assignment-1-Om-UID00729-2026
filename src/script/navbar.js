@@ -71,21 +71,17 @@ const focusTab = () => {
     navbarFocusList[navbarFocusList.length - 1].addEventListener(
         'keydown',
         (e) => {
-            if (isExpanded()) {
-                if (e.key === 'Tab' && !e.shiftKey) {
-                    e.preventDefault();
-                    HamburgerBtn.focus();
-                }
+            if (isExpanded() && e.key === 'Tab' && !e.shiftKey) {
+                e.preventDefault();
+                HamburgerBtn.focus();
             }
         },
     );
 
     navbarFocusList[0].addEventListener('keydown', (e) => {
-        if (isExpanded()) {
-            if (e.key === 'Tab' && e.shiftKey) {
-                e.preventDefault();
-                HamburgerBtn.focus();
-            }
+        if (isExpanded() && e.key === 'Tab' && e.shiftKey) {
+            e.preventDefault();
+            HamburgerBtn.focus();
         }
     });
 };
@@ -93,7 +89,8 @@ const focusTab = () => {
 function throttle(fn, delay) {
     let prevTime = 0;
     return function (...args) {
-        let now = Date.now();
+        const now = Date.now();
+
         if (now - prevTime >= delay) {
             fn.apply(this, args);
             prevTime = now;
