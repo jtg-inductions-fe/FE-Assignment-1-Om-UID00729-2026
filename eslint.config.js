@@ -18,6 +18,7 @@ export default [
             },
         },
         rules: {
+            indent: ['error', 4],
             'no-unused-vars': 'warn',
             camelcase: ['warn'],
             'no-console': ['warn'],

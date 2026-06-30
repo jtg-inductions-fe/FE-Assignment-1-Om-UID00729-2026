@@ -123,14 +123,12 @@ p {
     }
 }
 
-@mixin button-text-primary() {
-    font-size: to-rem(14px);
-    color: $primary-btn;
-    font-weight: $bold;
-}
-
-@mixin button-text-secondary() {
-    font-size: to-rem(14px);
-    color: $active-link;
-    font-weight: $bold;
+@mixin button-text(
+    $font-size: to-rem(14px),
+    $font-weight: $bold,
+    $line-height: 1.2
+) {
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
 }

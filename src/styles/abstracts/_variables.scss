@@ -19,15 +19,18 @@ $font-path: '../../../assets/fonts/';
 /// Box-shadow
 $box-shadow: 0 to-rem(8px) to-rem(24px) rgba(0, 0, 0, 0.12);
 
-/// Border-radius
+/// Variables for Border-radius
 $radius-sm: to-rem(10px);
 $radius-md: to-rem(16px);
 $radius-lg: to-rem(20px);
 $radius-xl: to-rem(100px);
 $radius-round: 50%;
 
-/// spacing
+/// Variables for spacing
 $space-sm: to-rem(16px);
 $space-md: to-rem(24px);
 $space-lg: to-rem(32px);
 $space-xl: to-rem(64px);
+
+/// Variables for z-index
+$z-index-10: 10;

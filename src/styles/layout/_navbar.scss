@@ -3,7 +3,6 @@
 @use '../components' as *;
 
 .navbar {
-    position: relative;
     padding-top: to-rem(40px);
 
     @include flex-set(space-between);
@@ -20,7 +19,7 @@
 
     &__wrapper {
         display: none;
-        z-index: 99;
+        z-index: $z-index-10;
 
         &--open {
             width: 95%;
@@ -39,36 +38,34 @@
 
     &__list {
         gap: $space-md;
-        z-index: 999;
+        z-index: $z-index-10;
         font-size: to-rem(14px);
         color: $inactive-link;
         font-weight: $bold;
         outline-offset: 6px;
 
         @include flex-set(center, center, column);
+    }
 
-        &__links {
-            transition: all 0.2s ease;
-            outline-offset: 4px;
+    &__list-links {
+        transition: all 0.2s ease;
+        outline-offset: 4px;
 
-            &:hover,
-            &:focus-within {
-                color: $active-link;
-                transform: translateY(to-rem(-4px));
-                text-decoration: dashed;
-            }
+        &:hover,
+        &:focus-within {
+            color: $active-link;
+            transform: translateY(to-rem(-4px));
+            text-decoration: dashed;
         }
     }
 
     &__hamburger-btn {
         height: to-rem(40px);
         width: to-rem(40px);
+        padding: 0;
 
         @include flex-set;
-
-        @include button-text-primary;
-
-        @include primary-btn;
+        @include button-text;
 
         & {
             font-size: to-rem(32px);
@@ -97,26 +94,20 @@
         gap: to-rem(10px);
 
         @include flex-set(center, center, column);
+    }
 
-        &__login {
-            width: 100%;
-            padding: $space-sm $space-lg;
-            outline-offset: 3px;
+    &__login {
+        width: 100%;
+        outline-offset: 3px;
 
-            @include button-text-secondary;
+        @include button-text;
+    }
 
-            @include secondary-btn;
-        }
+    &__signup {
+        width: 100%;
+        outline-offset: 3px;
 
-        &__signup {
-            width: 100%;
-            padding: $space-sm $space-lg;
-            outline-offset: 3px;
-
-            @include button-text-primary;
-
-            @include primary-btn;
-        }
+        @include button-text;
     }
 
     @include respond(tablet) {
@@ -139,13 +130,12 @@
 
             &--open {
                 left: 0;
-                top: calc(100% + to-rem(16px));
+                top: 10%;
                 padding: $space-lg;
                 border-radius: $radius-md;
                 box-shadow: $box-shadow;
                 background-color: $bg;
                 gap: to-rem(28px);
-
                 position: absolute;
                 width: 100%;
 

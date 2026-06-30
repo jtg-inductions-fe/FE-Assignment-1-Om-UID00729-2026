@@ -1,23 +1,21 @@
 @use '../themes' as *;
 @use '../abstracts/' as *;
 
-@mixin primary-btn {
-    background-color: $primary-btn-bg;
+.button {
     border-radius: $radius-xl;
-    cursor: pointer;
     transition: all 0.3s ease;
+    cursor: pointer;
+    padding: $space-sm $space-lg;
 
-    &:hover,
-    &:focus-within {
-        transform: translateY(to-rem(-4px));
-        border: to-rem(1px) solid $primary-para;
+    &--primary {
+        background-color: $primary-btn-bg;
+        color: $primary-btn;
     }
-}
-@mixin secondary-btn {
-    background-color: $bg;
-    border-radius: $radius-xl;
-    cursor: pointer;
-    transition: all 0.3s ease;
+
+    &--secondary {
+        background-color: $bg;
+        color: $active-link;
+    }
 
     &:hover,
     &:focus-within {
