@@ -5,7 +5,6 @@ const navbarWrapper = document.querySelector('.navbar__wrapper');
 const navbarList = document.querySelector('.navbar__list');
 const hamburgerBars = document.querySelector('.icon-bars-solid');
 const navbarFocusList = document.querySelectorAll('.navbar__focus-tab');
-const body = document.body;
 
 let lastWidth = getWidth();
 
@@ -20,7 +19,6 @@ const toggleNav = () => {
         navbarList.classList.toggle('navbar__list--open');
     }
 
-    body.classList.toggle('no-scroll');
     hamburgerBars.classList.toggle('navbar__hamburger-btn__bars--open');
     HamburgerBtn.setAttribute('aria-expanded', String(isExpanded()));
     HamburgerBtn.title = isExpanded()
@@ -45,7 +43,6 @@ const classReload = () => {
         navbarWrapper.classList.remove('navbar__wrapper--open');
         navbarList.classList.remove('navbar__list--open');
         hamburgerBars.classList.remove('navbar__hamburger-btn__bars--open');
-        body.classList.remove('no-scroll');
         HamburgerBtn.setAttribute('aria-expanded', 'false');
         lastWidth = currWidth;
     }

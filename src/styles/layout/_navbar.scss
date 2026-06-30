@@ -4,6 +4,9 @@
 
 .navbar {
     padding-top: to-rem(40px);
+    background-color: $bg;
+    position: sticky;
+    top: 0;
 
     @include flex-set(space-between);
 
@@ -19,9 +22,9 @@
 
     &__wrapper {
         display: none;
-        z-index: $z-index-10;
 
         &--open {
+            z-index: $z-index-10;
             width: 95%;
             left: 50%;
             transform: translateX(-50%);
@@ -31,6 +34,7 @@
             top: to-rem(90px);
             box-shadow: $box-shadow;
             position: absolute;
+            background-color: $bg;
 
             @include flex-set(center, center, column);
         }
@@ -130,7 +134,7 @@
 
             &--open {
                 left: 0;
-                top: 10%;
+                top: calc(100% + 1rem);
                 padding: $space-lg;
                 border-radius: $radius-md;
                 box-shadow: $box-shadow;
@@ -138,6 +142,7 @@
                 gap: to-rem(28px);
                 position: absolute;
                 width: 100%;
+                z-index: $z-index-10;
 
                 @include flex-set(center, center, column);
             }
