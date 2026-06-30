@@ -1,0 +1,25 @@
+@use '../themes' as *;
+@use '../abstracts/' as *;
+
+.button {
+    border-radius: $radius-xl;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: $space-sm $space-lg;
+
+    &--primary {
+        background-color: $primary;
+        color: $primary-content;
+    }
+
+    &--secondary {
+        background-color: $secondary;
+        color: $secondary-content;
+    }
+
+    &:hover,
+    &:focus-within {
+        transform: translateY(to-rem(-4px));
+        border: to-rem(1px) solid $primary-para;
+    }
+}

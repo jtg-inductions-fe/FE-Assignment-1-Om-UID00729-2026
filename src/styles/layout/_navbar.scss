@@ -1,0 +1,174 @@
+@use '../abstracts' as *;
+@use '../themes' as *;
+@use '../components' as *;
+
+.navbar {
+    padding-block: to-rem(40px) to-rem(20px);
+    background-color: $background;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    @include flex-set(space-between);
+
+    &__logo {
+        font-size: to-rem(40px);
+        background: linear-gradient($primary, $secondary-font);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: none;
+
+        @include flex-set(start);
+    }
+
+    &__wrapper {
+        display: none;
+
+        &--open {
+            z-index: $z-index-10;
+            width: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: $radius-lg;
+            padding: $space-md;
+            gap: $space-md;
+            top: to-rem(90px);
+            box-shadow: $box-shadow;
+            position: absolute;
+            background-color: $background;
+
+            @include flex-set(center, center, column);
+        }
+    }
+
+    &__list {
+        gap: $space-md;
+        z-index: $z-index-10;
+        font-size: to-rem(14px);
+        color: $inactive-link;
+        font-weight: $bold;
+        outline-offset: 6px;
+
+        @include flex-set(center, center, column);
+    }
+
+    &__list-links {
+        transition: all 0.2s ease;
+        outline-offset: 4px;
+
+        &:hover,
+        &:focus-within {
+            color: $active-link;
+            transform: translateY(to-rem(-4px));
+            text-decoration: dashed;
+        }
+    }
+
+    &__hamburger-btn {
+        height: to-rem(40px);
+        width: to-rem(40px);
+        padding: 0;
+        border-radius: $radius-sm;
+
+        @include flex-set;
+        @include font-style(to-rem(32px));
+    }
+
+    &__hamburger-btn-bars {
+        transition: transform 0.5s ease;
+
+        &--open {
+            transform: rotate(90deg);
+        }
+    }
+
+    &__buttons-wrapper {
+        max-width: 100%;
+        gap: to-rem(10px);
+
+        @include flex-set(center, center, column);
+    }
+
+    &__login,
+    &__signup {
+        width: 100%;
+        outline-offset: 3px;
+
+        @include font-style;
+    }
+
+    @include respond(tablet) {
+        padding-block: $space-lg;
+
+        &__logo {
+            order: 2;
+
+            @include flex-set(center);
+        }
+
+        &__wrapper {
+            display: block;
+            order: 3;
+            flex: 1;
+        }
+
+        &__list {
+            display: none;
+
+            &--open {
+                left: 0;
+                top: calc(100% - to-rem(16px));
+                padding: $space-lg;
+                border-radius: $radius-md;
+                box-shadow: $box-shadow;
+                background-color: $background;
+                gap: to-rem(28px);
+                position: absolute;
+                width: 100%;
+                z-index: $z-index-10;
+
+                @include flex-set(center, center, column);
+            }
+        }
+
+        &__hamburger-wrapper {
+            flex: 1;
+            padding-right: 0;
+            padding-left: to-rem(3px);
+        }
+
+        &__hamburger-btn {
+            order: 1;
+            flex: 1;
+        }
+
+        &__buttons-wrapper {
+            justify-self: end;
+            flex-direction: row;
+        }
+    }
+
+    @include respond(desktop) {
+        padding-block: $space-xl $space-sm;
+
+        &__logo {
+            @include flex-set(space-between);
+        }
+
+        &__wrapper {
+            max-width: 75%;
+
+            @include flex-set(space-between, center);
+        }
+
+        &__list {
+            gap: $space-xl;
+
+            @include flex-set(start, center);
+        }
+
+        &__hamburger-wrapper {
+            display: none;
+        }
+    }
+}

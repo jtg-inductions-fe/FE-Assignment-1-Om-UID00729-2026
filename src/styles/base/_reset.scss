@@ -27,13 +27,13 @@ button {
 nav,
 main,
 footer {
-    padding: 0 16.86px;
+    padding: 0 to-rem(16.86px);
 
     @include respond(tablet) {
-        padding: 0 64px;
+        padding: 0 to-rem(64px);
     }
 
     @include respond(desktop) {
-        padding: 0 117.36px 0 130px;
+        padding: 0 to-rem(117.36px) 0 to-rem(130px);
     }
 }

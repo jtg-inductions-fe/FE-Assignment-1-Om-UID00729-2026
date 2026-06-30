@@ -52,3 +52,31 @@
     justify-content: $justify;
     flex-direction: $dir;
 }
+
+/// Sets up font style for elements
+/// @param {string} font-size - For font-size value
+/// @param {string} font-weight - For font-weight value
+/// @param {string} line-height - For line-height value
+/// @return font style to the elements
+///
+/// Example usage
+/// body{
+///     @include font-style(14px, 700, 1.2)
+/// }
+///
+/// Compiled CSS
+/// body{
+///     font-size: 14px;
+///     font-weight: 700;
+///     line-height: 1.2;
+/// }
+///
+@mixin font-style(
+    $font-size: to-rem(14px),
+    $font-weight: $bold,
+    $line-height: 1.2
+) {
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
+}

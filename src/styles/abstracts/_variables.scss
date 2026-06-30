@@ -1,3 +1,5 @@
+@use './functions' as *;
+
 ///Breakpoints for responsiveness
 /// @type map
 /// @props {string} desktop(min-width:1025px)
@@ -13,3 +15,37 @@ $breakpoints: (
 
 ///Variable for Font Path
 $font-path: '../../../assets/fonts/';
+
+/// Box-shadow
+$box-shadow: 0 2rem 1.5rem rgba(0, 0, 0, 0.12);
+
+/// Variables for Border-radius
+$radius-sm: to-rem(10px);
+$radius-md: to-rem(16px);
+$radius-lg: to-rem(20px);
+$radius-xl: to-rem(100px);
+$radius-round: 50%;
+
+/// Variables for spacing
+$space-sm: to-rem(16px);
+$space-md: to-rem(24px);
+$space-lg: to-rem(32px);
+$space-xl: to-rem(64px);
+
+/// Variables for z-index
+$z-index-10: 10;
+
+/// Variables for font-size
+/// @type string
+$font-family: circularstd;
+
+/// Variables for font-weight
+/// @type number
+$bold: 700;
+$medium: 450;
+$regular: 400;
+
+/// Variables for Line Spacing
+/// @type string
+$primary-spacing: 1.2;
+$secondary-spacing: 1.6;

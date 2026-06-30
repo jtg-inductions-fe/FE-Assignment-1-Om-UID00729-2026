@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Title</title>
+        <title>Travlog - Book your Destination</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="Best Travel Planning Website" />
@@ -11,6 +11,61 @@
         <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     </head>
     <body>
+        <nav class="navbar">
+            <a href="/" class="navbar__logo" title="Travlog"
+                ><span class="icon-logo"></span
+            ></a>
+            <div id="navbar__wrapper" class="navbar__wrapper">
+                <div
+                    id="navbar__list"
+                    aria-label="Navbar links"
+                    class="navbar__list"
+                >
+                    <a href="#" class="navbar__list-links navbar__focus-tab"
+                        >Home</a
+                    >
+                    <a href="#" class="navbar__list-links navbar__focus-tab"
+                        >Discover</a
+                    >
+                    <a href="#" class="navbar__list-links navbar__focus-tab"
+                        >Special Deals</a
+                    >
+                    <a href="#" class="navbar__list-links navbar__focus-tab"
+                        >Contact</a
+                    >
+                </div>
+                <div class="navbar__buttons-wrapper">
+                    <button
+                        type="button"
+                        aria-label="Log In Button"
+                        class="button button--primary navbar__login navbar__focus-tab"
+                    >
+                        LogIn
+                    </button>
+                    <button
+                        type="button"
+                        aria-label="Sign Up Button"
+                        class="button button--secondary navbar__signup navbar__focus-tab"
+                    >
+                        SignUp
+                    </button>
+                </div>
+            </div>
+            <div class="navbar__hamburger-wrapper">
+                <button
+                    type="button"
+                    class="button button--primary navbar__hamburger-btn"
+                    aria-label="Open hamburger menu"
+                    aria-expanded="false"
+                    aria-controls="navbar__list navbar__wrapper"
+                    title="Open hamburger menu"
+                >
+                    <span
+                        class="icon-bars-solid navbar__hamburger-btn-bars"
+                    ></span>
+                </button>
+            </div>
+        </nav>
         <script type="module" src="./src/script/index.js"></script>
         <noscript>JavaScript is not supported by your browser!</noscript>
     </body>

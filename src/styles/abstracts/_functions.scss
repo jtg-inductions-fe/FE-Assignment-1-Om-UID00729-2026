@@ -1,3 +1,16 @@
+/// Function to convert px to rem
+/// @param string px - Size in pixels
+/// @return size in rem
+///
+/// Example Usage
+/// body{
+///     height: to-rem(16px);
+/// }
+///
+/// Complied CSS
+/// body{
+///     height: 1rem;
+/// }
 @function to-rem($px) {
     @return calc($px/ 16px) * 1rem;
 }
