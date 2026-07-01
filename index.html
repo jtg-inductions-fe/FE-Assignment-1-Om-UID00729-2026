@@ -13,58 +13,71 @@
     <body>
         <div class="container">
             <nav class="navbar">
-                <a href="/" class="navbar__logo" title="Travlog"
-                    ><span class="icon-logo"></span
-                ></a>
-                <div id="navbar__wrapper" class="navbar__wrapper">
+                <div class="navbar__wrapper">
+                    <a href="/" class="navbar__logo" title="Travlog"
+                        ><span class="icon-logo"></span
+                    ></a>
                     <div
-                        id="navbar__list"
-                        aria-label="Navbar links"
-                        class="navbar__list"
+                        id="navbar__links-wrapper"
+                        class="navbar__links-wrapper"
                     >
-                        <a href="#" class="navbar__list-links navbar__focus-tab"
-                            >Home</a
+                        <div
+                            id="navbar__list"
+                            aria-label="Navbar links"
+                            class="navbar__list"
                         >
-                        <a href="#" class="navbar__list-links navbar__focus-tab"
-                            >Discover</a
-                        >
-                        <a href="#" class="navbar__list-links navbar__focus-tab"
-                            >Special Deals</a
-                        >
-                        <a href="#" class="navbar__list-links navbar__focus-tab"
-                            >Contact</a
-                        >
+                            <a
+                                href="#"
+                                class="navbar__list-links navbar__focus-tab"
+                                >Home</a
+                            >
+                            <a
+                                href="#"
+                                class="navbar__list-links navbar__focus-tab"
+                                >Discover</a
+                            >
+                            <a
+                                href="#"
+                                class="navbar__list-links navbar__focus-tab"
+                                >Special Deals</a
+                            >
+                            <a
+                                href="#"
+                                class="navbar__list-links navbar__focus-tab"
+                                >Contact</a
+                            >
+                        </div>
+                        <div class="navbar__buttons-wrapper">
+                            <button
+                                type="button"
+                                aria-label="Log In Button"
+                                class="button button--primary navbar__login navbar__focus-tab"
+                            >
+                                LogIn
+                            </button>
+                            <button
+                                type="button"
+                                aria-label="Sign Up Button"
+                                class="button button--secondary navbar__signup navbar__focus-tab"
+                            >
+                                SignUp
+                            </button>
+                        </div>
                     </div>
-                    <div class="navbar__buttons-wrapper">
+                    <div class="navbar__hamburger-wrapper">
                         <button
                             type="button"
-                            aria-label="Log In Button"
-                            class="button button--primary navbar__login navbar__focus-tab"
+                            class="button button--icon navbar__hamburger-btn"
+                            aria-label="Open hamburger menu"
+                            aria-expanded="false"
+                            aria-controls="navbar__list navbar__links-wrapper"
+                            title="Open hamburger menu"
                         >
-                            LogIn
-                        </button>
-                        <button
-                            type="button"
-                            aria-label="Sign Up Button"
-                            class="button button--secondary navbar__signup navbar__focus-tab"
-                        >
-                            SignUp
+                            <span
+                                class="icon-bars-solid navbar__hamburger-btn-bars"
+                            ></span>
                         </button>
                     </div>
-                </div>
-                <div class="navbar__hamburger-wrapper">
-                    <button
-                        type="button"
-                        class="button button--icon navbar__hamburger-btn"
-                        aria-label="Open hamburger menu"
-                        aria-expanded="false"
-                        aria-controls="navbar__list navbar__wrapper"
-                        title="Open hamburger menu"
-                    >
-                        <span
-                            class="icon-bars-solid navbar__hamburger-btn-bars"
-                        ></span>
-                    </button>
                 </div>
             </nav>
             <main class="main">
@@ -79,22 +92,27 @@
                         </div>
                         <div class="hero__gallery-group">
                             <div class="hero__gallery-group--left">
-                                <div class="hero__gallery-left-image">
+                                <div class="hero__gallery-image-wrapper">
                                     <img
+                                        class="hero__gallery-image"
                                         src="/assets/images/hero-beach.webp"
                                         alt="Street leading to beach"
                                     />
                                 </div>
-                                <div class="hero__gallery-left-image">
+                                <div class="hero__gallery-image-wrapper">
                                     <img
+                                        class="hero__gallery-image"
                                         src="/assets/images/hero-mountain.webp"
-                                        alt="Travel sitting on mountains"
+                                        alt="Traveler sitting on mountains"
                                     />
                                 </div>
                             </div>
-                            <div class="hero__gallery-group--right">
-                                <div class="hero__gallery-right-image">
+                            <div class="hero__gallery-group--left">
+                                <div
+                                    class="hero__gallery-image-wrapper hero__gallery-image-wrapper--right"
+                                >
                                     <img
+                                        class="hero__gallery-image"
                                         src="/assets/images/hero-city.webp"
                                         alt="Traveler taking pictures on city street"
                                     />

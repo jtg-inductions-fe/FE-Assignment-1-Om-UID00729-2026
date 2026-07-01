@@ -100,17 +100,20 @@
         @include flex-set;
     }
 
-    &__gallery-left-image,
-    &__gallery-right-image {
+    &__gallery-image-wrapper {
         width: 100%;
         height: 50%;
 
-        img {
-            height: 100%;
-            border-radius: to-rem($radius-md);
-            width: 100%;
-            object-fit: cover;
+        &--right {
+            height: auto;
         }
+    }
+
+    &__gallery-image {
+        height: 100%;
+        border-radius: to-rem($radius-md);
+        width: 100%;
+        object-fit: cover;
     }
 
     &__gallery-right-image {

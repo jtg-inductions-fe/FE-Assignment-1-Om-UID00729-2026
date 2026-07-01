@@ -1,19 +1,20 @@
 import { MOBILE, TABLET } from './constants.js';
 
 const HamburgerBtn = document.querySelector('.navbar__hamburger-btn');
-const navbarWrapper = document.querySelector('.navbar__wrapper');
+const navbarWrapper = document.querySelector('.navbar__links-wrapper');
 const navbarList = document.querySelector('.navbar__list');
 const hamburgerBars = document.querySelector('.icon-bars-solid');
 const navbarFocusList = document.querySelectorAll('.navbar__focus-tab');
+const navbar = document.querySelector('.navbar');
 let lastWidth = getWidth();
 
 const isExpanded = () =>
-    navbarWrapper.classList.contains('navbar__wrapper--open') ||
+    navbarWrapper.classList.contains('navbar__links-wrapper--open') ||
     navbarList.classList.contains('navbar__list--open');
 
 const toggleNav = () => {
     if (window.innerWidth <= MOBILE) {
-        navbarWrapper.classList.toggle('navbar__wrapper--open');
+        navbarWrapper.classList.toggle('navbar__links-wrapper--open');
     } else if (window.innerWidth <= TABLET) {
         navbarList.classList.toggle('navbar__list--open');
     }
@@ -37,7 +38,7 @@ function getWidth() {
 
 const closeNav = () => {
     if (isExpanded()) {
-        navbarWrapper.classList.remove('navbar__wrapper--open');
+        navbarWrapper.classList.remove('navbar__links-wrapper--open');
         navbarList.classList.remove('navbar__list--open');
         hamburgerBars.classList.remove('navbar__hamburger-btn-bars--open');
         HamburgerBtn.setAttribute('aria-expanded', 'false');
@@ -108,6 +109,14 @@ document.addEventListener('click', (e) => {
 
     if (!isCLickedInside && isExpanded()) {
         closeNav();
+    }
+});
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+        navbar.classList.add('navbar--shrink');
+    } else {
+        navbar.classList.remove('navbar--shrink');
     }
 });
 

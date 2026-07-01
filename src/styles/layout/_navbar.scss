@@ -3,7 +3,7 @@
 @use '../components' as *;
 
 .navbar {
-    padding-block: to-rem(40px) to-rem(20px);
+    padding-block: to-rem(40px) to-rem(32px);
     background-color: $background;
     position: fixed;
     width: 100%;
@@ -11,9 +11,13 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: $z-index-10;
-    max-width: to-rem(1440px);
+    transition: padding 0.2s ease;
 
-    @include flex-set(space-between);
+    &__wrapper {
+        @include flex-set(space-between);
+        width: min(100%, to-rem(1192px));
+        margin-inline: auto;
+    }
 
     &__logo {
         font-size: to-rem(40px);
@@ -25,7 +29,7 @@
         @include flex-set(start);
     }
 
-    &__wrapper {
+    &__links-wrapper {
         display: none;
 
         &--open {
@@ -113,7 +117,7 @@
             @include flex-set(center);
         }
 
-        &__wrapper {
+        &__links-wrapper {
             display: block;
             order: 3;
             flex: 1;
@@ -158,11 +162,15 @@
     @include respond(desktop) {
         padding-block: to-rem($space-xl) to-rem($space-xs);
 
+        &--shrink {
+            padding-block: to-rem(32px);
+        }
+
         &__logo {
             @include flex-set(space-between);
         }
 
-        &__wrapper {
+        &__links-wrapper {
             max-width: 75%;
 
             @include flex-set(space-between, center);
