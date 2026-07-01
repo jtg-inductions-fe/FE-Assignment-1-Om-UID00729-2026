@@ -4,164 +4,168 @@
 
 .travelpoint {
     width: 100vw;
-    gap: 28px;
-    padding: 55px 0;
+    gap: to-rem(28px);
+    padding-top: to-rem(55px);
     position: relative;
 
     @include flex-set(center, center, column);
 
-    @include respond(tablet) {
-        padding: 70px 0 0 0;
-        gap: 66px;
-    }
-
-    @include respond(desktop) {
-        @include flex-set;
-        width: 92vw;
-        align-self: end;
-        gap: 0;
-    }
-
     &__ellipse {
         display: none;
-        z-index: -99;
-        opacity: 0.5;
-        height: 50vw;
+        z-index: $z-index-neg-1;
+        opacity: 0.4;
+        height: 50%;
         border-radius: 50%;
         background-color: $secondary-blur;
         filter: blur(150px);
+    }
 
-        @include respond(tablet) {
+    &__image-wrapper {
+        width: 100%;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__text-section {
+        text-align: center;
+        gap: to-rem(29px);
+
+        @include flex-set(center, center, column);
+    }
+
+    &__text-wrapper {
+        gap: to-rem($space-lg);
+        @include flex-set(center, center, column);
+    }
+
+    &__text-heading {
+        gap: to-rem($space-xs);
+
+        @include flex-set(center, center, column);
+
+        &--h3 {
+            letter-spacing: 0.2em;
+        }
+    }
+
+    &__para {
+        width: 83%;
+    }
+
+    &__details-cards {
+        width: 90%;
+        gap: to-rem($space-xs);
+        padding-top: to-rem(4px);
+        position: relative;
+
+        @include flex-set(center, center, column);
+    }
+
+    &__card-wrapper {
+        width: 90%;
+    }
+
+    &__card-para {
+        font-size: to-rem(18px);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 100%;
+
+        &--show-text {
+            overflow: visible;
+            white-space: normal;
+            text-overflow: clip;
+        }
+    }
+
+    &__ticket-icon {
+        display: none;
+    }
+
+    @include respond(tablet) {
+        padding-top: to-rem(99px);
+        gap: to-rem($space-xl);
+
+        &__ellipse {
             width: 25vw;
             display: block;
             position: absolute;
             top: -25%;
             right: 0;
         }
-        @include respond(tablet) {
+
+        &__details-cards {
+            flex-wrap: wrap;
+            width: 87%;
+            gap: to-rem($space-lg);
+            padding-top: to-rem($space-lg);
+
+            @include flex-set;
+        }
+
+        &__card-wrapper {
+            min-width: 40%;
+            flex: 1;
+        }
+    }
+
+    @include respond(desktop) {
+        width: min(92vw, 1440px);
+        align-self: end;
+        gap: 0;
+        padding-top: to-rem(110px);
+
+        @include flex-set;
+
+        &__ellipse {
             width: 15vw;
-            top: -50%;
-            right: -5%;
+            bottom: 50%;
+            right: -8%;
         }
-    }
 
-    &__img {
-        width: 100%;
-
-        @include respond(desktop) {
+        &__image-wrapper {
             width: 65.5%;
-            padding-top: 14px;
+            padding-top: to-rem($space-xs);
         }
 
-        img {
-            width: 100%;
-            height: 100%;
-        }
-    }
-
-    &__textSide {
-        text-align: center;
-        gap: 29px;
-
-        @include flex-set(center, center, column);
-
-        @include respond(desktop) {
+        &__text-section {
             width: 34.5%;
             text-align: start;
-            gap: 32px;
+            gap: to-rem($space-lg);
         }
 
-        &__cont {
-            gap: 32px;
-            @include flex-set(center, center, column);
-
-            @include respond(desktop) {
-                gap: 34px;
-            }
-
-            &__head {
-                gap: 16px;
-
-                @include flex-set(center, center, column);
-
-                @include respond(desktop) {
-                    align-items: flex-start;
-                    padding-top: 7px;
-                    gap: 19px;
-                }
-
-                h3 {
-                    letter-spacing: 20%;
-                }
-            }
-
-            p {
-                width: 83%;
-
-                @include respond(desktop) {
-                    align-self: flex-start;
-                    width: 100%;
-                }
-            }
+        &__text-wrapper {
+            gap: to-rem($space-lg);
         }
 
-        &__details {
-            width: 90%;
-            gap: 16px;
-            padding-top: 4px;
-            position: relative;
+        &__text-heading {
+            align-items: flex-start;
+            padding-top: to-rem(7px);
+            gap: to-rem(19px);
+        }
 
-            @include flex-set(center, center, column);
+        &__para {
+            align-self: flex-start;
+            width: 100%;
+        }
 
-            @include respond(tablet) {
-                flex-wrap: wrap;
-                width: 87%;
-                gap: 32px;
-                padding-top: 32px;
+        &__details-cards {
+            width: 100%;
+            text-align: center;
+        }
 
-                @include flex-set;
-            }
-
-            @include respond(desktop) {
-                width: 100%;
-                text-align: center;
-            }
-
-            &__icon {
-                display: none;
-
-                @include respond(desktop) {
-                    @include flex-set;
-                    position: absolute;
-                    color: $primary-btn;
-                    border-radius: 50%;
-                    background-color: $secondary-blur;
-                    width: to-rem(111px);
-                    height: to-rem(111px);
-                    font-size: to-rem(40px);
-                    top: -4%;
-                    right: -12%;
-                }
-            }
-
-            &__cont {
-                width: 90%;
-                gap: 16px;
-                padding: 31.5px 0;
-                border: 1px solid $primary-btn-bg;
-                border-radius: 30px;
-
-                @include flex-set(center, center, column);
-
-                @include respond(tablet) {
-                    min-width: 40%;
-                    flex: 1;
-                }
-
-                p {
-                    font-size: 18px;
-                }
-            }
+        &__ticket-icon {
+            position: absolute;
+            width: to-rem(111px);
+            height: to-rem(111px);
+            font-size: to-rem(40px);
+            top: -4%;
+            right: -12%;
+            display: block;
         }
     }
 }

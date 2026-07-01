@@ -19,6 +19,8 @@ $font-path: '../../../assets/fonts/';
 /// Border-color
 $border-primary: 1px solid #1918251a;
 $border-secondary: 1px solid #eee;
+$border-deals: 1px solid #f4436c33;
+$border-deals-expired: 1px solid #00000033;
 
 /// Box-shadow
 $box-shadow: 0 2rem 1.5rem rgba(0, 0, 0, 0.12);
@@ -40,6 +42,7 @@ $space-xl: 64px;
 /// Variables for z-index
 $z-index-10: 10;
 $z-index-20: 20;
+$z-index-neg-1: -1;
 
 /// Variables for font-size
 /// @type string

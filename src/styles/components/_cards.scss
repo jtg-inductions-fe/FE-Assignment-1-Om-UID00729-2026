@@ -1,0 +1,29 @@
+@use '../abstracts/' as *;
+@use '../themes/' as *;
+
+.card {
+    @include flex-set;
+
+    &--details {
+        padding-block: to-rem($space-lg);
+        border: $border-primary;
+        border-radius: $radius-lg;
+        gap: to-rem($space-xs);
+        flex-direction: column;
+        background-color: transparent;
+    }
+
+    &--deals {
+        padding-block: to-rem($space-xs);
+        border: $border-deals;
+        border-radius: $radius-md;
+        gap: to-rem(12px);
+    }
+
+    &--deals-expired {
+        padding-block: to-rem($space-xs);
+        border: $border-deals-expired;
+        border-radius: $radius-md;
+        gap: to-rem(12px);
+    }
+}
