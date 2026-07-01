@@ -2,10 +2,10 @@
 @use '../abstracts/' as *;
 
 .button {
-    border-radius: $radius-xl;
+    border-radius: to-rem($radius-xl);
     transition: all 0.3s ease;
     cursor: pointer;
-    padding: $space-sm $space-lg;
+    padding: to-rem($space-sm) to-rem($space-lg);
 
     &--primary {
         background-color: $primary;
@@ -17,9 +17,24 @@
         color: $secondary-content;
     }
 
+    &--outline {
+        background-color: $secondary;
+        color: $secondary-content;
+        border: $border-secondary;
+    }
+
+    &--icon {
+        background-color: $primary;
+        color: $primary-content;
+        padding: 0;
+
+        @include flex-set;
+    }
+
     &:hover,
     &:focus-within {
         transform: translateY(to-rem(-4px));
         border: to-rem(1px) solid $primary-para;
+        box-shadow: $box-shadow;
     }
 }
