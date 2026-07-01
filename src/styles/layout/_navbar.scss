@@ -13,6 +13,11 @@
     z-index: $z-index-10;
     transition: padding 0.2s ease;
 
+    &--scrolled {
+        box-shadow: $box-shadow;
+        padding-block: to-rem(32px);
+    }
+
     &__wrapper {
         @include flex-set(space-between);
         width: min(100%, to-rem(1192px));
@@ -97,7 +102,7 @@
         max-width: 100%;
         gap: to-rem(10px);
 
-        @include flex-set(center, center, column);
+        @include flex-set;
     }
 
     &__login,
@@ -161,10 +166,6 @@
 
     @include respond(desktop) {
         padding-block: to-rem($space-xl) to-rem($space-xs);
-
-        &--shrink {
-            padding-block: to-rem(32px);
-        }
 
         &__logo {
             @include flex-set(space-between);

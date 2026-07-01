@@ -1,4 +1,4 @@
-import { MOBILE, TABLET } from './constants.js';
+import { TABLET, DESKTOP } from './constants.js';
 
 const HamburgerBtn = document.querySelector('.navbar__hamburger-btn');
 const navbarWrapper = document.querySelector('.navbar__links-wrapper');
@@ -13,9 +13,9 @@ const isExpanded = () =>
     navbarList.classList.contains('navbar__list--open');
 
 const toggleNav = () => {
-    if (window.innerWidth <= MOBILE) {
+    if (window.innerWidth < TABLET) {
         navbarWrapper.classList.toggle('navbar__links-wrapper--open');
-    } else if (window.innerWidth <= TABLET) {
+    } else if (window.innerWidth < DESKTOP) {
         navbarList.classList.toggle('navbar__list--open');
     }
 
@@ -31,8 +31,8 @@ const toggleNav = () => {
 };
 
 function getWidth() {
-    if (window.innerWidth <= MOBILE) return 'mobile';
-    if (window.innerWidth <= TABLET) return 'tablet';
+    if (window.innerWidth < TABLET) return 'mobile';
+    if (window.innerWidth < DESKTOP) return 'tablet';
     return 'desktop';
 }
 
@@ -114,9 +114,9 @@ document.addEventListener('click', (e) => {
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 10) {
-        navbar.classList.add('navbar--shrink');
+        navbar.classList.add('navbar--scrolled');
     } else {
-        navbar.classList.remove('navbar--shrink');
+        navbar.classList.remove('navbar--scrolled');
     }
 });
 

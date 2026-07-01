@@ -116,10 +116,6 @@
         object-fit: cover;
     }
 
-    &__gallery-right-image {
-        height: auto;
-    }
-
     &__text-section {
         gap: to-rem(19px);
         text-align: center;
@@ -248,7 +244,7 @@
             @include flex-set;
 
             &--get-started {
-                padding: to-rem($space-xs) 0;
+                padding: to-rem($space-xs) to-rem($space-lg);
             }
 
             &--watch-demo {
