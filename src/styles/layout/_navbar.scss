@@ -5,9 +5,11 @@
 .navbar {
     padding-block: to-rem(40px) to-rem(20px);
     background-color: $background;
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
     left: 0;
+    z-index: $z-index-10;
 
     @include flex-set(space-between);
 
@@ -29,9 +31,9 @@
             width: 100%;
             left: 50%;
             transform: translateX(-50%);
-            border-radius: $radius-lg;
-            padding: $space-md;
-            gap: $space-md;
+            border-radius: to-rem($radius-lg);
+            padding: to-rem($space-md);
+            gap: to-rem($space-md);
             top: to-rem(90px);
             box-shadow: $box-shadow;
             position: absolute;
@@ -42,7 +44,7 @@
     }
 
     &__list {
-        gap: $space-md;
+        gap: to-rem($space-md);
         z-index: $z-index-10;
         font-size: to-rem(14px);
         color: $inactive-link;
@@ -68,7 +70,7 @@
         height: to-rem(40px);
         width: to-rem(40px);
         padding: 0;
-        border-radius: $radius-sm;
+        border-radius: to-rem($radius-sm);
 
         @include flex-set;
         @include font-style(to-rem(32px));
@@ -98,7 +100,7 @@
     }
 
     @include respond(tablet) {
-        padding-block: $space-lg;
+        padding-block: to-rem($space-lg);
 
         &__logo {
             order: 2;
@@ -118,8 +120,8 @@
             &--open {
                 left: 0;
                 top: calc(100% - to-rem(16px));
-                padding: $space-lg;
-                border-radius: $radius-md;
+                padding: to-rem($space-lg);
+                border-radius: to-rem($radius-md);
                 box-shadow: $box-shadow;
                 background-color: $background;
                 gap: to-rem(28px);
@@ -149,7 +151,7 @@
     }
 
     @include respond(desktop) {
-        padding-block: $space-xl $space-sm;
+        padding-block: to-rem($space-xl) 0;
 
         &__logo {
             @include flex-set(space-between);
@@ -162,7 +164,7 @@
         }
 
         &__list {
-            gap: $space-xl;
+            gap: to-rem($space-xl);
 
             @include flex-set(start, center);
         }

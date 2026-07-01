@@ -2,10 +2,10 @@
 @use '../abstracts/' as *;
 
 .button {
-    border-radius: $radius-xl;
+    border-radius: to-rem($radius-xl);
     transition: all 0.3s ease;
     cursor: pointer;
-    padding: $space-sm $space-lg;
+    padding: to-rem($space-sm) to-rem($space-lg);
 
     &--primary {
         background-color: $primary;

@@ -20,21 +20,22 @@ $font-path: '../../../assets/fonts/';
 $box-shadow: 0 2rem 1.5rem rgba(0, 0, 0, 0.12);
 
 /// Variables for Border-radius
-$radius-sm: to-rem(10px);
-$radius-md: to-rem(16px);
-$radius-lg: to-rem(20px);
-$radius-xl: to-rem(100px);
+$radius-sm: 10px;
+$radius-md: 16px;
+$radius-lg: 20px;
+$radius-xl: 100px;
 $radius-round: 50%;
 
 /// Variables for spacing
-$space-xs: to-rem(16px);
-$space-sm: to-rem(18px);
-$space-md: to-rem(24px);
-$space-lg: to-rem(32px);
-$space-xl: to-rem(64px);
+$space-xs: 16px;
+$space-sm: 18px;
+$space-md: 24px;
+$space-lg: 32px;
+$space-xl: 64px;
 
 /// Variables for z-index
 $z-index-10: 10;
+$z-index-20: 20;
 
 /// Variables for font-size
 /// @type string
@@ -52,7 +53,7 @@ $primary-spacing: 1.2;
 $secondary-spacing: 1.6;
 
 /// Variables for Icons
-$icon-sm: to-rem(16px);
-$icon-md: to-rem(20px);
-$icon-lg: to-rem(32px);
-$icon-xl: to-rem(64px);
+$icon-sm: 16px;
+$icon-md: 20px;
+$icon-lg: 32px;
+$icon-xl: 64px;

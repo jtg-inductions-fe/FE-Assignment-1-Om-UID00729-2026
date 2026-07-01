@@ -7,8 +7,8 @@
 }
 
 .hero {
-    margin-top: $space-xl;
-    gap: $space-lg;
+    margin-top: to-rem(144px);
+    gap: to-rem($space-lg);
 
     @include flex-set(center, center, column);
 
@@ -21,235 +21,64 @@
         position: absolute;
         top: -5%;
         left: -15%;
-        z-index: -99;
+        z-index: $z-index-20;
         filter: blur(150px);
+        pointer-events: none;
     }
 
-    &__img-section {
+    &__gallery {
         aspect-ratio: 396/366;
 
         @include flex-set(center, end);
+    }
 
-        &__bg {
-            align-self: start;
-            position: absolute;
-            padding: 0 $space-xs;
+    &__gallery-bg {
+        align-self: start;
+        position: absolute;
+        padding: 0 to-rem($space-xs);
 
-            img {
-                width: 100%;
-            }
+        img {
+            width: 100%;
         }
     }
 
-    &__text-section {
-        gap: to-rem(19px);
-        text-align: center;
+    &__gallery-group {
+        width: 74%;
+        aspect-ratio: 575/632;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: to-rem($space-xs);
         position: relative;
+        margin-left: 11%;
+        margin-right: 13%;
 
-        @include flex-set(center, center, column);
-
-        &__badge {
-            padding: $space-xs $space-lg;
-            box-shadow: $box-shadow;
-            border-radius: $radius-xl;
-
-            &__h3 {
-                gap: $space-xs;
-                font-size: to-rem(14px);
-
-                @include flex-set;
-
-                &__icon {
-                    font-size: $icon-sm;
-                }
-            }
-        }
-
-        &__heading {
-            width: 84%;
-
-            &__span {
-                word-break: break-all;
-                color: $secondary-font;
-            }
-        }
-
-        &__para {
-            width: 96%;
-            padding-top: to-rem(6px);
-        }
-
-        &__buttons {
-            width: 100%;
-            gap: 24px;
-            padding-top: to-rem(12px);
+        &--left,
+        &--right {
+            gap: to-rem($space-sm);
+            overflow: hidden;
+            border-radius: to-rem($radius-md);
 
             @include flex-set(center, center, column);
-
-            &__get-started {
-                padding: $space-md 0;
-                width: 100%;
-                white-space: nowrap;
-
-                @include primary-btn;
-
-                @include button-text-primary;
-            }
-            &__watch-demo {
-                gap: to-rem(9px);
-                padding: $space-md 0;
-                border: 1px solid #eee;
-                width: 100%;
-                white-space: nowrap;
-
-                @include secondary-btn;
-
-                @include button-text-secondary;
-
-                @include flex-set;
-
-                span {
-                    font-size: $icon-sm;
-                }
-            }
         }
     }
 
-    @include respond(tablet) {
-        margin: $space-lg 0;
-        gap: $space-sm;
-
-        &__img-section {
-            aspect-ratio: 772/713;
-            padding: 7%;
-        }
-
-        &__text-section {
-            gap: to-rem(43px);
-
-            &__heading {
-                width: 70%;
-                padding-top: to-rem(5px);
-            }
-
-            &__para {
-                width: 47%;
-                padding-top: 0;
-            }
-
-            &__buttons {
-                gap: $space-xs;
-                padding: 0;
-                width: 38%;
-
-                @include flex-set;
-
-                &__get-started {
-                    padding: $space-xs $space-lg;
-                }
-
-                &__watch-demo {
-                    padding: $space-xs $space-lg;
-                }
-            }
-        }
-    }
-    @include respond(desktop) {
-        margin-top: to-rem(90px);
-        gap: 0;
-
-        @include flex-set;
-
-        &__img-section {
-            order: 2;
-            width: 65%;
-            padding: 0;
-        }
-
-        &__text-section {
-            gap: to-rem(40px);
-            width: 35%;
-            text-align: start;
-
-            &__badge {
-                align-self: flex-start;
-                padding: $space-md $space-xl;
-            }
-
-            &__heading {
-                width: 100%;
-            }
-
-            &__para {
-                align-self: start;
-                width: 97%;
-                padding-top: 0;
-
-                @include flex-set(center, start, column);
-            }
-
-            &__buttons {
-                padding: 0;
-                gap: $space-xs;
-                width: 100%;
-
-                @include flex-set(start, center, row);
-            }
-        }
-    }
-}
-
-.img-section-wrapper {
-    width: 74%;
-    aspect-ratio: 9/10;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: $space-xs;
-    position: relative;
-    margin-left: 11%;
-    margin-right: 13%;
-
-    &__left,
-    &__right {
-        gap: $space-sm;
-        overflow: hidden;
-        border-radius: $radius-md;
-
-        @include flex-set(center, center, column);
-
-        &__img {
-            height: 50%;
-            width: 100%;
-
-            img {
-                height: 100%;
-                border-radius: $radius-md;
-                width: 100%;
-                object-fit: cover;
-            }
-        }
-    }
-    &__right__img {
-        height: auto;
-    }
-
-    &__telegram {
+    &__gallery-telegram {
         position: absolute;
         background-color: $secondary-font;
-        width: $icon-lg;
-        height: $icon-lg;
-        font-size: $icon-sm;
+        width: to-rem($icon-lg);
+        height: to-rem($icon-lg);
+        font-size: to-rem($icon-sm);
         border-radius: $radius-round;
         bottom: 48.5%;
         left: -6.25%;
+
         @include flex-set;
     }
 
-    &__add-user {
-        width: $icon-lg;
-        height: $icon-lg;
-        font-size: $icon-sm;
+    &__gallery-add-user {
+        width: to-rem($icon-lg);
+        height: to-rem($icon-lg);
+        font-size: to-rem($icon-sm);
         border-radius: $radius-round;
         position: absolute;
         background-color: $primary-blur;
@@ -259,14 +88,14 @@
         @include flex-set;
     }
 
-    &__top-places {
+    &__gallery-top-places {
         padding: to-rem(10px);
         gap: to-rem(10px);
         position: absolute;
-        background-color: $bg;
+        background-color: $background;
         width: to-rem(85px);
-        border-radius: $radius-xl;
-        bottom: 27%;
+        border-radius: to-rem($radius-xl);
+        bottom: 26%;
         right: -16.5%;
         font-size: to-rem(7px);
         font-weight: $bold;
@@ -274,44 +103,212 @@
         @include flex-set;
     }
 
+    &__gallery-left-image,
+    &__gallery-right-image {
+        width: 100%;
+        height: 50%;
+
+        img {
+            height: 100%;
+            border-radius: to-rem($radius-md);
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__gallery-right-image {
+        height: auto;
+    }
+
+    &__text-section {
+        gap: to-rem(19px);
+        text-align: center;
+        position: relative;
+        margin-top: to-rem(10px);
+
+        @include flex-set(center, center, column);
+
+        &__para {
+            width: 96%;
+            padding-top: to-rem(6px);
+        }
+    }
+
+    &__text-section-badge {
+        padding: to-rem($space-xs) to-rem($space-lg);
+        box-shadow: $box-shadow;
+        border-radius: to-rem($radius-xl);
+    }
+
+    &__text-section-badge-h3 {
+        gap: to-rem($space-xs);
+        font-size: to-rem(14px);
+
+        @include flex-set;
+    }
+
+    &__text-section-badge-icon {
+        font-size: to-rem($icon-sm);
+    }
+
+    &__text-section-heading {
+        width: 84%;
+
+        &--span {
+            color: $secondary-font;
+        }
+    }
+
+    &__text-section-buttons {
+        width: 100%;
+        gap: 24px;
+        padding-top: to-rem(12px);
+
+        @include flex-set(center, center, column);
+
+        &--get-started {
+            padding: to-rem($space-md) 0;
+            width: 100%;
+            white-space: nowrap;
+
+            @include font-style;
+        }
+        &--watch-demo {
+            gap: to-rem(9px);
+            padding: to-rem($space-md) 0;
+            border: 1px solid #eee;
+            width: 100%;
+            white-space: nowrap;
+
+            @include font-style;
+            @include flex-set;
+
+            span {
+                font-size: to-rem($icon-sm);
+            }
+        }
+    }
+
     @include respond(tablet) {
-        &__left,
-        &__right {
-            gap: $space-md;
+        margin: to-rem(114px) 0;
+        gap: to-rem($space-sm);
+
+        &__gallery {
+            aspect-ratio: 772/713;
+            padding: to-rem($space-xl);
         }
 
-        &__telegram {
-            width: $icon-xl;
-            height: $icon-xl;
-            font-size: $icon-lg;
+        &__gallery-group {
+            gap: to-rem($space-md);
+            &--left,
+            &--right {
+                gap: to-rem($space-md);
+            }
         }
 
-        &__add-user {
-            width: $icon-xl;
-            height: $icon-xl;
-            font-size: $icon-lg;
+        &__gallery-telegram {
+            width: to-rem($icon-xl);
+            height: to-rem($icon-xl);
+            font-size: to-rem($icon-lg);
+            bottom: 47.5%;
         }
 
-        &__top-places {
+        &__gallery-add-user {
+            width: to-rem($icon-xl);
+            height: to-rem($icon-xl);
+            font-size: to-rem($icon-lg);
+            bottom: -1%;
+        }
+
+        &__gallery-top-places {
             font-size: to-rem(14px);
-            width: 40%;
-            padding: $space-sm;
+            width: 30%;
+            padding: to-rem($space-sm);
+        }
+
+        &__text-section {
+            gap: to-rem(43px);
+            margin: 0;
+        }
+
+        &__text-section-heading {
+            width: 70%;
+            padding-top: to-rem(5px);
+        }
+
+        &__text-section-para {
+            width: 47%;
+            padding-top: 0;
+        }
+
+        &__text-section-buttons {
+            gap: to-rem($space-xs);
+            padding: 0;
+            width: 38%;
+
+            @include flex-set;
+
+            &--get-started {
+                padding: to-rem($space-xs) 0;
+            }
+
+            &--watch-demo {
+                padding: to-rem($space-xs) to-rem($space-lg);
+            }
         }
     }
 
     @include respond(desktop) {
-        gap: 33px;
+        margin-top: to-rem(200px);
+        gap: 0;
 
-        &__left,
-        &__right {
-            gap: $space-lg;
-            border-radius: to-rem(30px);
+        @include flex-set;
+
+        &__gallery {
+            order: 2;
+            width: 65%;
+            padding: 0;
         }
 
-        &__img {
+        &__gallery-group {
+            gap: 33px;
+
+            &--left,
+            &--right {
+                gap: to-rem($space-lg);
+                border-radius: to-rem(30px);
+            }
+        }
+
+        &__gallery-image {
             img {
                 border-radius: to-rem(30px);
             }
+        }
+
+        &__text-section {
+            width: 35%;
+            text-align: start;
+            align-items: flex-start;
+        }
+
+        &__text-section-heading {
+            width: 100%;
+        }
+
+        &__text-section-para {
+            width: 97%;
+            padding-top: 0;
+
+            @include flex-set(center, start, column);
+        }
+
+        &__text-section-buttons {
+            padding: 0;
+            gap: to-rem($space-xs);
+            width: 79%;
+
+            @include flex-set(start, center, row);
         }
     }
 }

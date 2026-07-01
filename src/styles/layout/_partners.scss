@@ -4,8 +4,8 @@
 
 .partners {
     flex-wrap: wrap;
-    gap: $space-md;
-    padding: $space-xl 0;
+    gap: to-rem($space-md);
+    padding: to-rem(73px) 0;
 
     @include flex-set;
 
@@ -24,18 +24,18 @@
 
     @include respond(tablet) {
         width: 80%;
-        padding: 97px 65px 55px 65px;
+        padding: to-rem($space-md) to-rem($space-xl);
 
         &__links {
             &__icons {
-                font-size: $icon-lg;
+                font-size: to-rem($icon-lg);
             }
         }
     }
 
     @include respond(desktop) {
         width: 100%;
-        padding: to-rem(90px) 0;
+        padding: to-rem(10px) 0;
         justify-content: space-between;
     }
 }
