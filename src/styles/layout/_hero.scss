@@ -2,10 +2,6 @@
 @use '../themes' as *;
 @use '../components' as *;
 
-.main {
-    @include flex-set(center, center, column);
-}
-
 .hero {
     margin-top: to-rem(144px);
     gap: to-rem($space-lg);
@@ -99,6 +95,7 @@
         right: -16.5%;
         font-size: to-rem(7px);
         font-weight: $bold;
+        box-shadow: $box-shadow;
 
         @include flex-set;
     }
@@ -176,7 +173,6 @@
         &--watch-demo {
             gap: to-rem(9px);
             padding: to-rem($space-md) 0;
-            border: 1px solid #eee;
             width: 100%;
             white-space: nowrap;
 

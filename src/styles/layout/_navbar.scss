@@ -8,8 +8,10 @@
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: $z-index-10;
+    max-width: to-rem(1440px);
 
     @include flex-set(space-between);
 
@@ -69,11 +71,14 @@
     &__hamburger-btn {
         height: to-rem(40px);
         width: to-rem(40px);
-        padding: 0;
         border-radius: to-rem($radius-sm);
 
-        @include flex-set;
         @include font-style(to-rem(32px));
+
+        &:hover,
+        &:focus-within {
+            box-shadow: none;
+        }
     }
 
     &__hamburger-btn-bars {
@@ -151,7 +156,7 @@
     }
 
     @include respond(desktop) {
-        padding-block: to-rem($space-xl) 0;
+        padding-block: to-rem($space-xl) to-rem($space-xs);
 
         &__logo {
             @include flex-set(space-between);

@@ -16,20 +16,18 @@
         &:hover {
             color: $active-link;
         }
+    }
 
-        &__icons {
-            font-size: to-rem(20px);
-        }
+    &__links-icons {
+        font-size: to-rem(20px);
     }
 
     @include respond(tablet) {
         width: 80%;
         padding: to-rem($space-md) to-rem($space-xl);
 
-        &__links {
-            &__icons {
-                font-size: to-rem($icon-lg);
-            }
+        &__links-icons {
+            font-size: to-rem($icon-lg);
         }
     }
 
