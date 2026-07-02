@@ -1,0 +1,15 @@
+@use '../abstracts/' as *;
+@use '../themes/' as *;
+
+.card {
+    @include flex-set;
+
+    &--outline {
+        padding-block: to-rem($space-lg);
+        border: $border-primary;
+        border-radius: $radius-lg;
+        gap: to-rem($space-xs);
+        flex-direction: column;
+        background-color: transparent;
+    }
+}

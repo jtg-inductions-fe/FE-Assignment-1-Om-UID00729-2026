@@ -1,0 +1,171 @@
+@use '../abstracts' as *;
+@use '../themes' as *;
+@use '../components' as *;
+
+.travelpoint {
+    width: 100vw;
+    gap: to-rem(28px);
+    padding-top: to-rem(55px);
+    position: relative;
+
+    @include flex-set(center, center, column);
+
+    &__ellipse {
+        display: none;
+        z-index: $z-index-neg-1;
+        opacity: 0.4;
+        height: 50%;
+        border-radius: 50%;
+        background-color: $secondary-blur;
+        filter: blur(150px);
+    }
+
+    &__image-wrapper {
+        width: 100%;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__text-section {
+        text-align: center;
+        gap: to-rem(29px);
+
+        @include flex-set(center, center, column);
+    }
+
+    &__text-wrapper {
+        gap: to-rem($space-lg);
+        @include flex-set(center, center, column);
+    }
+
+    &__text-header {
+        gap: to-rem($space-xs);
+
+        @include flex-set(center, center, column);
+    }
+
+    &__text-sub-heading {
+        letter-spacing: 0.2em;
+    }
+
+    &__para {
+        width: 83%;
+    }
+
+    &__details-cards {
+        width: 90%;
+        gap: to-rem($space-xs);
+        padding-top: to-rem(4px);
+        position: relative;
+
+        @include flex-set(center, center, column);
+    }
+
+    &__card-wrapper {
+        width: 90%;
+    }
+
+    &__card-para {
+        font-size: to-rem(18px);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 100%;
+
+        &--show-text {
+            overflow: visible;
+            white-space: normal;
+            text-overflow: clip;
+        }
+    }
+
+    &__ticket-icon {
+        display: none;
+    }
+
+    @include respond(tablet) {
+        padding-top: to-rem(99px);
+        gap: to-rem($space-xl);
+
+        &__ellipse {
+            width: 25vw;
+            display: block;
+            position: absolute;
+            top: -25%;
+            right: 0;
+        }
+
+        &__details-cards {
+            flex-wrap: wrap;
+            width: 87%;
+            gap: to-rem($space-lg);
+            padding-top: to-rem($space-lg);
+
+            @include flex-set;
+        }
+
+        &__card-wrapper {
+            min-width: 40%;
+            flex: 1;
+        }
+    }
+
+    @include respond(desktop) {
+        width: min(92vw, 1440px);
+        align-self: end;
+        gap: 0;
+        padding-top: to-rem(110px);
+
+        @include flex-set;
+
+        &__ellipse {
+            width: 15vw;
+            bottom: 50%;
+            right: -8%;
+        }
+
+        &__image-wrapper {
+            width: 65.5%;
+            padding-top: to-rem($space-xs);
+        }
+
+        &__text-section {
+            width: 34.5%;
+            text-align: start;
+            gap: to-rem($space-lg);
+        }
+
+        &__text-wrapper {
+            gap: to-rem($space-lg);
+        }
+
+        &__text-header {
+            align-items: flex-start;
+            padding-top: to-rem(7px);
+            gap: to-rem(19px);
+        }
+
+        &__para {
+            align-self: flex-start;
+            width: 100%;
+        }
+
+        &__details-cards {
+            width: 100%;
+            text-align: center;
+        }
+
+        &__ticket-icon {
+            position: absolute;
+            width: to-rem(111px);
+            height: to-rem(111px);
+            font-size: to-rem(40px);
+            top: -4%;
+            right: -12%;
+            display: block;
+        }
+    }
+}

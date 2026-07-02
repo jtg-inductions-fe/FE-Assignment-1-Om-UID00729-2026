@@ -7,4 +7,5 @@
 
 .main {
     @include flex-set(center, center, column);
+    position: relative;
 }
