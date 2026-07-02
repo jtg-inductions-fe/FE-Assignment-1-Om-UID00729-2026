@@ -11,243 +11,261 @@
         <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     </head>
     <body>
-        <div class="container">
-            <nav class="navbar">
-                <div class="navbar__wrapper">
-                    <a href="/" class="navbar__logo" title="Travlog"
-                        ><span class="icon-logo"></span
-                    ></a>
+        <nav class="navbar container">
+            <div class="navbar__wrapper">
+                <a href="/" class="navbar__logo" title="Travlog"
+                    ><span class="icon-logo"></span
+                ></a>
+                <div id="navbar__links-wrapper" class="navbar__links-wrapper">
                     <div
-                        id="navbar__links-wrapper"
-                        class="navbar__links-wrapper"
+                        id="navbar__list"
+                        aria-label="Navbar links"
+                        class="navbar__list"
                     >
-                        <div
-                            id="navbar__list"
-                            aria-label="Navbar links"
-                            class="navbar__list"
+                        <a href="#" class="navbar__list-links navbar__focus-tab"
+                            >Home</a
                         >
-                            <a
-                                href="#"
-                                class="navbar__list-links navbar__focus-tab"
-                                >Home</a
-                            >
-                            <a
-                                href="#"
-                                class="navbar__list-links navbar__focus-tab"
-                                >Discover</a
-                            >
-                            <a
-                                href="#"
-                                class="navbar__list-links navbar__focus-tab"
-                                >Special Deals</a
-                            >
-                            <a
-                                href="#"
-                                class="navbar__list-links navbar__focus-tab"
-                                >Contact</a
-                            >
-                        </div>
-                        <div class="navbar__buttons-wrapper">
-                            <button
-                                type="button"
-                                aria-label="Log In Button"
-                                class="button button--secondary navbar__login navbar__focus-tab"
-                            >
-                                LogIn
-                            </button>
-                            <button
-                                type="button"
-                                aria-label="Sign Up Button"
-                                class="button button--primary navbar__signup navbar__focus-tab"
-                            >
-                                SignUp
-                            </button>
-                        </div>
+                        <a href="#" class="navbar__list-links navbar__focus-tab"
+                            >Discover</a
+                        >
+                        <a href="#" class="navbar__list-links navbar__focus-tab"
+                            >Special Deals</a
+                        >
+                        <a href="#" class="navbar__list-links navbar__focus-tab"
+                            >Contact</a
+                        >
                     </div>
-                    <div class="navbar__hamburger-wrapper">
+                    <div class="navbar__buttons-wrapper">
                         <button
                             type="button"
-                            class="button button--icon navbar__hamburger-btn"
-                            aria-label="Open hamburger menu"
-                            aria-expanded="false"
-                            aria-controls="navbar__list navbar__links-wrapper"
-                            title="Open hamburger menu"
+                            aria-label="Log In Button"
+                            class="button button--secondary navbar__login navbar__focus-tab"
                         >
-                            <span
-                                class="icon-bars-solid navbar__hamburger-btn-bars"
-                            ></span>
+                            LogIn
+                        </button>
+                        <button
+                            type="button"
+                            aria-label="Sign Up Button"
+                            class="button button--primary navbar__signup navbar__focus-tab"
+                        >
+                            SignUp
                         </button>
                     </div>
                 </div>
-            </nav>
-            <main class="main">
-                <section class="hero">
-                    <div class="hero__ellipse"></div>
-                    <div class="hero__gallery">
-                        <div class="hero__gallery-bg">
-                            <img
-                                src="/assets/images/hero-earth-bg.webp"
-                                alt="Airplanes flying across globe"
-                            />
-                        </div>
-                        <div class="hero__gallery-group">
-                            <div class="hero__gallery-group--left">
-                                <div class="hero__gallery-image-wrapper">
-                                    <img
-                                        class="hero__gallery-image"
-                                        src="/assets/images/hero-beach.webp"
-                                        alt="Street leading to beach"
-                                    />
-                                </div>
-                                <div class="hero__gallery-image-wrapper">
-                                    <img
-                                        class="hero__gallery-image"
-                                        src="/assets/images/hero-mountain.webp"
-                                        alt="Traveler sitting on mountains"
-                                    />
-                                </div>
-                            </div>
-                            <div class="hero__gallery-group--left">
-                                <div
-                                    class="hero__gallery-image-wrapper hero__gallery-image-wrapper--right"
-                                >
-                                    <img
-                                        class="hero__gallery-image"
-                                        src="/assets/images/hero-city.webp"
-                                        alt="Traveler taking pictures on city street"
-                                    />
-                                </div>
-                            </div>
-                            <span
-                                class="icon-telegram hero__gallery-telegram"
-                            ></span>
-                            <div class="hero__gallery-top-places">
-                                <span class="icon-location"></span>
-                                <span>Top Places</span>
-                            </div>
-                            <span
-                                class="icon-add-user hero__gallery-add-user"
-                            ></span>
-                        </div>
-                    </div>
-                    <div class="hero__text-section">
-                        <div class="hero__text-section-badge">
-                            <h3 class="hero__text-section-badge-h3">
-                                Explore the world!
-                                <span
-                                    class="icon-explore hero__text-section-badge-icon"
-                                ></span>
-                            </h3>
-                        </div>
-                        <h1 class="hero__text-section-heading">
-                            Travel
-                            <span class="hero__text-section-heading--span"
-                                >top destination</span
-                            >
-                            of the world
-                        </h1>
-                        <p class="hero__text-section-para">
-                            <span
-                                >We always make our customer happy by
-                                providing</span
-                            >
-                            <span>as many choices as possible</span>
-                        </p>
-                        <div class="hero__text-section-buttons">
-                            <button
-                                type="button"
-                                class="button button--primary hero__text-section-buttons--get-started"
-                            >
-                                Get Started
-                            </button>
-                            <button
-                                type="button"
-                                class="button button--outline hero__text-section-buttons--watch-demo"
-                            >
-                                <span class="icon-video"></span>Watch Demo
-                            </button>
-                        </div>
-                    </div>
-                </section>
-                <section class="partners">
-                    <a
-                        class="partners__links"
-                        href="https://www.tripadvisor.in/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Visit Tripadvisor.in"
-                        ><span
-                            class="icon-tripadvisor partners__links-icons"
-                        ></span
-                    ></a>
-                    <a
-                        class="partners__link"
-                        href="https://www.expedia.co.in/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Visit Expedia.co.in"
-                        ><span class="icon-expedia partners__links-icons"></span
-                    ></a>
-                    <a
-                        class="partners__link"
-                        href="https://www.booking.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Visit Booking.com"
-                        ><span class="icon-booking partners__links-icons"></span
-                    ></a>
-                    <a
-                        class="partners__link"
-                        href="https://www.airbnb.co.in/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Visit Airbnb.co.in"
-                        ><span class="icon-airbnb partners__links-icons"></span
-                    ></a>
-                    <a
-                        class="partners__link"
-                        href="https://www.orbitz.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Visit Orbitz.com"
-                        ><span class="icon-orbitz partners__links-icons"></span
-                    ></a>
-                </section>
-                <section class="travelpoint">
-                    <div class="travelpoint__ellipse"></div>
-                    <div class="travelpoint__image-wrapper">
+                <div class="navbar__hamburger-wrapper">
+                    <button
+                        type="button"
+                        class="button button--icon navbar__hamburger-btn"
+                        aria-label="Open hamburger menu"
+                        aria-expanded="false"
+                        aria-controls="navbar__list navbar__links-wrapper"
+                        title="Open hamburger menu"
+                    >
+                        <span
+                            class="icon-bars-solid navbar__hamburger-btn-bars"
+                        ></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <main class="main container">
+            <section class="hero">
+                <div class="hero__ellipse"></div>
+                <div class="hero__gallery">
+                    <div class="hero__gallery-bg">
                         <img
-                            class="travelpoint__image"
-                            src="assets/images/travel-point-img.webp"
-                            alt="A hapy girl with backpack sitting on suitcase and holding passport."
+                            src="/assets/images/hero-earth-bg.webp"
+                            alt="Airplanes flying across globe"
                         />
                     </div>
-                    <div class="travelpoint__text-section">
-                        <div class="travelpoint__text-wrapper">
-                            <div class="travelpoint__text-header">
-                                <h3 class="travelpoint__text-sub-heading">
-                                    TRAVEL POINT
-                                </h3>
-                                <h2>We helping you find your dream location</h2>
+                    <div class="hero__gallery-group">
+                        <div class="hero__gallery-group--left">
+                            <div class="hero__gallery-image-wrapper">
+                                <img
+                                    class="hero__gallery-image"
+                                    src="/assets/images/hero-beach.webp"
+                                    alt="Street leading to beach"
+                                />
                             </div>
-                            <p class="travelpoint__para">
-                                Contrary to popular belief, Lorem Ipsum is not
-                                simply random text. It has roots in a piece of
-                                classical Latin literature from 45 BC.
-                            </p>
+                            <div class="hero__gallery-image-wrapper">
+                                <img
+                                    class="hero__gallery-image"
+                                    src="/assets/images/hero-mountain.webp"
+                                    alt="Traveler sitting on mountains"
+                                />
+                            </div>
                         </div>
-
-                        <div class="travelpoint__details-cards">
-                            <img
-                                src="/assets/images/travelpoint-icon.webp"
-                                class="travelpoint__ticket-icon"
-                                aria-hidden="true"
-                            />
+                        <div class="hero__gallery-group--left">
+                            <div
+                                class="hero__gallery-image-wrapper hero__gallery-image-wrapper--right"
+                            >
+                                <img
+                                    class="hero__gallery-image"
+                                    src="/assets/images/hero-city.webp"
+                                    alt="Traveler taking pictures on city street"
+                                />
+                            </div>
                         </div>
+                        <span
+                            class="icon-telegram hero__gallery-telegram"
+                        ></span>
+                        <div class="hero__gallery-top-places">
+                            <span class="icon-location"></span>
+                            <span>Top Places</span>
+                        </div>
+                        <span
+                            class="icon-add-user hero__gallery-add-user"
+                        ></span>
                     </div>
-                </section>
-            </main>
-        </div>
+                </div>
+                <div class="hero__text-section">
+                    <div class="hero__text-section-badge">
+                        <h3 class="hero__text-section-badge-h3">
+                            Explore the world!
+                            <span
+                                class="icon-explore hero__text-section-badge-icon"
+                            ></span>
+                        </h3>
+                    </div>
+                    <h1 class="hero__text-section-heading">
+                        Travel
+                        <span class="hero__text-section-heading--span"
+                            >top destination</span
+                        >
+                        of the world
+                    </h1>
+                    <p class="hero__text-section-para">
+                        <span
+                            >We always make our customer happy by
+                            providing</span
+                        >
+                        <span>as many choices as possible</span>
+                    </p>
+                    <div class="hero__text-section-buttons">
+                        <button
+                            type="button"
+                            class="button button--primary hero__text-section-buttons--get-started"
+                        >
+                            Get Started
+                        </button>
+                        <button
+                            type="button"
+                            class="button button--outline hero__text-section-buttons--watch-demo"
+                        >
+                            <span class="icon-video"></span>Watch Demo
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section class="partners">
+                <a
+                    class="partners__links"
+                    href="https://www.tripadvisor.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Visit Tripadvisor.in"
+                    ><span class="icon-tripadvisor partners__links-icons"></span
+                ></a>
+                <a
+                    class="partners__link"
+                    href="https://www.expedia.co.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Visit Expedia.co.in"
+                    ><span class="icon-expedia partners__links-icons"></span
+                ></a>
+                <a
+                    class="partners__link"
+                    href="https://www.booking.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Visit Booking.com"
+                    ><span class="icon-booking partners__links-icons"></span
+                ></a>
+                <a
+                    class="partners__link"
+                    href="https://www.airbnb.co.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Visit Airbnb.co.in"
+                    ><span class="icon-airbnb partners__links-icons"></span
+                ></a>
+                <a
+                    class="partners__link"
+                    href="https://www.orbitz.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Visit Orbitz.com"
+                    ><span class="icon-orbitz partners__links-icons"></span
+                ></a>
+            </section>
+            <section class="travelpoint">
+                <div class="travelpoint__ellipse"></div>
+                <div class="travelpoint__image-wrapper">
+                    <img
+                        class="travelpoint__image"
+                        src="assets/images/travel-point-img.webp"
+                        alt="A hapy girl with backpack sitting on suitcase and holding passport."
+                    />
+                </div>
+                <div class="travelpoint__text-section">
+                    <div class="travelpoint__text-wrapper">
+                        <div class="travelpoint__text-header">
+                            <h3 class="travelpoint__text-sub-heading">
+                                TRAVEL POINT
+                            </h3>
+                            <h2>We helping you find your dream location</h2>
+                        </div>
+                        <p class="travelpoint__para">
+                            Contrary to popular belief, Lorem Ipsum is not
+                            simply random text. It has roots in a piece of
+                            classical Latin literature from 45 BC.
+                        </p>
+                    </div>
+
+                    <div class="travelpoint__details-cards">
+                        <img
+                            src="/assets/images/travelpoint-icon.webp"
+                            class="travelpoint__ticket-icon"
+                            aria-hidden="true"
+                        />
+                    </div>
+                </div>
+            </section>
+            <section class="testimonial">
+                <h3 class="testimonial__heading">TESTIMONIALS</h3>
+                <h2 class="testimonial__sub-heading">Trust our clients</h2>
+                <div class="splide">
+                    <div class="splide__track">
+                        <div class="splide__list"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <template id="testimonial-template">
+            <div class="splide__slide testimonial__slide">
+                <img
+                    src=""
+                    alt="Testimonial author display Picture"
+                    class="testimonial__slide-image"
+                />
+                <div class="testimonial__slide-details">
+                    <div class="testimonial__slide-client-details">
+                        <h5 class="testimonial__slide-client-name"></h5>
+                        <h5>
+                            <span
+                                class="testimonial__slide-client-designation"
+                            ></span>
+                        </h5>
+                    </div>
+                    <div class="testimonial__slide-details-stars"></div>
+                </div>
+                <div class="testimonial__slide-comment-wrapper">
+                    <p class="testimonial__slide-comment"></p>
+                </div>
+            </div>
+        </template>
         <script type="module" src="./src/script/index.js"></script>
         <noscript>JavaScript is not supported by your browser!</noscript>
     </body>

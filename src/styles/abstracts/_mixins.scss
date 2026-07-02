@@ -80,3 +80,29 @@
     font-weight: $font-weight;
     line-height: $line-height;
 }
+
+/// Truncates a text after given number of lines
+/// @param {string} lines - For number of lines to truncate after
+/// @return truncates the element to given lines
+///
+/// Example usage
+/// p{
+///     @include truncate(3)
+/// }
+///
+/// Compiled CSS
+/// p{
+/// display: -webkit-box;
+/// -webkit-box-orient: vertical;
+/// -webkit-line-clamp: 3;
+/// overflow: hidden;
+/// text-overflow: ellipsis;
+/// }
+///
+@mixin truncate($lines: 2) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

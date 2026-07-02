@@ -1,0 +1,96 @@
+@use '../abstracts/' as *;
+@use '../themes/' as *;
+
+.testimonial {
+    width: min(100vw, 1440px);
+    padding-top: to-rem(120px);
+    position: relative;
+    text-align: center;
+
+    @include flex-set(center, center, column);
+
+    &__heading {
+        letter-spacing: 20%;
+        padding-bottom: to-rem(19px);
+    }
+
+    &__slide {
+        @include flex-set(center, center, column);
+        text-align: center;
+        gap: to-rem(67px);
+        width: 100%;
+    }
+
+    &__slide-image {
+        height: to-rem(128px);
+        width: to-rem(128px);
+        border-radius: 50%;
+    }
+
+    &__slide-details {
+        gap: to-rem($space-lg);
+
+        @include flex-set(center, center, column);
+    }
+
+    &__slide-client-details {
+        @include flex-set;
+    }
+
+    &__slide-client-name {
+        color: $primary-details;
+
+        @include truncate;
+    }
+
+    &__slide-client-designation {
+        font-size: to-rem(23px);
+    }
+
+    &__slide-details-stars {
+        font-size: to-rem(28px);
+        gap: to-rem(20px);
+
+        @include flex-set;
+    }
+
+    &__slide-comment-wrapper {
+        @include flex-set(center, center, row);
+    }
+
+    &__slide-comment {
+        font-size: to-rem(18px);
+        font-weight: $medium;
+        width: 100%;
+
+        @include truncate;
+    }
+
+    @include respond(tablet) {
+        padding-top: to-rem(20px);
+        background-image: url('/assets/images/testimonials-bg.webp');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-y: 46%;
+
+        &__slide {
+            gap: to-rem(62px);
+        }
+
+        &__slide-comment {
+            font-size: to-rem(23px);
+            width: 62%;
+        }
+    }
+
+    @include respond(desktop) {
+        padding-top: to-rem(111px);
+        background-image: url('/assets/images/testimonial-bg.webp');
+        background-position-y: 27%;
+
+        &__slide-comment {
+            width: 68%;
+        }
+    }
+}

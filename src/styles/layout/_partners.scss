@@ -23,7 +23,7 @@
     }
 
     @include respond(tablet) {
-        width: 80%;
+        width: 70%;
         padding: to-rem($space-md) to-rem($space-xl);
 
         &__links-icons {
@@ -32,7 +32,7 @@
     }
 
     @include respond(desktop) {
-        width: 100%;
+        width: 83%;
         padding: to-rem(10px) 0;
         justify-content: space-between;
     }

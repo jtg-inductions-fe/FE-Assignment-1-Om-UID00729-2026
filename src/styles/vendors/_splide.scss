@@ -1,0 +1,46 @@
+@use '../abstracts/' as *;
+@use '../themes/' as *;
+
+@import '@splidejs/splide/css';
+
+.splide {
+    width: 100%;
+    padding-top: to-rem(59px);
+
+    @include flex-set(center, center, column);
+
+    &__track {
+        width: 100%;
+    }
+
+    &__pagination {
+        width: 100%;
+        position: static;
+        padding-top: to-rem(61px);
+
+        @include flex-set;
+        gap: to-rem(15px);
+
+        &__page {
+            width: to-rem(25px);
+            height: to-rem(25px);
+
+            &.is-active {
+                background-color: $secondary-font;
+                transform: none;
+            }
+        }
+    }
+
+    @include respond(tablet) {
+        padding-top: to-rem(54px);
+
+        &__pagination {
+            padding-top: to-rem(50px);
+        }
+    }
+
+    @include respond(tablet) {
+        padding-top: to-rem(50px);
+    }
+}

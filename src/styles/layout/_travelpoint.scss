@@ -7,6 +7,7 @@
     gap: to-rem(28px);
     padding-top: to-rem(55px);
     position: relative;
+    padding-inline: 0;
 
     @include flex-set(center, center, column);
 
@@ -70,16 +71,8 @@
 
     &__card-para {
         font-size: to-rem(18px);
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        width: 100%;
 
-        &--show-text {
-            overflow: visible;
-            white-space: normal;
-            text-overflow: clip;
-        }
+        @include truncate(1);
     }
 
     &__ticket-icon {
@@ -89,6 +82,7 @@
     @include respond(tablet) {
         padding-top: to-rem(99px);
         gap: to-rem($space-xl);
+        padding-inline: 0;
 
         &__ellipse {
             width: 25vw;
@@ -115,9 +109,11 @@
 
     @include respond(desktop) {
         width: min(92vw, 1440px);
-        align-self: end;
+        align-self: flex-start;
         gap: 0;
         padding-top: to-rem(110px);
+        padding-inline: 0;
+        margin: 0;
 
         @include flex-set;
 
