@@ -10,10 +10,10 @@
     width: to-rem($space-xl);
     height: to-rem($space-xl);
     border-radius: 100%;
-    top: 45%;
     background-color: $background;
     border: $border-primary;
     font-size: to-rem($icon-sm);
+    top: 20%;
 
     @include flex-set;
 
@@ -27,37 +27,20 @@
     }
 
     &--right {
-        right: 4%;
+        right: 0;
     }
 
     &--left {
-        left: 4%;
-        font-size: to-rem(10px);
+        left: 0;
     }
 
     @include respond(tablet) {
         width: to-rem(100px);
         height: to-rem(100px);
-        top: 58%;
-
-        &--right {
-            right: 6%;
-        }
-
-        &--left {
-            left: 6%;
-        }
+        top: 42%;
     }
 
     @include respond(desktop) {
-        top: 63%;
-
-        &--right {
-            right: 9%;
-        }
-
-        &--left {
-            left: 9%;
-        }
+        top: 40%;
     }
 }

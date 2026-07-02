@@ -7,6 +7,7 @@
     gap: to-rem(28px);
     padding-top: to-rem(55px);
     position: relative;
+    padding-inline: 0;
 
     @include flex-set(center, center, column);
 
@@ -89,6 +90,7 @@
     @include respond(tablet) {
         padding-top: to-rem(99px);
         gap: to-rem($space-xl);
+        padding-inline: 0;
 
         &__ellipse {
             width: 25vw;
@@ -115,9 +117,11 @@
 
     @include respond(desktop) {
         width: min(92vw, 1440px);
-        align-self: end;
+        align-self: flex-start;
         gap: 0;
         padding-top: to-rem(110px);
+        padding-inline: 0;
+        margin: 0;
 
         @include flex-set;
 

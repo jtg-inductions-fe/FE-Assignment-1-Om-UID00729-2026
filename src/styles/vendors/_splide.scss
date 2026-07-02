@@ -4,21 +4,19 @@
 @import '@splidejs/splide/css';
 
 .splide {
-    width: min(100vw, 1440px);
-    padding-top: to-rem(120px);
-    position: relative;
-    text-align: center;
+    width: 100%;
+    padding-top: to-rem(59px);
 
     @include flex-set(center, center, column);
 
     &__track {
         width: 100%;
-        padding-top: to-rem(60px);
     }
 
     &__pagination {
         width: 100%;
-        bottom: -13%;
+        position: static;
+        padding-top: to-rem(61px);
 
         @include flex-set;
         gap: to-rem(15px);
@@ -34,27 +32,15 @@
         }
     }
 
-    &__bg {
-        width: 100%;
-        z-index: $z-index-neg-1;
-        position: absolute;
-        display: none;
-        top: -50%;
+    @include respond(tablet) {
+        padding-top: to-rem(54px);
+
+        &__pagination {
+            padding-top: to-rem(50px);
+        }
     }
 
     @include respond(tablet) {
-        padding-top: to-rem(20px);
-
-        &__bg {
-            display: block;
-        }
-    }
-
-    @include respond(desktop) {
-        padding-top: to-rem(111px);
-
-        &__bg {
-            top: -70%;
-        }
+        padding-top: to-rem(50px);
     }
 }

@@ -2,73 +2,91 @@
 @use '../themes/' as *;
 
 .testimonial {
+    width: min(100vw, 1440px);
+    padding-top: to-rem(120px);
+    position: relative;
     text-align: center;
-    gap: to-rem($space-xl);
-    width: 100%;
 
     @include flex-set(center, center, column);
 
-    &__main-heading {
+    &__heading {
         letter-spacing: 20%;
         padding-bottom: to-rem(19px);
     }
 
-    &__image {
+    &__slide {
+        @include flex-set(center, center, column);
+        text-align: center;
+        gap: to-rem(67px);
+        width: 100%;
+    }
+
+    &__slide-image {
         height: to-rem(128px);
         width: to-rem(128px);
         border-radius: 50%;
     }
 
-    &__details {
+    &__slide-details {
         gap: to-rem($space-lg);
 
         @include flex-set(center, center, column);
     }
 
-    &__client-details {
+    &__slide-client-details {
         @include flex-set;
     }
 
-    &__client-name {
+    &__slide-client-name {
         color: $primary-details;
     }
 
-    &__client-designation {
+    &__slide-client-designation {
         font-size: to-rem(23px);
     }
 
-    &__details-stars {
+    &__slide-details-stars {
         font-size: to-rem(28px);
-        gap: 19px;
+        gap: to-rem(20px);
 
         @include flex-set;
     }
 
-    &__comment-wrapper {
-        width: 90%;
-
+    &__slide-comment-wrapper {
         @include flex-set(center, center, row);
     }
 
-    &__comment-para {
+    &__slide-comment {
         font-size: to-rem(18px);
         font-weight: $medium;
-        padding-top: to-rem(5px);
-        width: 75%;
+        width: 100%;
     }
 
     @include respond(tablet) {
-        gap: to-rem(56px);
+        padding-top: to-rem(20px);
+        background-image: url('/assets/images/testimonials-bg.webp');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-y: 46%;
 
-        &__comment-para {
+        &__slide {
+            gap: to-rem(62px);
+        }
+
+        &__slide-comment {
             font-size: to-rem(23px);
             width: 62%;
         }
     }
 
     @include respond(desktop) {
-        &__comment-para {
-            width: 64%;
+        padding-top: to-rem(111px);
+        background-image: url('/assets/images/testimonial-bg.webp');
+        background-position-y: 27%;
+
+        &__slide-comment {
+            width: 68%;
         }
     }
 }

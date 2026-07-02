@@ -1,7 +1,7 @@
 import Splide from '@splidejs/splide';
 
 const splideList = document.querySelector('.splide__list');
-const testimonialTemplate = document.querySelector('.testimonial-template');
+const testimonialTemplate = document.getElementById('testimonial-template');
 
 const testimonialData = [
     {
@@ -32,18 +32,19 @@ const testimonialData = [
 
 testimonialData.forEach((e) => {
     const templateClone = testimonialTemplate.content.cloneNode(true);
-    const testimonial = templateClone.querySelector('.testimonial');
+    const testimonial = templateClone.querySelector('.testimonial__slide');
     const testimonialStars = templateClone.querySelector(
-        '.testimonial__details-stars',
+        '.testimonial__slide-details-stars',
     );
 
-    templateClone.querySelector('.testimonial__image').src = e.authorImgSrc;
-    templateClone.querySelector('.testimonial__client-name').textContent =
+    templateClone.querySelector('.testimonial__slide-image').src =
+        e.authorImgSrc;
+    templateClone.querySelector('.testimonial__slide-client-name').textContent =
         e.authorName;
     templateClone.querySelector(
-        '.testimonial__client-designation',
+        '.testimonial__slide-client-designation',
     ).textContent = `/ ${e.authorDesignation}`;
-    templateClone.querySelector('.testimonial__comment-para').textContent =
+    templateClone.querySelector('.testimonial__slide-comment').textContent =
         e.testimonialComment;
 
     for (let i = 0; i < e.reviewStars; i++) {
