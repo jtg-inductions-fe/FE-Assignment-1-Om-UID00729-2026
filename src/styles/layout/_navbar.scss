@@ -116,6 +116,11 @@
     @include respond(tablet) {
         padding-block: to-rem($space-lg);
 
+        &--scrolled {
+            box-shadow: $box-shadow;
+            padding-block: to-rem(32px);
+        }
+
         &__logo {
             order: 2;
 
@@ -166,6 +171,11 @@
 
     @include respond(desktop) {
         padding-block: to-rem($space-xl) to-rem($space-xs);
+
+        &--scrolled {
+            box-shadow: $box-shadow;
+            padding-block: to-rem(32px);
+        }
 
         &__logo {
             @include flex-set(space-between);

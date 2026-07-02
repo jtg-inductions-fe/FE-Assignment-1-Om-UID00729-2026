@@ -45,10 +45,10 @@
         gap: to-rem($space-xs);
 
         @include flex-set(center, center, column);
+    }
 
-        &--h3 {
-            letter-spacing: 0.2em;
-        }
+    &__text-sub-heading {
+        letter-spacing: 0.2em;
     }
 
     &__para {

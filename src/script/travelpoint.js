@@ -10,7 +10,7 @@ const statsData = [
 const renderCards = () => {
     statsData.map((ele) => {
         const cardWrapper = document.createElement('div');
-        cardWrapper.className = 'card card--details travelpoint__card-wrapper';
+        cardWrapper.className = 'card card--outline travelpoint__card-wrapper';
 
         const cardHeading = document.createElement('h4');
         cardHeading.textContent = ele.statValue;
