@@ -3,155 +3,167 @@
 
 .footer {
     padding: 0;
-    margin-top: 216px;
-    width: 100%;
-    gap: 79px;
+    margin-top: to-rem(126px);
+    gap: to-rem(80px);
     position: relative;
-
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
 
-    @include respond(tablet) {
-        margin: 306px 0 64px 0;
-        gap: 64px;
-    }
-
-    @include respond(desktop) {
-        margin: 306px 0 0 0;
-        grid-template-columns: 1fr 1fr;
-    }
-
     &__icon {
         display: none;
         z-index: -99;
+    }
 
-        @include respond(tablet) {
+    &__head {
+        gap: to-rem($space-lg);
+        width: 85%;
+
+        @include flex-set(center, flex-start, column);
+    }
+
+    &__head-name {
+        gap: to-rem($space-sm);
+
+        @include flex-set;
+    }
+
+    &__head-logo {
+        font-size: to-rem(40px);
+        background: linear-gradient($primary, $secondary-font);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    &__head-socials {
+        gap: to-rem($space-lg);
+
+        @include flex-set;
+    }
+
+    &__head-social-links {
+        font-size: to-rem(32px);
+        background-color: transparent;
+    }
+
+    &__details {
+        width: 85%;
+        gap: 70px;
+        display: grid;
+    }
+
+    &__details-wrapper {
+        width: 100%;
+        gap: to-rem(10px);
+
+        @include flex-set(flex-start, center, column);
+    }
+
+    &__details-btn {
+        width: 100%;
+        background-color: $background;
+
+        @include flex-set(space-between);
+    }
+
+    &__details-dropdown {
+        font-size: to-rem(24px);
+    }
+
+    &__details-links {
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        width: 100%;
+
+        @include flex-set(center, center, column);
+
+        &--open {
+            margin-block: to-rem(10px);
+            padding-block: to-rem($space-sm);
+            box-shadow: $box-shadow;
+            max-height: 100%;
+            gap: to-rem($space-sm);
+        }
+    }
+
+    @include respond(tablet) {
+        margin-block: to-rem(220px) to-rem(53px);
+        gap: to-rem($space-xl);
+
+        &__icon {
             display: block;
             position: absolute;
             right: 0;
             top: 27%;
         }
 
-        @include respond(desktop) {
-            top: 10%;
-        }
-    }
-
-    &__head {
-        gap: 32px;
-        width: 85%;
-
-        @include flex-set(center, flex-start, column);
-
-        @include respond(tablet) {
+        &__head {
             width: 87%;
         }
 
-        @include respond(desktop) {
-            width: 100%;
-            padding: 25px 0 0 132px;
+        &__head-about {
+            font-size: to-rem(23px);
         }
 
-        &__name {
-            gap: 20px;
-
-            @include flex-set;
-
-            span {
-                font-size: 40px;
-                background: linear-gradient($primary-btn-bg, $secondary-font);
-                background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-        }
-
-        &__socials {
-            gap: 2rem;
-
-            @include flex-set;
-
-            @include respond(desktop) {
-                padding-top: 30px;
-            }
-
-            span {
-                font-size: 2rem;
-            }
-        }
-
-        &__about {
-            @include respond(tablet) {
-                font-size: 23px;
-            }
-        }
-    }
-
-    &__details {
-        width: 85%;
-        gap: 70px;
-
-        display: grid;
-
-        @include respond(tablet) {
+        &__details {
             grid-template-columns: 1fr 1fr 1fr;
             width: 87%;
-            gap: 35px;
+            gap: to-rem($space-lg);
         }
 
-        @include respond(desktop) {
+        &__details-wrapper {
+            gap: to-rem($space-lg);
+            align-items: flex-start;
+        }
+
+        &__details-btn {
+            pointer-events: none;
+            width: auto;
+        }
+
+        &__details-dropdown {
+            display: none;
+        }
+
+        &__details-links {
+            max-height: 100%;
+            gap: to-rem(41px);
+
+            @include flex-set(center, flex-start, column);
+        }
+    }
+
+    @include respond(desktop) {
+        margin-block: to-rem(181px) 0;
+        grid-template-columns: 1fr 1fr;
+
+        &__icon {
+            top: 10%;
+        }
+
+        &__head {
+            width: 100%;
+            padding: to-rem(40px) 0 0 to-rem(132px);
+        }
+
+        &__head-socials {
+            padding-top: to-rem($space-lg);
+        }
+
+        &__head-about {
+            font-size: to-rem(23px);
+        }
+
+        &__details {
             width: 83%;
-            padding: 40px 0 0 5px;
+            padding: to-rem(40px) 0 0 to-rem(5px);
             justify-self: flex-start;
         }
 
-        &__cont {
-            width: 100%;
-            gap: 10px;
-
-            @include flex-set(flex-start, center, column);
-
-            @include respond(tablet) {
-                gap: 32px;
-                align-items: flex-start;
-            }
-
-            &__head {
-                width: 100%;
-                @include flex-set(space-between);
-
-                span {
-                    font-size: to-rem(24px);
-
-                    @include respond(tablet) {
-                        display: none;
-                    }
-                }
-            }
-
-            &__text {
-                max-height: 0px;
-                overflow: hidden;
-
-                @include flex-set(flex-start, flex-start, column);
-
-                @include respond(tablet) {
-                    max-height: 100%;
-                    gap: 32px;
-                }
-
-                &--open {
-                    margin: 10px 0;
-                    padding: 20px 0;
-                    box-shadow: 0 10px 10px 10px $primary-btn;
-                    max-height: 100%;
-                    gap: 20px;
-                }
-
-                &:last-child {
-                    width: 90%;
-                }
-            }
+        &__details-links {
+            gap: to-rem(42px);
+            width: 90%;
         }
     }
 }

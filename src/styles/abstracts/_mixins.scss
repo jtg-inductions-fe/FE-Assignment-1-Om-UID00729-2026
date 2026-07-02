@@ -106,3 +106,16 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+/// Defines a font face for given name
+/// @param {string} name - Name of the font
+/// @return @font-face
+@mixin font-face($name) {
+    $font: map-get($fonts, $name);
+
+    @font-face {
+        font-family: '#{map-get($font, font-family)}';
+        src: url('#{$font-path}#{map-get($font,file-name)}.woff2');
+        font-weight: map-get($font, font-weight);
+    }
+}

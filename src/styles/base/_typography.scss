@@ -1,17 +1,9 @@
 @use '../abstracts/' as *;
 
 //Hosted font Circular std
-@font-face {
-    font-family: circularstd;
-    font-weight: $regular;
-    src: url('#{$font-path}CircularStd-Book.woff2');
-}
-
-@font-face {
-    font-family: circularstd;
-    font-weight: $bold;
-    src: url('#{$font-path}CircularStd-Bold.woff2');
-}
+@include font-face(regular);
+@include font-face(medium);
+@include font-face(bold);
 
 h1 {
     font-size: to-rem(40px);
