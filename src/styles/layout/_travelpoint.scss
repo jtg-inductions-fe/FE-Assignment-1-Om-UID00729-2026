@@ -41,7 +41,7 @@
         @include flex-set(center, center, column);
     }
 
-    &__text-heading {
+    &__text-header {
         gap: to-rem($space-xs);
 
         @include flex-set(center, center, column);
@@ -142,7 +142,7 @@
             gap: to-rem($space-lg);
         }
 
-        &__text-heading {
+        &__text-header {
             align-items: flex-start;
             padding-top: to-rem(7px);
             gap: to-rem(19px);
