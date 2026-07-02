@@ -39,6 +39,8 @@
 
     &__slide-client-name {
         color: $primary-details;
+
+        @include truncate;
     }
 
     &__slide-client-designation {
@@ -60,6 +62,8 @@
         font-size: to-rem(18px);
         font-weight: $medium;
         width: 100%;
+
+        @include truncate;
     }
 
     @include respond(tablet) {

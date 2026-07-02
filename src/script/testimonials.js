@@ -36,16 +36,25 @@ testimonialData.forEach((e) => {
     const testimonialStars = templateClone.querySelector(
         '.testimonial__slide-details-stars',
     );
-
-    templateClone.querySelector('.testimonial__slide-image').src =
-        e.authorImgSrc;
-    templateClone.querySelector('.testimonial__slide-client-name').textContent =
-        e.authorName;
-    templateClone.querySelector(
+    const testimonialComment = templateClone.querySelector(
+        '.testimonial__slide-comment',
+    );
+    const testimonialDesignation = templateClone.querySelector(
         '.testimonial__slide-client-designation',
-    ).textContent = `/ ${e.authorDesignation}`;
-    templateClone.querySelector('.testimonial__slide-comment').textContent =
-        e.testimonialComment;
+    );
+    const testimonialName = templateClone.querySelector(
+        '.testimonial__slide-client-name',
+    );
+    const testimonialImage = templateClone.querySelector(
+        '.testimonial__slide-image',
+    );
+
+    testimonialImage.src = e.authorImgSrc;
+    testimonialName.textContent = e.authorName;
+    testimonialName.title = e.authorName;
+    testimonialDesignation.textContent = `/ ${e.authorDesignation}`;
+    testimonialComment.textContent = e.testimonialComment;
+    testimonialComment.title = e.testimonialComment;
 
     for (let i = 0; i < e.reviewStars; i++) {
         const star = document.createElement('span');

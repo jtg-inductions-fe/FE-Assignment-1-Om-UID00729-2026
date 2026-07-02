@@ -71,16 +71,8 @@
 
     &__card-para {
         font-size: to-rem(18px);
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        width: 100%;
 
-        &--show-text {
-            overflow: visible;
-            white-space: normal;
-            text-overflow: clip;
-        }
+        @include truncate(1);
     }
 
     &__ticket-icon {
