@@ -1,77 +1,71 @@
 import Splide from '@splidejs/splide';
 
-let testimonials = document.querySelector('.splide__list');
-let leftArrow = document.querySelector('.splide__leftArrow');
-let rightArrow = document.querySelector('.splide__rightArrow');
+const splideList = document.querySelector('.splide__list');
+const testimonialTemplate = document.querySelector('.testimonial-template');
 
-const data = [
+const testimonialData = [
     {
-        img: '/assets/images/testimonials-profile.webp',
-        name: 'Mark Smith',
-        desig: 'Travel Enthusiast',
-        stars: 5,
-        content:
+        authorImgSrc: '/assets/images/testimonials-profile.webp',
+        authorName: 'Mark Smith',
+        authorDesignation: 'Travel Enthusiast',
+        reviewStars: 5,
+        testimonialComment:
             'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.',
     },
     {
-        img: '/assets/images/testimonials-profile.webp',
-        name: 'Joe Snow',
-        desig: 'Travel Planner',
-        stars: 4,
-        content:
+        authorImgSrc: '/assets/images/testimonials-profile.webp',
+        authorName: 'Joe Snow',
+        authorDesignation: 'Travel Planner',
+        reviewStars: 4,
+        testimonialComment:
             'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.',
     },
     {
-        img: '/assets/images/testimonials-profile.webp',
-        name: 'Bruce Banner',
-        desig: 'Travel Enthusiast',
-        stars: 5,
-        content:
+        authorImgSrc: '/assets/images/testimonials-profile.webp',
+        authorName: 'Bruce Banner',
+        authorDesignation: 'Travel Enthusiast',
+        reviewStars: 5,
+        testimonialComment:
             'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.',
     },
 ];
 
-const layout = data.map((e) => {
-    return `
-        <div class="splide__slide testimonial">
-            <div class="testimonial__head">
-                <h3>TESTIMONIALS</h3>
-                <h2>Trust our clients</h2>
-            </div>
-            <img
-                src=${e.img}
-                alt="Testimonial author Profile Picture"
-            />
-            <div class="testimonial__details">
-                <div class="testimonial__details__name">
-                    <h5>${e.name}</h5>
-                    <span>/ ${e.desig}</span>
-                </div>
-                <div class="testimonial__details__stars">
-                    ${`<span class="icon-star"></span>`.repeat(e.stars)}
-                </div>
-            </div>
-            <div class="testimonial__content">
-                <p>
-                    Contrary to popular belief, Lorem Ipsum is not simply random
-                    text. It has roots in a piece of classical Latin literature
-                    from 45 BC.
-                </p>
-            </div>
-        </div>`;
-});
+testimonialData.forEach((e) => {
+    const templateClone = testimonialTemplate.content.cloneNode(true);
+    const testimonial = templateClone.querySelector('.testimonial');
+    const testimonialStars = templateClone.querySelector(
+        '.testimonial__details-stars',
+    );
 
-testimonials.innerHTML += layout.join(' ');
+    templateClone.querySelector('.testimonial__image').src = e.authorImgSrc;
+    templateClone.querySelector('.testimonial__client-name').textContent =
+        e.authorName;
+    templateClone.querySelector(
+        '.testimonial__client-designation',
+    ).textContent = `/ ${e.authorDesignation}`;
+    templateClone.querySelector('.testimonial__comment-para').textContent =
+        e.testimonialComment;
+
+    for (let i = 0; i < e.reviewStars; i++) {
+        const star = document.createElement('span');
+        star.className = 'icon-star';
+        testimonialStars.append(star);
+    }
+
+    splideList.append(testimonial);
+});
 
 const splide = new Splide('.splide', {
     type: 'loop',
     perPage: 1,
-    // autoplay: true,
+    autoplay: true,
     pagination: true,
-    arrows: false,
+    arrows: true,
+    classes: {
+        arrow: 'splide__arrow arrows',
+        prev: 'splide_arrow splide__arrow--prev icon-arrow-left arrows arrows--left',
+        next: 'splide_arrow splide__arrow--next icon-arrow-right arrows arrows--right',
+    },
 });
 
 splide.mount();
-
-leftArrow.addEventListener('click', () => splide.go('<'));
-rightArrow.addEventListener('click', () => splide.go('>'));

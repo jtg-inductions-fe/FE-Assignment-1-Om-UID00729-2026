@@ -1,0 +1,63 @@
+@use '../abstracts/' as *;
+@use '../themes/' as *;
+
+.splide__arrow svg {
+    display: none;
+}
+
+.arrows {
+    position: absolute;
+    width: to-rem($space-xl);
+    height: to-rem($space-xl);
+    border-radius: 100%;
+    top: 45%;
+    background-color: $background;
+    border: $border-primary;
+    font-size: to-rem($icon-sm);
+
+    @include flex-set;
+
+    &:hover,
+    &:focus-within {
+        background-color: $primary;
+
+        &:before {
+            color: $background;
+        }
+    }
+
+    &--right {
+        right: 4%;
+    }
+
+    &--left {
+        left: 4%;
+        font-size: to-rem(10px);
+    }
+
+    @include respond(tablet) {
+        width: to-rem(100px);
+        height: to-rem(100px);
+        top: 58%;
+
+        &--right {
+            right: 6%;
+        }
+
+        &--left {
+            left: 6%;
+        }
+    }
+
+    @include respond(desktop) {
+        top: 63%;
+
+        &--right {
+            right: 9%;
+        }
+
+        &--left {
+            left: 9%;
+        }
+    }
+}

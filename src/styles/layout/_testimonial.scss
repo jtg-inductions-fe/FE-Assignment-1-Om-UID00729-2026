@@ -3,68 +3,72 @@
 
 .testimonial {
     text-align: center;
-    gap: 64px;
+    gap: to-rem($space-xl);
+    width: 100%;
 
     @include flex-set(center, center, column);
 
-    @include respond(tablet) {
-        gap: 56px;
+    &__main-heading {
+        letter-spacing: 20%;
+        padding-bottom: to-rem(19px);
     }
 
-    &__head {
-        gap: 16px;
-
-        @include flex-set(center, center, column);
-
-        h3 {
-            letter-spacing: 20%;
-        }
-    }
-
-    img {
-        height: 128px;
-        width: 128px;
+    &__image {
+        height: to-rem(128px);
+        width: to-rem(128px);
         border-radius: 50%;
     }
 
     &__details {
-        gap: 32px;
+        gap: to-rem($space-lg);
 
         @include flex-set(center, center, column);
+    }
 
-        &__name {
-            @include flex-set;
+    &__client-details {
+        @include flex-set;
+    }
 
-            span {
-                font-size: to-rem(23px);
-                font-weight: $bold;
-            }
-        }
+    &__client-name {
+        color: $primary-details;
+    }
 
-        &__stars {
-            font-size: to-rem(28px);
+    &__client-designation {
+        font-size: to-rem(23px);
+    }
 
-            @include flex-set;
-            gap: 19px;
+    &__details-stars {
+        font-size: to-rem(28px);
+        gap: 19px;
+
+        @include flex-set;
+    }
+
+    &__comment-wrapper {
+        width: 90%;
+
+        @include flex-set(center, center, row);
+    }
+
+    &__comment-para {
+        font-size: to-rem(18px);
+        font-weight: $medium;
+        padding-top: to-rem(5px);
+        width: 75%;
+    }
+
+    @include respond(tablet) {
+        gap: to-rem(56px);
+
+        &__comment-para {
+            font-size: to-rem(23px);
+            width: 62%;
         }
     }
 
-    &__content {
-        width: 90%;
-        @include flex-set(center, center, row);
-        p {
-            font-size: to-rem(18px);
-            font-weight: $medium;
-            padding-top: 5px;
-
-            @include respond(tablet) {
-                font-size: 23px;
-                width: 62%;
-            }
-
-            @include respond(desktop) {
-                width: 64%;
-            }
+    @include respond(desktop) {
+        &__comment-para {
+            width: 64%;
         }
     }
 }

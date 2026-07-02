@@ -247,20 +247,43 @@
                     </div>
                 </section>
                 <section class="splide">
+                    <h3 class="testimonial__main-heading">TESTIMONIALS</h3>
+                    <h2 class="testimonial__sub-heading">Trust our clients</h2>
                     <div class="splide__track">
                         <div class="splide__list"></div>
                     </div>
-
-                    <span class="icon-arrow-left splide__leftArrow"></span>
-                    <span class="icon-arrow-left splide__rightArrow"></span>
                     <img
                         class="splide__bg"
                         src="/assets/images/testimonials-bg.webp"
-                        alt=""
+                        aria-hidden="true"
                     />
                 </section>
             </main>
         </div>
+
+        <template class="testimonial-template">
+            <div class="splide__slide testimonial">
+                <img
+                    src=""
+                    alt="Testimonial author display Picture"
+                    class="testimonial__image"
+                />
+                <div class="testimonial__details">
+                    <div class="testimonial__client-details">
+                        <h5 class="testimonial__client-name"></h5>
+                        <h5>
+                            <span
+                                class="testimonial__client-designation"
+                            ></span>
+                        </h5>
+                    </div>
+                    <div class="testimonial__details-stars"></div>
+                </div>
+                <div class="testimonial__comment-wrapper">
+                    <p class="testimonial__comment-para"></p>
+                </div>
+            </div>
+        </template>
         <script type="module" src="./src/script/index.js"></script>
         <noscript>JavaScript is not supported by your browser!</noscript>
     </body>

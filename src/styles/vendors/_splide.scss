@@ -4,95 +4,16 @@
 @import '@splidejs/splide/css';
 
 .splide {
-    width: 100vw;
-    padding-top: 70px;
+    width: min(100vw, 1440px);
+    padding-top: to-rem(120px);
     position: relative;
+    text-align: center;
 
-    @include flex-set;
+    @include flex-set(center, center, column);
 
-    @include respond(tablet) {
-        padding-top: 20px;
-    }
-
-    @include respond(desktop) {
-        padding-top: 80px;
-    }
-
-    &__leftArrow {
-        font-size: 16px;
-        position: absolute;
-        width: to-rem(64px);
-        height: to-rem(64px);
-        border-radius: 100%;
-        left: 15px;
-        top: 37%;
-        border: 1px solid $secondary-para;
-        transform: rotate(180deg);
-
-        @include flex-set;
-
-        @include respond(tablet) {
-            width: to-rem(100px);
-            height: to-rem(100px);
-            top: 50%;
-            left: 6%;
-        }
-
-        @include respond(desktop) {
-            top: 54%;
-            left: 9%;
-        }
-
-        &:before {
-            color: $primary-font;
-        }
-
-        &:hover,
-        &:focus-within {
-            background-color: $primary-btn-bg;
-
-            &:before {
-                color: $bg;
-            }
-        }
-    }
-
-    &__rightArrow {
-        font-size: 16px;
-        position: absolute;
-        width: 64px;
-        height: 64px;
-        border-radius: 100%;
-        right: 15px;
-        top: 37%;
-        border: 1px solid $secondary-para;
-
-        @include flex-set;
-
-        @include respond(tablet) {
-            width: to-rem(100px);
-            height: to-rem(100px);
-            top: 50%;
-            right: 6%;
-        }
-
-        @include respond(desktop) {
-            top: 54%;
-            right: 9%;
-        }
-
-        &:before {
-            color: $primary-font;
-        }
-
-        &:hover,
-        &:focus-within {
-            background-color: $primary-btn-bg;
-
-            &:before {
-                color: $bg;
-            }
-        }
+    &__track {
+        width: 100%;
+        padding-top: to-rem(60px);
     }
 
     &__pagination {
@@ -100,11 +21,11 @@
         bottom: -13%;
 
         @include flex-set;
-        gap: 15px;
+        gap: to-rem(15px);
 
         &__page {
-            width: 25px;
-            height: 25px;
+            width: to-rem(25px);
+            height: to-rem(25px);
 
             &.is-active {
                 background-color: $secondary-font;
@@ -115,16 +36,24 @@
 
     &__bg {
         width: 100%;
-        z-index: -999;
+        z-index: $z-index-neg-1;
         position: absolute;
         display: none;
         top: -50%;
+    }
 
-        @include respond(tablet) {
+    @include respond(tablet) {
+        padding-top: to-rem(20px);
+
+        &__bg {
             display: block;
         }
+    }
 
-        @include respond(desktop) {
+    @include respond(desktop) {
+        padding-top: to-rem(111px);
+
+        &__bg {
             top: -70%;
         }
     }
