@@ -10,11 +10,27 @@ const navbarFocusList = document.querySelectorAll('.navbar__focus-tab');
 let tabList = [];
 
 const changeFocusList = () => {
+    let lastTabElementIdx;
+
+    if (tabList.length) {
+        lastTabElementIdx = tabList.length - 1;
+    }
+
     if (lastWidth == 'mobile') {
-        tabList = navbarFocusList;
+        tabList = [...navbarFocusList];
     } else if (lastWidth === 'tablet') {
         let tempList = [...navbarFocusList];
         tabList = tempList.splice(0, navbarFocusList.length - 2);
+    }
+
+    if (lastTabElementIdx) {
+        HamburgerBtn.removeEventListener('keydown', hamburgerBarsEvent);
+        tabList[lastTabElementIdx].removeEventListener(
+            'keydown',
+            tablistEventNext,
+        );
+        tabList[0].removeEventListener('keydown', tablistEventPrev);
+        focusTab();
     }
 };
 
@@ -70,33 +86,37 @@ const classReload = () => {
     changeFocusList();
 };
 
+function hamburgerBarsEvent(e) {
+    if (isExpanded()) {
+        if (e.key === 'Tab' && !e.shiftKey) {
+            e.preventDefault();
+            tabList[0].focus();
+        }
+        if (e.key === 'Tab' && e.shiftKey) {
+            e.preventDefault();
+            tabList[tabList.length - 1].focus();
+        }
+    }
+}
+
+function tablistEventNext(e) {
+    if (isExpanded() && e.key === 'Tab' && !e.shiftKey) {
+        e.preventDefault();
+        HamburgerBtn.focus();
+    }
+}
+
+function tablistEventPrev(e) {
+    if (isExpanded() && e.key === 'Tab' && e.shiftKey) {
+        e.preventDefault();
+        HamburgerBtn.focus();
+    }
+}
+
 const focusTab = () => {
-    HamburgerBtn.addEventListener('keydown', (e) => {
-        if (isExpanded()) {
-            if (e.key === 'Tab' && !e.shiftKey) {
-                e.preventDefault();
-                tabList[0].focus();
-            }
-            if (e.key === 'Tab' && e.shiftKey) {
-                e.preventDefault();
-                tabList[tabList.length - 1].focus();
-            }
-        }
-    });
-
-    tabList[tabList.length - 1].addEventListener('keydown', (e) => {
-        if (isExpanded() && e.key === 'Tab' && !e.shiftKey) {
-            e.preventDefault();
-            HamburgerBtn.focus();
-        }
-    });
-
-    tabList[0].addEventListener('keydown', (e) => {
-        if (isExpanded() && e.key === 'Tab' && e.shiftKey) {
-            e.preventDefault();
-            HamburgerBtn.focus();
-        }
-    });
+    HamburgerBtn.addEventListener('keydown', hamburgerBarsEvent);
+    tabList[tabList.length - 1].addEventListener('keydown', tablistEventNext);
+    tabList[0].addEventListener('keydown', tablistEventPrev);
 };
 
 const changeTab = () => {

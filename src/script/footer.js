@@ -7,6 +7,7 @@ const isMobile = () => window.innerWidth < TABLET;
 const setState = (btn, isOpen) => {
     const list = btn.nextElementSibling;
     list.classList.toggle('footer__details-links--open', isOpen);
+    btn.classList.remove('footer__details-btn--opened', isOpen);
     btn.setAttribute('aria-expanded', isOpen);
 
     list.querySelectorAll('a').forEach((link) => {
@@ -49,10 +50,12 @@ footerBtns.forEach((btn) => {
 
         footerBtns.forEach((button) => {
             setState(button, false);
+            btn.classList.remove('footer__details-btn--opened');
         });
 
         if (!isOpen) {
             setState(btn, true);
+            btn.classList.toggle('footer__details-btn--opened');
         }
 
         document
@@ -67,6 +70,7 @@ window.addEventListener('resize', () => {
     if (!isMobile()) {
         footerBtns.forEach((btn) => {
             setState(btn, false);
+            btn.classList.remove('footer__details-btn--opened');
         });
     }
     document

@@ -64,6 +64,11 @@
         background-color: $background;
 
         @include flex-set(space-between);
+
+        &--opened {
+            padding-bottom: 10px;
+            border-bottom: 5px solid $primary;
+        }
     }
 
     &__details-dropdown {
@@ -82,12 +87,10 @@
         width: 100%;
         gap: to-rem($space-sm);
 
-        @include flex-set(center, center, column);
+        @include flex-set(center, flex-start, column);
 
         &--open {
             margin-block: to-rem(10px);
-            padding-block: to-rem($space-sm);
-            box-shadow: $box-shadow;
             max-height: 100%;
         }
     }
