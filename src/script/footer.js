@@ -55,6 +55,10 @@ footerBtns.forEach((btn) => {
             setState(btn, true);
         }
 
+        document
+            .querySelector('.footer__details-dropdown')
+            .classList.toggle('footer__details-dropdown--opened');
+
         tabOrder();
     });
 });
@@ -65,6 +69,9 @@ window.addEventListener('resize', () => {
             setState(btn, false);
         });
     }
+    document
+        .querySelector('.footer__details-dropdown')
+        .classList.remove('footer__details-dropdown--opened');
     tabOrder();
 });
 

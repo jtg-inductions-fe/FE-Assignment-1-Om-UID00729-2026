@@ -1,9 +1,7 @@
 @use '../abstracts/' as *;
 
 //Hosted font Circular std
-@include font-face(regular);
-@include font-face(medium);
-@include font-face(bold);
+@include font-face(circularstd);
 
 h1 {
     font-size: to-rem(40px);

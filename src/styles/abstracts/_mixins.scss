@@ -108,14 +108,16 @@
 }
 
 /// Defines a font face for given name
-/// @param {string} name - Name of the font
+/// @param {string} font-family - Name of the font
 /// @return @font-face
-@mixin font-face($name) {
-    $font: map-get($fonts, $name);
+@mixin font-face($font-family) {
+    $styles: map-get($fonts, $font-family);
 
-    @font-face {
-        font-family: '#{map-get($font, font-family)}';
-        src: url('#{$font-path}#{map-get($font,file-name)}.woff2');
-        font-weight: map-get($font, font-weight);
+    @each $style, $font in $styles {
+        @font-face {
+            font-family: '#{$font-family}';
+            src: url('#{$font-path}#{map-get($font, file-name)}.woff2');
+            font-weight: map-get($font, font-weight);
+        }
     }
 }

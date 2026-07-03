@@ -12,7 +12,7 @@ $breakpoints: (
 );
 
 ///Variable for Font Path
-$font-path: '../../../assets/fonts/';
+$font-path: '/assets/fonts/';
 
 /// Border-color
 $border-primary: 1px solid #1918251a;
@@ -65,19 +65,18 @@ $icon-xl: 64px;
 
 /// Map for font face
 $fonts: (
-    'regular': (
-        'font-family': 'circularstd',
-        'file-name': 'CircularStd-Book',
-        'font-weight': $regular,
-    ),
-    'medium': (
-        'font-family': 'circularstd',
-        'file-name': 'CircularStd-Bold',
-        'font-weight': $medium,
-    ),
-    'bold': (
-        'font-family': 'circularstd',
-        'file-name': 'CircularStd-Bold',
-        'font-weight': $bold,
+    circularstd: (
+        'regular': (
+            'file-name': 'CircularStd-Book',
+            'font-weight': $regular,
+        ),
+        'medium': (
+            'file-name': 'CircularStd-Bold',
+            'font-weight': $medium,
+        ),
+        'bold': (
+            'file-name': 'CircularStd-Bold',
+            'font-weight': $bold,
+        ),
     ),
 );

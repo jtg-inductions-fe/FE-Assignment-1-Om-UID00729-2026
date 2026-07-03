@@ -68,13 +68,19 @@
 
     &__details-dropdown {
         font-size: to-rem(24px);
+        transition: all 0.2s ease;
+
+        &--opened {
+            transform: rotate(180deg);
+        }
     }
 
     &__details-links {
         max-height: 0;
         overflow: hidden;
-        transition: all 0.3s ease;
+        transition: all 0.4s ease;
         width: 100%;
+        gap: to-rem($space-sm);
 
         @include flex-set(center, center, column);
 
@@ -83,7 +89,6 @@
             padding-block: to-rem($space-sm);
             box-shadow: $box-shadow;
             max-height: 100%;
-            gap: to-rem($space-sm);
         }
     }
 
@@ -129,6 +134,7 @@
         &__details-links {
             max-height: 100%;
             gap: to-rem(41px);
+            padding: to-rem(10px);
 
             @include flex-set(center, flex-start, column);
         }
