@@ -5,8 +5,8 @@ const navbarWrapper = document.querySelector('.navbar__links-wrapper');
 const navbarList = document.querySelector('.navbar__list');
 const hamburgerBars = document.querySelector('.icon-bars-solid');
 const navbar = document.querySelector('.navbar');
-let lastWidth = getWidth();
 const navbarFocusList = document.querySelectorAll('.navbar__focus-tab');
+let lastWidth = getWidth();
 let tabList = [];
 
 const changeFocusList = () => {
@@ -22,10 +22,9 @@ const changeFocusList = () => {
         let tempList = [...navbarFocusList];
         tabList = tempList.splice(0, navbarFocusList.length - 2);
     }
-
     if (lastTabElementIdx) {
         HamburgerBtn.removeEventListener('keydown', hamburgerBarsEvent);
-        tabList[lastTabElementIdx].removeEventListener(
+        navbarFocusList[lastTabElementIdx].removeEventListener(
             'keydown',
             tablistEventNext,
         );
@@ -114,9 +113,14 @@ function tablistEventPrev(e) {
 }
 
 const focusTab = () => {
-    HamburgerBtn.addEventListener('keydown', hamburgerBarsEvent);
-    tabList[tabList.length - 1].addEventListener('keydown', tablistEventNext);
-    tabList[0].addEventListener('keydown', tablistEventPrev);
+    if (getWidth() === 'tablet' || getWidth() === 'mobile') {
+        HamburgerBtn.addEventListener('keydown', hamburgerBarsEvent);
+        tabList[tabList.length - 1].addEventListener(
+            'keydown',
+            tablistEventNext,
+        );
+        tabList[0].addEventListener('keydown', tablistEventPrev);
+    }
 };
 
 const changeTab = () => {
@@ -171,8 +175,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
+changeFocusList();
 HamburgerBtn.addEventListener('click', toggleNav);
 window.addEventListener('resize', classReload);
-changeFocusList();
-focusTab();
-classReload();

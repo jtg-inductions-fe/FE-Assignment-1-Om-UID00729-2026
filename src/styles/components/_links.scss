@@ -3,7 +3,7 @@
 .links {
     display: inline-block;
     transition: all 0.2s ease;
-    outline-offset: 4px;
+    outline-offset: to-rem(5px);
 
     &:hover,
     &:focus {

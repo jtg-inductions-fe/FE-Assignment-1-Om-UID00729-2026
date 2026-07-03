@@ -6,10 +6,13 @@ const isMobile = () => window.innerWidth < TABLET;
 
 const setState = (btn, isOpen) => {
     const list = btn.nextElementSibling;
-    list.classList.toggle('footer__details-links--open', isOpen);
-    btn.classList.remove('footer__details-btn--opened', isOpen);
+    list.classList.toggle('footer__details-links--opened', isOpen);
+    btn.classList.toggle('footer__details-btn--opened', isOpen);
     btn.setAttribute('aria-expanded', isOpen);
-
+    btn.children[1].classList.toggle(
+        'footer__details-dropdown--opened',
+        isOpen,
+    );
     list.querySelectorAll('a').forEach((link) => {
         link.tabIndex = isOpen ? 0 : -1;
     });
@@ -22,7 +25,7 @@ const tabOrder = () => {
 
             const list = btn.nextElementSibling;
             const isOpen = list.classList.contains(
-                'footer__details-links--open',
+                'footer__details-links--opened',
             );
 
             list.querySelectorAll('a').forEach((link) => {
@@ -45,23 +48,16 @@ footerBtns.forEach((btn) => {
         if (!isMobile()) return;
 
         const isOpen = btn.nextElementSibling.classList.contains(
-            'footer__details-links--open',
+            'footer__details-links--opened',
         );
 
         footerBtns.forEach((button) => {
             setState(button, false);
-            btn.classList.remove('footer__details-btn--opened');
         });
 
         if (!isOpen) {
             setState(btn, true);
-            btn.classList.toggle('footer__details-btn--opened');
         }
-
-        document
-            .querySelector('.footer__details-dropdown')
-            .classList.toggle('footer__details-dropdown--opened');
-
         tabOrder();
     });
 });
