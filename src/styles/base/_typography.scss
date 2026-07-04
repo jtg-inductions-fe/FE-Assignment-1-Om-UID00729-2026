@@ -84,21 +84,21 @@ p {
     }
 }
 
-.deals-heading {
-    color: $deals-content-primary;
+.modal-heading {
+    color: $modal-content-primary;
 
     @include font-style(to-rem(20px), $bold, 1);
 }
 
-.deals-subheading {
+.modal-subheading {
     letter-spacing: 0.1em;
-    color: $deals-primary;
+    color: $modal-primary;
 
     @include font-style(to-rem(12px), $semi-bold, 1);
 }
 
-.deals-content {
-    color: $deals-content-secondary;
+.modal-content {
+    color: $modal-content-secondary;
 
     @include font-style(to-rem(12px), $regular, 1);
 }
@@ -107,17 +107,29 @@ p {
     color: $card-active-content;
 
     @include font-style(to-rem(14px), $semi-bold, 1);
+
+    &--expired {
+        color: $card-expired-content;
+    }
 }
 
 .card-subheading {
-    color: $card-expired-content;
+    color: $modal-secondary;
 
     @include font-style(to-rem(12px), $medium, 1);
+
+    &--expired {
+        color: $card-expired-content;
+    }
 }
 
 .badge {
-    letter-spacing: 0.5em;
+    letter-spacing: 0.05em;
     color: $primary-font;
 
     @include font-style(to-rem(12px), $bold, 1);
+}
+
+.danger {
+    color: red;
 }

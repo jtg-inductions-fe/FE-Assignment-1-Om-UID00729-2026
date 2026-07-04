@@ -13,21 +13,29 @@
         background-color: transparent;
     }
 
-    &--deals {
-        padding-block: to-rem($space-xs);
+    &--modals {
+        width: 90%;
+        padding: to-rem($space-xs);
         border: $border-deals;
         border-radius: $radius-md;
-        gap: to-rem(12px);
-        flex-direction: row;
-        background-color: $card-active;
+        justify-content: space-evenly;
+        background-image: $card-active;
+
+        @include respond(tablet) {
+            width: 90%;
+        }
     }
 
-    &--deals-expired {
-        padding-block: to-rem($space-xs);
-        border: $border-deals-expired;
+    &--modal-expired {
+        width: 90%;
+        padding: to-rem($space-xs);
+        border: $border-modal-expired;
         border-radius: $radius-md;
-        gap: to-rem(12px);
-        flex-direction: row;
+        justify-content: space-evenly;
         background-color: $card-expired;
+
+        @include respond(tablet) {
+            width: 90%;
+        }
     }
 }

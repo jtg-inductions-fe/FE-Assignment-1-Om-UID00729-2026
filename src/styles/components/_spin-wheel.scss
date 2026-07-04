@@ -1,0 +1,22 @@
+@use '../abstracts/' as *;
+@use '../themes/' as *;
+
+.wheel {
+    width: 227px;
+    aspect-ratio: 1/1;
+    border: 2px solid black;
+    border-radius: $radius-round;
+    overflow: hidden;
+    position: relative;
+    border: $border-wheel;
+    box-shadow: 0 0 50px 7px #00000040;
+    transition: transform 1s ease-out;
+    text-align: center;
+
+    &--message {
+        background-color: rgba(238, 238, 238, 1);
+        box-shadow: none;
+
+        @include flex-set();
+    }
+}

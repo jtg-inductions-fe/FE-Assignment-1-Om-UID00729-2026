@@ -11,13 +11,19 @@ $inactive-link: #19182580;
 $primary-blur: #ff5722;
 $secondary-blur: #facd49;
 
-$deals-primary: #f4436c;
-$deals-secondary: #7c3aed;
-$deals-content-primary: #111827;
-$deals-content-secondary: #9ca3af;
-$deals-accent-1: #fbbf24;
-$deals-accent-2: #06b6d4;
-$card-active: linear-gradient(to-right, $deals-primary, $deals-secondary);
+$modal-primary: #f4436c;
+$modal-secondary: #7c3aed;
+$modal-content-primary: #111827;
+$modal-content-secondary: #9ca3af;
+$modal-accent-1: #fbbf24;
+$modal-accent-2: #06b6d4;
+$card-active: linear-gradient(
+    to right,
+    rgba(244, 67, 108, 0.1),
+    rgba(124, 58, 237, 0.1)
+);
 $card-expired: #00000033;
 $card-active-content: #1f2937;
 $card-expired-content: #999999;
+$card-active-btn: rgba(244, 67, 108, 1);
+$card-inactive-btn: rgba(170, 170, 170, 1);

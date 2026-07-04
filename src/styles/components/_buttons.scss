@@ -32,7 +32,7 @@
         @include flex-set;
     }
 
-    &--deals {
+    &--modals {
         background-color: $secondary;
         color: $secondary-content;
         border: $border-secondary;
@@ -40,6 +40,10 @@
         gap: to-rem(10px);
 
         @include flex-set;
+
+        @include respond(tablet) {
+            width: 90%;
+        }
     }
 
     &:hover,
