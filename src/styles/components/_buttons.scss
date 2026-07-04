@@ -32,6 +32,16 @@
         @include flex-set;
     }
 
+    &--deals {
+        background-color: $secondary;
+        color: $secondary-content;
+        border: $border-secondary;
+        width: 90%;
+        gap: to-rem(10px);
+
+        @include flex-set;
+    }
+
     &:hover,
     &:focus-within {
         transform: translateY(to-rem(-4px));

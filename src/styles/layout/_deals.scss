@@ -1,0 +1,99 @@
+@use '../abstracts/' as *;
+@use '../themes/' as *;
+
+.popup-container {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: $z-index-20;
+
+    @include flex-set(end, center, column);
+
+    @include respond(desktop) {
+        justify-content: center;
+    }
+}
+
+.popup {
+    background-color: $background;
+    width: 93%;
+    padding-block: to-rem($space-md);
+    gap: to-rem(20px);
+    border-radius: to-rem(24px) to-rem(24px) 0 0;
+
+    @include flex-set(center, center, column);
+
+    @include respond(desktop) {
+        width: 35%;
+        border-radius: to-rem(24px);
+    }
+}
+
+.heading {
+    gap: to-rem(8px);
+
+    @include flex-set(center, center, column);
+}
+
+.spin-wheel-wrapper {
+    @include flex-set;
+}
+
+.wheel {
+    width: 227px;
+    aspect-ratio: 1/1;
+    border: 2px solid black;
+    border-radius: $radius-round;
+    overflow: hidden;
+    position: relative;
+    border: $border-wheel;
+    box-shadow: 0 0 50px 7px #00000040;
+
+    &__section {
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        transform-origin: 100% 100%;
+        border-bottom: $border-wheel;
+
+        @include flex-set;
+
+        &--1 {
+            transform: rotate(0deg);
+            background-color: $deals-primary;
+        }
+
+        &--2 {
+            transform: rotate(90deg);
+            background-color: $deals-secondary;
+        }
+        &--3 {
+            transform: rotate(180deg);
+            background-color: $deals-accent-1;
+        }
+        &--4 {
+            transform: rotate(270deg);
+            background-color: $deals-accent-2;
+        }
+    }
+
+    &__section-text {
+        transform: rotate(-45deg);
+        color: $background;
+        text-align: center;
+
+        @include font-style(12px, $bold, 1);
+    }
+}
+
+.spin-btn {
+    width: 43px;
+    height: 43px;
+    color: $deals-primary;
+    padding: 0;
+    border-radius: $radius-round;
+    border: $border-wheel-btn;
+    position: absolute;
+}

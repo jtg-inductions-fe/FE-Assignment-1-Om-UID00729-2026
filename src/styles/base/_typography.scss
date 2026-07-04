@@ -83,3 +83,41 @@ p {
         font-size: to-rem(18px);
     }
 }
+
+.deals-heading {
+    color: $deals-content-primary;
+
+    @include font-style(to-rem(20px), $bold, 1);
+}
+
+.deals-subheading {
+    letter-spacing: 0.1em;
+    color: $deals-primary;
+
+    @include font-style(to-rem(12px), $semi-bold, 1);
+}
+
+.deals-content {
+    color: $deals-content-secondary;
+
+    @include font-style(to-rem(12px), $regular, 1);
+}
+
+.card-heading {
+    color: $card-active-content;
+
+    @include font-style(to-rem(14px), $semi-bold, 1);
+}
+
+.card-subheading {
+    color: $card-expired-content;
+
+    @include font-style(to-rem(12px), $medium, 1);
+}
+
+.badge {
+    letter-spacing: 0.5em;
+    color: $primary-font;
+
+    @include font-style(to-rem(12px), $bold, 1);
+}
