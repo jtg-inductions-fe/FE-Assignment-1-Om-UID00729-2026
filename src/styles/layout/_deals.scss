@@ -12,6 +12,7 @@
     justify-content: end;
     align-items: center;
     flex-direction: column;
+    display: none;
 
     @include respond(tablet) {
         justify-content: center;
@@ -123,7 +124,8 @@
     }
 }
 
-.close-btn {
+.wheel-close-btn,
+.viewAll-close-btn {
     font-size: to-rem(24px);
     background-color: $background;
     color: $primary-font;

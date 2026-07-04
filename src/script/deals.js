@@ -12,7 +12,8 @@ const viewAllBtn = document.querySelector('.viewAllButton');
 const goBackBtn = document.querySelector('.goBackButton');
 const spinWheelWrapper = document.querySelector('.spin-wheel');
 const wonDealsWrapper = document.querySelector('.won-deals');
-const closeBtn = document.querySelector('.close-btn');
+const WheelSectionCloseBtn = document.querySelector('.wheel-close-btn');
+const wonSectionCloseBtn = document.querySelector('.viewAll-close-btn');
 const copyBtn = document.querySelector('.copy-btn');
 
 const STOP_ANGLES = [45, 315, 225, 135];
@@ -25,7 +26,9 @@ let availableDeals = [];
 
 triggerModal.addEventListener('click', () => {
     modalContainer.style.display = 'flex';
-    closeBtn.focus();
+    spinWheelWrapper.style.display = 'flex';
+    wonDealsWrapper.style.display = 'none;';
+    WheelSectionCloseBtn.focus();
 });
 
 spinBtn.addEventListener('click', () => {
@@ -43,35 +46,56 @@ spinBtn.addEventListener('click', () => {
 viewAllBtn.addEventListener('click', () => {
     wonDealsWrapper.style.display = 'flex';
     spinWheelWrapper.style.display = 'none';
-    closeBtn.focus();
+    wonSectionCloseBtn.focus();
     renderWonDetails();
 });
 
 viewAllBtn.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab' && !e.shift) {
+    if (e.key === 'Tab' && !e.shiftKey) {
         e.preventDefault();
-        closeBtn.focus();
+        WheelSectionCloseBtn.focus();
     }
 });
 
 goBackBtn.addEventListener('click', () => {
     wonDealsWrapper.style.display = 'none';
     spinWheelWrapper.style.display = 'flex';
-    closeBtn.focus();
+    WheelSectionCloseBtn.focus();
 });
 
 goBackBtn.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab' && !e.shift) {
+    if (e.key === 'Tab' && !e.shiftKey) {
         e.preventDefault();
-        closeBtn.focus();
+        wonSectionCloseBtn.focus();
     }
 });
 
-closeBtn.addEventListener('click', () => {
+WheelSectionCloseBtn.addEventListener('click', () => {
     wonDealsWrapper.style.display = 'none';
-    spinWheelWrapper.style.display = 'flex';
+    spinWheelWrapper.style.display = 'none';
     modalContainer.style.display = 'none';
     document.body.style.overflow = '';
+});
+
+WheelSectionCloseBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab' && e.shiftKey) {
+        e.preventDefault();
+        viewAllBtn.focus();
+    }
+});
+
+wonSectionCloseBtn.addEventListener('click', () => {
+    wonDealsWrapper.style.display = 'none';
+    spinWheelWrapper.style.display = 'none';
+    modalContainer.style.display = 'none';
+    document.body.style.overflow = '';
+});
+
+wonSectionCloseBtn.addEventListener('click', (e) => {
+    if (e.key === 'Tab' && e.shiftKey) {
+        e.preventDefault();
+        goBackBtn.focus();
+    }
 });
 
 DealsCardWrapper.addEventListener('click', async (e) => {
