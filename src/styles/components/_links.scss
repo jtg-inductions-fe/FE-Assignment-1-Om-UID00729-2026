@@ -1,0 +1,31 @@
+@use '../abstracts/' as *;
+
+.links {
+    display: inline-block;
+    transition: all 0.2s ease;
+    outline-offset: to-rem(5px);
+
+    &:hover,
+    &:focus {
+        color: $active-link;
+        transform: translateY(to-rem(-4px));
+    }
+
+    &--sm {
+        @include font-style(to-rem(14px));
+    }
+
+    &--lg {
+        @include font-style(to-rem(18px), $regular);
+    }
+
+    &--icon {
+        @include font-style(to-rem(20px));
+    }
+
+    @include respond(tablet) {
+        &--icon {
+            @include font-style(to-rem(32px));
+        }
+    }
+}

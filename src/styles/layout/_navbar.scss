@@ -65,18 +65,6 @@
         @include flex-set(center, center, column);
     }
 
-    &__list-links {
-        transition: all 0.2s ease;
-        outline-offset: 4px;
-
-        &:hover,
-        &:focus-within {
-            color: $active-link;
-            transform: translateY(to-rem(-4px));
-            text-decoration: dashed;
-        }
-    }
-
     &__hamburger-btn {
         height: to-rem(40px);
         width: to-rem(40px);

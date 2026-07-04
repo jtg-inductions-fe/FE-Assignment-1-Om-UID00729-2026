@@ -9,19 +9,6 @@
 
     @include flex-set;
 
-    &__links {
-        color: $inactive-link;
-
-        &:focus-within,
-        &:hover {
-            color: $active-link;
-        }
-    }
-
-    &__links-icons {
-        font-size: to-rem(20px);
-    }
-
     @include respond(tablet) {
         width: 70%;
         padding: to-rem($space-md) to-rem($space-xl);

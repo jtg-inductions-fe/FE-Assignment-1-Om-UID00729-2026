@@ -24,6 +24,7 @@
     }
 
     &--icon {
+        outline-offset: to-rem(5px);
         background-color: $primary;
         color: $primary-content;
         padding: 0;
