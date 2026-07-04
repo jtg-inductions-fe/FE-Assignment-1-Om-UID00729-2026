@@ -80,7 +80,7 @@
     }
 
     @include respond(tablet) {
-        padding-top: to-rem(99px);
+        padding-top: to-rem(90px);
         gap: to-rem($space-xl);
         padding-inline: 0;
 

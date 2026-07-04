@@ -40,7 +40,7 @@
     &__slide-client-name {
         color: $primary-details;
 
-        @include truncate;
+        @include truncate(1);
     }
 
     &__slide-client-designation {
@@ -63,7 +63,7 @@
         font-weight: $medium;
         width: 100%;
 
-        @include truncate;
+        @include truncate(3);
     }
 
     @include respond(tablet) {
@@ -80,17 +80,21 @@
 
         &__slide-comment {
             font-size: to-rem(23px);
-            width: 62%;
+            width: 72%;
+
+            @include truncate(3);
         }
     }
 
     @include respond(desktop) {
-        padding-top: to-rem(111px);
+        padding-top: to-rem(105px);
         background-image: url('/assets/images/testimonial-bg.webp');
         background-position-y: 27%;
 
         &__slide-comment {
-            width: 68%;
+            width: 71%;
+
+            @include truncate;
         }
     }
 }

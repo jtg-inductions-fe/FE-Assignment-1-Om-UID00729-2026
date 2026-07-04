@@ -16,7 +16,7 @@
     &__pagination {
         width: 100%;
         position: static;
-        padding-top: to-rem(96px);
+        padding-top: to-rem(58px);
 
         @include flex-set;
         gap: to-rem(15px);
@@ -42,5 +42,9 @@
 
     @include respond(tablet) {
         padding-top: to-rem(50px);
+
+        &__pagination {
+            padding-top: to-rem(46px);
+        }
     }
 }

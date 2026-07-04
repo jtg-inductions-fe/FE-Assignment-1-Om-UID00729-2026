@@ -3,7 +3,7 @@
 
 .footer {
     padding: 0;
-    margin-top: to-rem(116px);
+    margin-top: to-rem(125px);
     gap: to-rem(80px);
     position: relative;
     display: grid;
@@ -95,7 +95,7 @@
     }
 
     @include respond(tablet) {
-        margin-block: to-rem(220px) to-rem(53px);
+        margin-block: to-rem(226px) to-rem(53px);
         gap: to-rem($space-xl);
 
         &__icon {
@@ -115,18 +115,19 @@
 
         &__details {
             grid-template-columns: 1fr 1fr 1fr;
-            width: 87%;
-            gap: to-rem($space-lg);
+            width: 90%;
+            gap: to-rem(9px);
         }
 
         &__details-wrapper {
-            gap: to-rem($space-lg);
+            gap: to-rem($space-md);
             align-items: flex-start;
         }
 
         &__details-btn {
             pointer-events: none;
             width: auto;
+            padding-left: to-rem(10px);
         }
 
         &__details-dropdown {
@@ -143,7 +144,7 @@
     }
 
     @include respond(desktop) {
-        margin-block: to-rem(181px) 0;
+        margin-block: to-rem(230px) 0;
         grid-template-columns: 1fr 1fr;
 
         &__icon {
@@ -164,8 +165,8 @@
         }
 
         &__details {
-            width: 84%;
-            padding: to-rem(40px) 0 0 to-rem(5px);
+            width: 87%;
+            padding-top: to-rem(40px);
             justify-self: flex-start;
             gap: 0;
         }
