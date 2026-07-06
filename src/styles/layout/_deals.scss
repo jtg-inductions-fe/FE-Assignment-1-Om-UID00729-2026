@@ -1,10 +1,10 @@
 @use '../abstracts/' as *;
 @use '../themes/' as *;
 
-.modal-container {
+.modal-wrapper {
     position: fixed;
     inset: 0;
-    width: min(100%, 1440px);
+    width: 100%;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     z-index: $z-index-20;
@@ -20,6 +20,13 @@
     @include respond(tablet) {
         justify-content: center;
     }
+}
+
+.modal-container {
+    width: min(100%, 1440px);
+    height: 100%;
+
+    @include flex-set(center, center, column);
 }
 
 .spin-wheel,
@@ -56,7 +63,7 @@
     }
 
     &__winText {
-        @include font-style(to-rem(12px), $bold, 1, inter);
+        @include font-style(to-rem(12px), $bold, 1, $inter);
     }
 
     @include respond(tablet) {
@@ -80,10 +87,14 @@
     &__wrapper {
         width: 100%;
         gap: to-rem(8px);
-        overflow-y: scroll;
+        overflow-y: auto;
         max-height: 80%;
 
         @include flex-set(unset, center, column);
+    }
+
+    @include respond(tablet) {
+        max-height: 48%;
     }
 }
 
@@ -129,7 +140,7 @@
     color: $background;
     text-align: center;
 
-    @include font-style(12px, $bold, 1, inter);
+    @include font-style(12px, $bold, 1, $inter);
 }
 
 .display-card-wrapper {

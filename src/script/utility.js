@@ -1,24 +1,26 @@
 import {
-    MILLISECONDS_IN_DAY,
-    MILLISECONDS_IN_HOURS,
-    MILLISECONDS_IN_MINUTE,
-    MILLISECONDS_IN_SECOND,
+    MILLISECONDS_PER_DAY,
+    MILLISECONDS_PER_HOURS,
+    MILLISECONDS_PER_MINUTE,
+    MILLISECONDS_PER_SECOND,
 } from './constants.js';
 
-export default function returnRemainingTime(expiryDate) {
-    const currDate = Date.now();
-    const timeRemaining = expiryDate - currDate;
+export default function getTimeDifference(
+    targetTime,
+    referenceTime = Date.now(),
+) {
+    const timeRemaining = targetTime - referenceTime;
 
     switch (true) {
         case timeRemaining <= 0:
             return null;
-        case timeRemaining < MILLISECONDS_IN_MINUTE:
-            return `${Math.round(timeRemaining / MILLISECONDS_IN_SECOND)}s`;
-        case timeRemaining < MILLISECONDS_IN_HOURS:
-            return `${Math.round(timeRemaining / MILLISECONDS_IN_MINUTE)}min`;
-        case timeRemaining < MILLISECONDS_IN_DAY:
-            return `${Math.round(timeRemaining / MILLISECONDS_IN_HOURS)}hrs`;
+        case timeRemaining < MILLISECONDS_PER_MINUTE:
+            return `${Math.round(timeRemaining / MILLISECONDS_PER_SECOND)}s`;
+        case timeRemaining < MILLISECONDS_PER_HOURS:
+            return `${Math.round(timeRemaining / MILLISECONDS_PER_MINUTE)}min`;
+        case timeRemaining < MILLISECONDS_PER_DAY:
+            return `${Math.round(timeRemaining / MILLISECONDS_PER_HOURS)}hrs`;
         default:
-            return `${Math.round(timeRemaining / MILLISECONDS_IN_DAY)}d`;
+            return `${Math.round(timeRemaining / MILLISECONDS_PER_DAY)}d`;
     }
 }

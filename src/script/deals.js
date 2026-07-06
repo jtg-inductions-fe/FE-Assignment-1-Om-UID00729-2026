@@ -1,9 +1,9 @@
 import {
-    MILLISECONDS_IN_DAY,
-    SPECIAL_DEALS_API_URI,
+    MILLISECONDS_PER_DAY,
+    API_URIS,
     LOCAL_STORAGE_KEYS,
 } from './constants.js';
-import returnRemainingTime from './utility.js';
+import getTimeDifference from './utility.js';
 
 const displayCard = document.querySelector('.display-card-wrapper');
 const displayLabel = document.querySelector('.display-card-label');
@@ -13,7 +13,7 @@ const copyBtn = document.querySelector('.copy-btn');
 const spinBtn = document.querySelector('.spin-btn');
 const wheel = document.querySelector('.wheel');
 const triggerModal = document.querySelector('.open-modal');
-const modalContainer = document.querySelector('.modal-container');
+const modalContainer = document.querySelector('.modal-wrapper');
 const countBadge = document.querySelector('.modal-count');
 const dealsCardWrapper = document.querySelector('.won-deals__wrapper');
 const viewAllBtn = document.querySelector('.viewAllButton');
@@ -80,16 +80,16 @@ async function fetchDeals() {
     wheelMessage('Loading...');
     try {
         if (!allDeals.length) {
-            const response = await fetch(SPECIAL_DEALS_API_URI);
+            const response = await fetch(API_URIS.FETCH_SPECIAL_DEALS);
             if (!response.ok) {
                 throw new Error(`Error Fetching details - ${response.status}`);
             }
             allDeals = await response.json();
         }
         availableDeals = allDeals.filter(
-            (deal) =>
+            ({ promoCode }) =>
                 !wonDeals.some(
-                    (wonDeal) => wonDeal.promoCode === deal.promoCode,
+                    ({ promoCode: wonPromoCode }) => wonPromoCode === promoCode,
                 ),
         );
         selectRandomDeals(availableDeals);
@@ -164,7 +164,7 @@ function selectWinner() {
             const { validFor, promoCode } = winnerDeal;
 
             const isWon = wonDeals.some(
-                (deal) => deal.promoCode === winnerDeal.promoCode,
+                ({ promoCode: dealPromoCode }) => dealPromoCode === promoCode,
             );
 
             if (!isWon) {
@@ -172,14 +172,15 @@ function selectWinner() {
                     ...winnerDeal,
                     daysValid: validFor ?? 7,
                     expiryAt:
-                        Date.now() + (validFor ?? 7) * MILLISECONDS_IN_DAY,
+                        Date.now() + (validFor ?? 7) * MILLISECONDS_PER_DAY,
                 };
 
                 renderCard(wonDeal);
                 wonDeals.push(wonDeal);
                 saveWonDeals();
                 availableDeals = availableDeals.filter(
-                    (e) => e.promoCode !== promoCode,
+                    ({ promoCode: dealPromoCode }) =>
+                        dealPromoCode !== promoCode,
                 );
                 updateDealsCount();
             }
@@ -205,7 +206,7 @@ function renderCard(wonDeal) {
     displayCard.style.display = 'flex';
     displayLabel.textContent = wonDeal.label;
     displayPromoCode.textContent = wonDeal.promoCode;
-    displayExpiry.textContent = returnRemainingTime(wonDeal.expiryAt);
+    displayExpiry.textContent = getTimeDifference(wonDeal.expiryAt);
     copyBtn.dataset.promoCode = wonDeal.promoCode;
 }
 
@@ -259,16 +260,12 @@ function renderWonDetails() {
         }
 
         const cardHeading = document.createElement('h3');
-        [cardHeading.className, cardHeading.textContent] = [
-            'card-heading',
-            label,
-        ];
+        cardHeading.className = 'card-heading';
+        cardHeading.textContent = label;
 
         const cardSubHeading = document.createElement('h5');
-        [cardSubHeading.className, cardSubHeading.textContent] = [
-            'card-subheading',
-            dateFormatter(expiryAt),
-        ];
+        cardSubHeading.className = 'card-subheading';
+        cardSubHeading.textContent = getExpiryLabel(expiryAt);
 
         const headingWrapper = document.createElement('div');
         headingWrapper.className = 'heading-wrapper';
@@ -277,21 +274,17 @@ function renderWonDetails() {
         headingWrapper.appendChild(cardSubHeading);
 
         const cardPromoCode = document.createElement('span');
-        [cardPromoCode.className, cardPromoCode.textContent] = [
-            'badge badge--text',
-            promoCode,
-        ];
+        cardPromoCode.className = 'badge badge--text';
+        cardPromoCode.textContent = promoCode;
 
         const copyBtnWrap = document.createElement('button');
         copyBtnWrap.setAttribute('aria-label', 'copy Promo Code');
         copyBtnWrap.className = 'copy-btn-wrapper modal-btn';
 
         const button = document.createElement('span');
-        [button.className, button.dataset.promoCode, button.title] = [
-            'icon-copy copy-btn',
-            promoCode,
-            'Copy Promo Code',
-        ];
+        button.className = 'icon-copy copy-btn';
+        button.dataset.promoCode = promoCode;
+        button.title = 'Copy Promo Code';
 
         if (isExpired(deal)) {
             button.className = 'icon-copy--inactive';
@@ -320,8 +313,8 @@ function isExpired(deal) {
     return Date.now() >= deal.expiryAt;
 }
 
-function dateFormatter(expiryAt) {
-    const remainingTime = returnRemainingTime(expiryAt);
+function getExpiryLabel(expiryAt) {
+    const remainingTime = getTimeDifference(expiryAt);
 
     return remainingTime ? `Expires in ${remainingTime}` : 'Deal expired';
 }
