@@ -5,7 +5,7 @@
 .travelpoint {
     width: 100vw;
     gap: to-rem(28px);
-    padding-top: to-rem(55px);
+    padding-top: to-rem(50px);
     position: relative;
     padding-inline: 0;
 
@@ -58,7 +58,7 @@
 
     &__details-cards {
         width: 90%;
-        gap: to-rem($space-xs);
+        gap: to-rem(13px);
         padding-top: to-rem(4px);
         position: relative;
 

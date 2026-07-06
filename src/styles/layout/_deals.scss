@@ -56,13 +56,12 @@
     }
 
     &__winText {
-        @include font-style(to-rem(12px), $bold, 1, $font-family-modal);
+        @include font-style(to-rem(12px), $bold, 1, inter);
     }
 
     @include respond(tablet) {
         width: 35%;
         border-radius: to-rem(24px);
-        margin-top: to-rem(92px);
     }
 
     @include respond(desktop) {
@@ -80,7 +79,7 @@
 
     &__wrapper {
         width: 100%;
-        gap: to-rem(10px);
+        gap: to-rem(8px);
         overflow-y: scroll;
         max-height: 80%;
 
@@ -130,7 +129,7 @@
     color: $background;
     text-align: center;
 
-    @include font-style(12px, $bold, 1, $font-family-modal);
+    @include font-style(12px, $bold, 1, inter);
 }
 
 .display-card-wrapper {
@@ -160,6 +159,9 @@
 
 .icon-copy {
     color: $card-active-btn;
+    display: block;
+    width: 100%;
+    height: 100%;
 
     &--inactive {
         color: $card-inactive-btn;

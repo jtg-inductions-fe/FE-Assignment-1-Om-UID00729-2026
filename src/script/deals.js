@@ -1,12 +1,15 @@
-import { API_URI } from './constants.js';
-import returnExpiryTime from './utility.js';
-import { MS_IN_DAY } from './constants.js';
+import {
+    MILLISECONDS_IN_DAY,
+    SPECIAL_DEALS_API_URI,
+    LOCAL_STORAGE_KEYS,
+} from './constants.js';
+import returnRemainingTime from './utility.js';
 
 const displayCard = document.querySelector('.display-card-wrapper');
 const displayLabel = document.querySelector('.display-card-label');
 const displayExpiry = document.querySelector('.display-card-expiry');
 const displayPromoCode = document.querySelector('.display-card-promoCode');
-const copyBtn = document.querySelector('.copy-btn__icon');
+const copyBtn = document.querySelector('.copy-btn');
 const spinBtn = document.querySelector('.spin-btn');
 const wheel = document.querySelector('.wheel');
 const triggerModal = document.querySelector('.open-modal');
@@ -68,10 +71,7 @@ wonSectionCloseBtn.addEventListener('click', handleWonCloseBtn);
 wonSectionCloseBtn.addEventListener('keydown', handleWonCloseBtn);
 
 modalContainer.addEventListener('click', (e) => {
-    if (
-        e.target.tagName === 'SPAN' &&
-        e.target.classList.contains('icon-copy')
-    ) {
+    if (e.target.classList.contains('copy-btn')) {
         copyPromoCode(e.target);
     }
 });
@@ -80,20 +80,19 @@ async function fetchDeals() {
     wheelMessage('Loading...');
     try {
         if (!allDeals.length) {
-            const response = await fetch(API_URI);
+            const response = await fetch(SPECIAL_DEALS_API_URI);
             if (!response.ok) {
                 throw new Error(`Error Fetching details - ${response.status}`);
             }
             allDeals = await response.json();
-
-            availableDeals = allDeals.filter(
-                (deal) =>
-                    !wonDeals.some(
-                        (wonDeal) => wonDeal.promoCode === deal.promoCode,
-                    ),
-            );
-            selectRandomDeals(availableDeals);
         }
+        availableDeals = allDeals.filter(
+            (deal) =>
+                !wonDeals.some(
+                    (wonDeal) => wonDeal.promoCode === deal.promoCode,
+                ),
+        );
+        selectRandomDeals(availableDeals);
     } catch (error) {
         wheelMessage(error);
     }
@@ -162,6 +161,7 @@ function selectWinner() {
         'transitionend',
         () => {
             const winnerDeal = wheelDeals[winnerIdx];
+            const { validFor, promoCode } = winnerDeal;
 
             const isWon = wonDeals.some(
                 (deal) => deal.promoCode === winnerDeal.promoCode,
@@ -170,16 +170,16 @@ function selectWinner() {
             if (!isWon) {
                 const wonDeal = {
                     ...winnerDeal,
-                    daysValid: winnerDeal.validFor ?? 7,
+                    daysValid: validFor ?? 7,
                     expiryAt:
-                        Date.now() + (winnerDeal.validFor ?? 7) * MS_IN_DAY,
+                        Date.now() + (validFor ?? 7) * MILLISECONDS_IN_DAY,
                 };
 
                 renderCard(wonDeal);
                 wonDeals.push(wonDeal);
                 saveWonDeals();
                 availableDeals = availableDeals.filter(
-                    (e) => e.promoCode !== winnerDeal.promoCode,
+                    (e) => e.promoCode !== promoCode,
                 );
                 updateDealsCount();
             }
@@ -205,17 +205,22 @@ function renderCard(wonDeal) {
     displayCard.style.display = 'flex';
     displayLabel.textContent = wonDeal.label;
     displayPromoCode.textContent = wonDeal.promoCode;
-    displayExpiry.textContent = returnExpiryTime(wonDeal.expiryAt);
+    displayExpiry.textContent = returnRemainingTime(wonDeal.expiryAt);
     copyBtn.dataset.promoCode = wonDeal.promoCode;
 }
 
 function saveWonDeals() {
-    localStorage.setItem('WON_DEALS', JSON.stringify(wonDeals));
+    localStorage.setItem(
+        LOCAL_STORAGE_KEYS.WON_DEALS,
+        JSON.stringify(wonDeals),
+    );
 }
 
 function fetchStoredDeals() {
     try {
-        wonDeals = JSON.parse(localStorage.getItem('WON_DEALS')) || [];
+        wonDeals =
+            JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEYS.WON_DEALS)) ||
+            [];
     } catch {
         wonDeals = [];
     }
@@ -245,6 +250,7 @@ function renderWonDetails() {
     });
 
     wonDeals.forEach((deal) => {
+        const { label, promoCode, expiryAt } = deal;
         const card = document.createElement('div');
         if (isExpired(deal)) {
             card.className = 'deal-card deal-card--expired';
@@ -255,15 +261,15 @@ function renderWonDetails() {
         const cardHeading = document.createElement('h3');
         [cardHeading.className, cardHeading.textContent] = [
             'card-heading',
-            deal.label,
+            label,
         ];
 
         const cardSubHeading = document.createElement('h5');
         [cardSubHeading.className, cardSubHeading.textContent] = [
             'card-subheading',
-            isExpired(deal) ? 'Deal Expired' : returnExpiryTime(deal.expiryAt),
+            dateFormatter(expiryAt),
         ];
-        // console.log(deal.expiryAt);
+
         const headingWrapper = document.createElement('div');
         headingWrapper.className = 'heading-wrapper';
 
@@ -273,17 +279,18 @@ function renderWonDetails() {
         const cardPromoCode = document.createElement('span');
         [cardPromoCode.className, cardPromoCode.textContent] = [
             'badge badge--text',
-            deal.promoCode,
+            promoCode,
         ];
 
         const copyBtnWrap = document.createElement('button');
         copyBtnWrap.setAttribute('aria-label', 'copy Promo Code');
-        copyBtnWrap.className = 'copy-btn modal-btn';
+        copyBtnWrap.className = 'copy-btn-wrapper modal-btn';
 
         const button = document.createElement('span');
-        [button.className, button.dataset.promoCode] = [
-            'icon-copy copy-btn__icon',
-            deal.promoCode,
+        [button.className, button.dataset.promoCode, button.title] = [
+            'icon-copy copy-btn',
+            promoCode,
+            'Copy Promo Code',
         ];
 
         if (isExpired(deal)) {
@@ -311,6 +318,12 @@ function checkExpiryTime(deal) {
 
 function isExpired(deal) {
     return Date.now() >= deal.expiryAt;
+}
+
+function dateFormatter(expiryAt) {
+    const remainingTime = returnRemainingTime(expiryAt);
+
+    return remainingTime ? `Expires in ${remainingTime}` : 'Deal expired';
 }
 
 async function copyPromoCode(button) {

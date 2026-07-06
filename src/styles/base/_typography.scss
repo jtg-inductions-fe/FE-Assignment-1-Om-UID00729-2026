@@ -90,26 +90,26 @@ p {
 .modal-heading {
     color: $modal-content-primary;
 
-    @include font-style(to-rem(20px), $bold, 1, $font-family-modal);
+    @include font-style(to-rem(20px), $bold, 1, inter);
 }
 
 .modal-subheading {
     letter-spacing: 0.1em;
     color: $modal-primary;
 
-    @include font-style(to-rem(12px), $semi-bold, 1, $font-family-modal);
+    @include font-style(to-rem(12px), $semi-bold, 1, inter);
 }
 
 .modal-content {
     color: $modal-content-secondary;
 
-    @include font-style(to-rem(12px), $regular, 1, $font-family-modal);
+    @include font-style(to-rem(12px), $regular, 1, inter);
 }
 
 .card-heading {
     color: $card-active-content;
 
-    @include font-style(to-rem(14px), $semi-bold, 1, $font-family-modal);
+    @include font-style(to-rem(14px), $semi-bold, 1, inter);
 
     &--expired {
         color: $card-expired-content;
@@ -119,7 +119,7 @@ p {
 .card-subheading {
     color: $modal-secondary;
 
-    @include font-style(to-rem(12px), $medium, 1, $font-family-modal);
+    @include font-style(to-rem(12px), $medium, 1, inter);
 
     &--expired {
         color: $card-expired-content;
@@ -130,9 +130,9 @@ p {
     letter-spacing: 0.05em;
     color: $primary-font;
 
-    @include font-style(to-rem(12px), $bold, 1, $font-family-badge);
+    @include font-style(to-rem(12px), $bold, 1, roboto-mono);
 
     &--icon {
-        @include font-style(to-rem(12px), $medium, 1, $font-family-modal-btn);
+        @include font-style(to-rem(12px), $medium, 1, figtree);
     }
 }

@@ -1,4 +1,4 @@
-import { TABLET, DESKTOP } from './constants.js';
+import { BREAKPOINTS } from './constants.js';
 
 const HamburgerBtn = document.querySelector('.navbar__hamburger-btn');
 const navbarWrapper = document.querySelector('.navbar__links-wrapper');
@@ -38,9 +38,9 @@ const isExpanded = () =>
     navbarList.classList.contains('navbar__list--open');
 
 const toggleNav = () => {
-    if (window.innerWidth < TABLET) {
+    if (window.innerWidth < BREAKPOINTS.TABLET) {
         navbarWrapper.classList.toggle('navbar__links-wrapper--open');
-    } else if (window.innerWidth < DESKTOP) {
+    } else if (window.innerWidth < BREAKPOINTS.DESKTOP) {
         navbarList.classList.toggle('navbar__list--open');
     }
 
@@ -58,8 +58,8 @@ const toggleNav = () => {
 };
 
 function getWidth() {
-    if (window.innerWidth < TABLET) return 'mobile';
-    if (window.innerWidth < DESKTOP) return 'tablet';
+    if (window.innerWidth < BREAKPOINTS.TABLET) return 'mobile';
+    if (window.innerWidth < BREAKPOINTS.DESKTOP) return 'tablet';
     return 'desktop';
 }
 

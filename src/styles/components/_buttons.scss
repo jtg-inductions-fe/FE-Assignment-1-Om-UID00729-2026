@@ -41,7 +41,7 @@
         padding: to-rem($space-xs) 0;
 
         @include flex-set;
-        @include font-style(to-rem(14px), $bold, 1, $font-family-modal-btn);
+        @include font-style(to-rem(14px), $bold, 1, figtree);
 
         @include respond(tablet) {
             width: 90%;
