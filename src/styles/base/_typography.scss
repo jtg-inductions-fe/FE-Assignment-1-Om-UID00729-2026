@@ -2,6 +2,9 @@
 
 //Hosted font Circular std
 @include font-face(circularstd);
+@include font-face(inter);
+@include font-face(figtree);
+@include font-face(roboto-mono);
 
 h1 {
     font-size: to-rem(40px);
@@ -87,26 +90,26 @@ p {
 .modal-heading {
     color: $modal-content-primary;
 
-    @include font-style(to-rem(20px), $bold, 1);
+    @include font-style(to-rem(20px), $bold, 1, $font-family-modal);
 }
 
 .modal-subheading {
     letter-spacing: 0.1em;
     color: $modal-primary;
 
-    @include font-style(to-rem(12px), $semi-bold, 1);
+    @include font-style(to-rem(12px), $semi-bold, 1, $font-family-modal);
 }
 
 .modal-content {
     color: $modal-content-secondary;
 
-    @include font-style(to-rem(12px), $regular, 1);
+    @include font-style(to-rem(12px), $regular, 1, $font-family-modal);
 }
 
 .card-heading {
     color: $card-active-content;
 
-    @include font-style(to-rem(14px), $semi-bold, 1);
+    @include font-style(to-rem(14px), $semi-bold, 1, $font-family-modal);
 
     &--expired {
         color: $card-expired-content;
@@ -116,7 +119,7 @@ p {
 .card-subheading {
     color: $modal-secondary;
 
-    @include font-style(to-rem(12px), $medium, 1);
+    @include font-style(to-rem(12px), $medium, 1, $font-family-modal);
 
     &--expired {
         color: $card-expired-content;
@@ -127,9 +130,9 @@ p {
     letter-spacing: 0.05em;
     color: $primary-font;
 
-    @include font-style(to-rem(12px), $bold, 1);
-}
+    @include font-style(to-rem(12px), $bold, 1, $font-family-badge);
 
-.danger {
-    color: red;
+    &--icon {
+        @include font-style(to-rem(12px), $medium, 1, $font-family-modal-btn);
+    }
 }

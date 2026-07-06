@@ -36,10 +36,12 @@
         background-color: $secondary;
         color: $secondary-content;
         border: $border-secondary;
-        width: 90%;
+        width: 87%;
         gap: to-rem(10px);
+        padding: to-rem($space-xs) 0;
 
         @include flex-set;
+        @include font-style(to-rem(14px), $bold, 1, $font-family-modal-btn);
 
         @include respond(tablet) {
             width: 90%;

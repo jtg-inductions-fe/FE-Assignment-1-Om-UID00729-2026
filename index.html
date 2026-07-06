@@ -30,7 +30,7 @@
                         >
                         <a
                             href="#"
-                            class="links links--sm navbar__focus-tab open-modal-modal"
+                            class="links links--sm navbar__focus-tab open-modal"
                             >Special Deals</a
                         >
                         <a href="#" class="links links--sm navbar__focus-tab"
@@ -245,12 +245,17 @@
             </section>
             <section class="modal-container">
                 <div class="spin-wheel">
-                    <button class="wheel-close-btn">
-                        <span class="icon-x"></span>
+                    <button
+                        type="button"
+                        class="wheel-close-btn modal-btn"
+                        aria-label="close-modal"
+                    >
+                        <span class="icon-x" aria-label="hidden"></span>
                     </button>
-                    <div class="spin-wheel__heading">
-                        <h4 class="modal-subheading">
-                            <span class="icon-gift"></span>SPECIAL DEALS
+                    <div class="spin-wheel__heading-cont">
+                        <h4 class="modal-subheading spin-wheel__subheading">
+                            <span class="icon-gift" aria-label="hidden"></span
+                            >SPECIAL DEALS
                         </h4>
                         <h3 class="modal-heading">Spin & Win</h3>
                         <p class="modal-content">
@@ -259,39 +264,69 @@
                     </div>
                     <div class="spin-wheel__wrapper">
                         <div class="wheel"></div>
-                        <span class="icon-wheel-pointer"></span>
-                        <button class="spin-btn button button--outline">
+                        <span
+                            class="icon-wheel-pointer"
+                            aria-label="hidden"
+                        ></span>
+                        <button
+                            type="button"
+                            class="spin-btn button button--outline"
+                        >
                             Spin
                         </button>
                     </div>
-                    <div class="display-card card card--modals">
-                        <div class="heading-wrapper">
-                            <h3 class="display-card-label card-heading"></h3>
-                            <h5
-                                class="display-card-expiry card-subheading"
-                            ></h5>
-                        </div>
-                        <div class="promoCode-wrapper">
-                            <span
-                                class="display-card-promoCode badge badge--text"
-                            ></span>
-                            <button class="copy-btn">
-                                <span class="icon-copy"></span>
-                            </button>
+                    <div class="display-card-wrapper">
+                        <p class="spin-wheel__winText">You Won!</p>
+                        <div class="display-card deal-card">
+                            <div class="heading-wrapper">
+                                <h3
+                                    class="display-card-label card-heading"
+                                ></h3>
+                                <h5
+                                    class="display-card-expiry card-subheading"
+                                ></h5>
+                            </div>
+                            <div class="promoCode-wrapper">
+                                <span
+                                    class="badge badge--text display-card-promoCode"
+                                ></span>
+                                <button
+                                    type="button"
+                                    class="copy-btn modal-btn"
+                                    aria-label="copy promo code"
+                                >
+                                    <span
+                                        class="icon-copy copy-btn__icon"
+                                        aria-label="hidden"
+                                    ></span>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <button class="button button--modals viewAllButton">
+                    <button
+                        type="button"
+                        class="button button--modals viewAllButton"
+                        aria-label="view All won Deals"
+                    >
                         View All Unlocked Deals
-                        <span class="badge--icon modal-count"></span>
+                        <span
+                            class="badge badge--icon modal-count"
+                            aria-label="hidden"
+                        ></span>
                     </button>
                 </div>
                 <div class="won-deals">
-                    <button class="viewAll-close-btn">
-                        <span class="icon-x"></span>
+                    <button
+                        type="button"
+                        class="viewAll-close-btn modal-btn"
+                        aria-label="close modal"
+                    >
+                        <span class="icon-x" aria-label="hidden"></span>
                     </button>
-                    <div class="won-deals__heading">
-                        <h4 class="modal-subheading">
-                            <span class="icon-gift"></span>SPECIAL DEALS
+                    <div class="won-deals__heading-cont">
+                        <h4 class="modal-subheading won-deals__subheading">
+                            <span class="icon-gift" aria-label="hidden"></span
+                            >SPECIAL DEALS
                         </h4>
                         <h3 class="modal-heading">Unlocked Deals</h3>
                         <p class="modal-content">
@@ -299,7 +334,11 @@
                         </p>
                     </div>
                     <div class="won-deals__wrapper"></div>
-                    <button class="button button--modals goBackButton">
+                    <button
+                        type="button"
+                        class="button button--modals goBackButton"
+                        aria-label="go back"
+                    >
                         Go Back
                     </button>
                 </div>

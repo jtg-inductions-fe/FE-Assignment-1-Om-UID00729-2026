@@ -4,15 +4,18 @@
 .modal-container {
     position: fixed;
     inset: 0;
-    width: 100vw;
+    width: min(100%, 1440px);
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     z-index: $z-index-20;
-    display: flex;
     justify-content: end;
     align-items: center;
     flex-direction: column;
     display: none;
+    padding: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     @include respond(tablet) {
         justify-content: center;
@@ -22,38 +25,66 @@
 .spin-wheel,
 .won-deals {
     background-color: $background;
-    width: 93%;
+    width: 83%;
     padding-block: to-rem($space-md);
-    gap: to-rem(20px);
+    gap: to-rem(13px);
     border-radius: to-rem(24px) to-rem(24px) 0 0;
     position: relative;
+    max-height: 85%;
 
     @include flex-set(center, center, column);
 
-    &__heading {
-        gap: to-rem(8px);
+    &__heading-cont {
+        gap: to-rem(12px);
+        padding-bottom: to-rem(12px);
 
         @include flex-set(center, center, column);
     }
 
-    &__wrapper {
+    &__subheading {
+        gap: to-rem(9px);
+
         @include flex-set;
+    }
+
+    &__wrapper {
+        padding-block: to-rem(5px);
         position: relative;
+        width: 100%;
+
+        @include flex-set;
+    }
+
+    &__winText {
+        @include font-style(to-rem(12px), $bold, 1, $font-family-modal);
     }
 
     @include respond(tablet) {
         width: 35%;
         border-radius: to-rem(24px);
+        margin-top: to-rem(92px);
+    }
+
+    @include respond(desktop) {
+        width: 25%;
     }
 }
 
 .won-deals {
+    max-height: 54%;
     display: none;
 
+    &__heading-cont {
+        padding: 0;
+    }
+
     &__wrapper {
-        width: 90%;
+        width: 100%;
         gap: to-rem(10px);
-        @include flex-set(center, center, column);
+        overflow-y: scroll;
+        max-height: 80%;
+
+        @include flex-set(unset, center, column);
     }
 }
 
@@ -99,21 +130,32 @@
     color: $background;
     text-align: center;
 
-    @include font-style(12px, $bold, 1);
+    @include font-style(12px, $bold, 1, $font-family-modal);
 }
 
-.display-card {
+.display-card-wrapper {
     display: none;
+    gap: to-rem(12px);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
 }
 
-.heading-wrapper,
-.promoCode-wrapper {
-    width: 40%;
+.heading-wrapper {
+    width: 50%;
+    gap: 9px;
+
+    @include flex-set(center, start, column);
 }
 
 .promoCode-wrapper {
-    @include flex-set;
+    width: 50%;
+    height: 100%;
+    padding-bottom: 15px;
     gap: to-rem(20px);
+
+    @include flex-set;
 }
 
 .icon-copy {
@@ -139,4 +181,10 @@
 .icon-wheel-pointer {
     position: absolute;
     top: to-rem(-13px);
+    left: 50%;
+    transform: translateX((-50%));
+}
+
+.modal-btn {
+    cursor: pointer;
 }

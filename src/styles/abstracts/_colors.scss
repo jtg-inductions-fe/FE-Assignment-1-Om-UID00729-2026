@@ -19,8 +19,8 @@ $modal-accent-1: #fbbf24;
 $modal-accent-2: #06b6d4;
 $card-active: linear-gradient(
     to right,
-    rgba(244, 67, 108, 0.1),
-    rgba(124, 58, 237, 0.1)
+    rgba($modal-primary, 0.1),
+    rgba($modal-secondary, 0.1)
 );
 $card-expired: #00000033;
 $card-active-content: #1f2937;

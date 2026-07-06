@@ -46,13 +46,16 @@ $z-index-neg-1: -1;
 
 /// Variables for font-size
 /// @type string
-$font-family: circularstd;
+$font-family-primary: circularstd;
+$font-family-modal: inter;
+$font-family-modal-btn: figtree;
+$font-family-badge: roboto-mono;
 
 /// Variables for font-weight
 /// @type number
 $bold: 700;
 $semi-bold: 600;
-$medium: 450;
+$medium: 500;
 $regular: 400;
 
 /// Variables for Line Spacing
@@ -79,6 +82,36 @@ $fonts: (
         ),
         'bold': (
             'file-name': 'CircularStd-Bold',
+            'font-weight': $bold,
+        ),
+    ),
+    inter: (
+        'regular': (
+            'file-name': 'Inter-Regular',
+            'font-weight': $regular,
+        ),
+        'semi-bold': (
+            'file-name': 'Inter-SemiBold',
+            'font-weight': $semi-bold,
+        ),
+        'bold': (
+            'file-name': 'Inter-Bold',
+            'font-weight': $bold,
+        ),
+    ),
+    figtree: (
+        'medium': (
+            'file-name': 'figtree-medium',
+            'font-weight': $medium,
+        ),
+        'bold': (
+            'file-name': 'figtree-bold',
+            'font-weight': $bold,
+        ),
+    ),
+    roboto-mono: (
+        'bold': (
+            'file-name': 'roboto-mono-bold',
             'font-weight': $bold,
         ),
     ),

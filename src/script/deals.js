@@ -1,20 +1,24 @@
-const displayCard = document.querySelector('.display-card');
+import { API_URI } from './constants.js';
+import returnExpiryTime from './utility.js';
+import { MS_IN_DAY } from './constants.js';
+
+const displayCard = document.querySelector('.display-card-wrapper');
 const displayLabel = document.querySelector('.display-card-label');
 const displayExpiry = document.querySelector('.display-card-expiry');
 const displayPromoCode = document.querySelector('.display-card-promoCode');
+const copyBtn = document.querySelector('.copy-btn__icon');
 const spinBtn = document.querySelector('.spin-btn');
 const wheel = document.querySelector('.wheel');
-const triggerModal = document.querySelector('.open-modal-modal');
+const triggerModal = document.querySelector('.open-modal');
 const modalContainer = document.querySelector('.modal-container');
 const countBadge = document.querySelector('.modal-count');
-const DealsCardWrapper = document.querySelector('.won-deals__wrapper');
+const dealsCardWrapper = document.querySelector('.won-deals__wrapper');
 const viewAllBtn = document.querySelector('.viewAllButton');
 const goBackBtn = document.querySelector('.goBackButton');
 const spinWheelWrapper = document.querySelector('.spin-wheel');
 const wonDealsWrapper = document.querySelector('.won-deals');
 const WheelSectionCloseBtn = document.querySelector('.wheel-close-btn');
 const wonSectionCloseBtn = document.querySelector('.viewAll-close-btn');
-const copyBtn = document.querySelector('.copy-btn');
 
 const STOP_ANGLES = [45, 315, 225, 135];
 
@@ -24,11 +28,14 @@ let wheelDeals = [];
 let wonDeals = [];
 let availableDeals = [];
 
-triggerModal.addEventListener('click', () => {
+triggerModal.addEventListener('click', (e) => {
+    e.preventDefault();
     modalContainer.style.display = 'flex';
     spinWheelWrapper.style.display = 'flex';
-    wonDealsWrapper.style.display = 'none;';
+    wonDealsWrapper.style.display = 'none';
     WheelSectionCloseBtn.focus();
+    document.body.classList.add('no-scroll');
+    fetchDeals();
 });
 
 spinBtn.addEventListener('click', () => {
@@ -40,95 +47,40 @@ spinBtn.addEventListener('click', () => {
     if (wheelDeals.length === 0) {
         return;
     }
+
     selectWinner();
 });
 
-viewAllBtn.addEventListener('click', () => {
-    wonDealsWrapper.style.display = 'flex';
-    spinWheelWrapper.style.display = 'none';
-    wonSectionCloseBtn.focus();
-    renderWonDetails();
-});
+viewAllBtn.addEventListener('click', handleViewAllBtn);
 
-viewAllBtn.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab' && !e.shiftKey) {
-        e.preventDefault();
-        WheelSectionCloseBtn.focus();
+viewAllBtn.addEventListener('keydown', handleViewAllBtn);
+
+goBackBtn.addEventListener('click', handleGoBackBtn);
+
+goBackBtn.addEventListener('keydown', handleGoBackBtn);
+
+WheelSectionCloseBtn.addEventListener('click', handleSpinCloseBtn);
+
+WheelSectionCloseBtn.addEventListener('keydown', handleSpinCloseBtn);
+
+wonSectionCloseBtn.addEventListener('click', handleWonCloseBtn);
+
+wonSectionCloseBtn.addEventListener('keydown', handleWonCloseBtn);
+
+modalContainer.addEventListener('click', (e) => {
+    if (
+        e.target.tagName === 'SPAN' &&
+        e.target.classList.contains('icon-copy')
+    ) {
+        copyPromoCode(e.target);
     }
-});
-
-goBackBtn.addEventListener('click', () => {
-    wonDealsWrapper.style.display = 'none';
-    spinWheelWrapper.style.display = 'flex';
-    WheelSectionCloseBtn.focus();
-});
-
-goBackBtn.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab' && !e.shiftKey) {
-        e.preventDefault();
-        wonSectionCloseBtn.focus();
-    }
-});
-
-WheelSectionCloseBtn.addEventListener('click', () => {
-    wonDealsWrapper.style.display = 'none';
-    spinWheelWrapper.style.display = 'none';
-    modalContainer.style.display = 'none';
-    document.body.style.overflow = '';
-});
-
-WheelSectionCloseBtn.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab' && e.shiftKey) {
-        e.preventDefault();
-        viewAllBtn.focus();
-    }
-});
-
-wonSectionCloseBtn.addEventListener('click', () => {
-    wonDealsWrapper.style.display = 'none';
-    spinWheelWrapper.style.display = 'none';
-    modalContainer.style.display = 'none';
-    document.body.style.overflow = '';
-});
-
-wonSectionCloseBtn.addEventListener('click', (e) => {
-    if (e.key === 'Tab' && e.shiftKey) {
-        e.preventDefault();
-        goBackBtn.focus();
-    }
-});
-
-DealsCardWrapper.addEventListener('click', async (e) => {
-    const button = e.target.closest('.copy-btn');
-
-    if (!button) return;
-
-    copyPromoCode(button);
-});
-
-DealsCardWrapper.addEventListener('click', async (e) => {
-    if (e.key !== 'Enter' && e.key !== ' ') return;
-    e.preventDefault();
-    copyPromoCode(copyBtn);
-});
-
-copyBtn.addEventListener('click', async () => {
-    copyPromoCode(copyBtn);
-});
-
-copyBtn.addEventListener('keydown', async (e) => {
-    if (e.key !== 'Enter' && e.key !== ' ') return;
-    e.preventDefault();
-    copyPromoCode(copyBtn);
 });
 
 async function fetchDeals() {
     wheelMessage('Loading...');
     try {
         if (!allDeals.length) {
-            const response = await fetch(
-                'https://gist.githubusercontent.com/ameer-wajid-ali/1f29ebee4295cede36f8d74b45e576df/raw/122966c9a123861249f173911d8d93a76dc06d7a/',
-            );
+            const response = await fetch(API_URI);
             if (!response.ok) {
                 throw new Error(`Error Fetching details - ${response.status}`);
             }
@@ -214,12 +166,15 @@ function selectWinner() {
             const isWon = wonDeals.some(
                 (deal) => deal.promoCode === winnerDeal.promoCode,
             );
+
             if (!isWon) {
                 const wonDeal = {
                     ...winnerDeal,
-                    validFor: winnerDeal.validFor ?? 7,
-                    wonAt: Date.now(),
+                    daysValid: winnerDeal.validFor ?? 7,
+                    expiryAt:
+                        Date.now() + (winnerDeal.validFor ?? 7) * MS_IN_DAY,
                 };
+
                 renderCard(wonDeal);
                 wonDeals.push(wonDeal);
                 saveWonDeals();
@@ -229,6 +184,7 @@ function selectWinner() {
                 updateDealsCount();
             }
             spinBtn.disabled = false;
+            viewAllBtn.disabled = false;
         },
         {
             once: true,
@@ -237,6 +193,7 @@ function selectWinner() {
 }
 
 function animateWheel(winnerIdx) {
+    viewAllBtn.disabled = true;
     spinBtn.disabled = true;
     rotation -= rotation % 360;
     rotation += 360 * 5 + STOP_ANGLES[winnerIdx];
@@ -248,24 +205,37 @@ function renderCard(wonDeal) {
     displayCard.style.display = 'flex';
     displayLabel.textContent = wonDeal.label;
     displayPromoCode.textContent = wonDeal.promoCode;
-    displayExpiry.textContent = `Expires in ${wonDeal.validFor}d`;
+    displayExpiry.textContent = returnExpiryTime(wonDeal.expiryAt);
+    copyBtn.dataset.promoCode = wonDeal.promoCode;
 }
 
 function saveWonDeals() {
-    localStorage.setItem('wonDeals', JSON.stringify(wonDeals));
+    localStorage.setItem('WON_DEALS', JSON.stringify(wonDeals));
 }
 
-function loadDeals() {
-    wonDeals = JSON.parse(localStorage.getItem('wonDeals')) || [];
+function fetchStoredDeals() {
+    try {
+        wonDeals = JSON.parse(localStorage.getItem('WON_DEALS')) || [];
+    } catch {
+        wonDeals = [];
+    }
 }
 
 function renderWonDetails() {
-    loadDeals();
-    DealsCardWrapper.replaceChildren();
+    fetchStoredDeals();
+    dealsCardWrapper.replaceChildren();
+
+    if (!wonDeals.length) {
+        const card = document.createElement('div');
+        card.className = 'deal-card';
+        card.textContent = 'No Wins to show yet...';
+
+        dealsCardWrapper.appendChild(card);
+    }
 
     wonDeals.sort((a, b) => {
-        const remainingValA = remainingValidity(a);
-        const remainingValB = remainingValidity(b);
+        const remainingValA = checkExpiryTime(a);
+        const remainingValB = checkExpiryTime(b);
 
         if (isExpired(a) !== isExpired(b)) {
             return isExpired(a) ? 1 : -1;
@@ -277,79 +247,141 @@ function renderWonDetails() {
     wonDeals.forEach((deal) => {
         const card = document.createElement('div');
         if (isExpired(deal)) {
-            card.className = 'card card--modal-expired';
+            card.className = 'deal-card deal-card--expired';
         } else {
-            card.className = 'card card--modals';
+            card.className = 'deal-card';
         }
 
         const cardHeading = document.createElement('h3');
-        cardHeading.className = 'card-heading';
-        cardHeading.textContent = deal.label;
+        [cardHeading.className, cardHeading.textContent] = [
+            'card-heading',
+            deal.label,
+        ];
 
         const cardSubHeading = document.createElement('h5');
-        cardSubHeading.className = 'card-subheading';
-        cardSubHeading.textContent = isExpired(deal)
-            ? 'Expired'
-            : `Expires In ${remainingValidity(deal)}d`;
-
+        [cardSubHeading.className, cardSubHeading.textContent] = [
+            'card-subheading',
+            isExpired(deal) ? 'Deal Expired' : returnExpiryTime(deal.expiryAt),
+        ];
+        // console.log(deal.expiryAt);
         const headingWrapper = document.createElement('div');
         headingWrapper.className = 'heading-wrapper';
+
         headingWrapper.appendChild(cardHeading);
         headingWrapper.appendChild(cardSubHeading);
 
         const cardPromoCode = document.createElement('span');
-        cardPromoCode.className = 'badge badge--text';
-        cardPromoCode.textContent = deal.promoCode;
+        [cardPromoCode.className, cardPromoCode.textContent] = [
+            'badge badge--text',
+            deal.promoCode,
+        ];
 
         const copyBtnWrap = document.createElement('button');
-        copyBtnWrap.className = 'copy-btn';
-        copyBtnWrap.dataset.promoCode = deal.promoCode;
+        copyBtnWrap.setAttribute('aria-label', 'copy Promo Code');
+        copyBtnWrap.className = 'copy-btn modal-btn';
 
-        const copyIcon = document.createElement('span');
-        copyIcon.className = 'icon-copy';
+        const button = document.createElement('span');
+        [button.className, button.dataset.promoCode] = [
+            'icon-copy copy-btn__icon',
+            deal.promoCode,
+        ];
 
         if (isExpired(deal)) {
-            copyIcon.className = 'icon-copy--inactive';
+            button.className = 'icon-copy--inactive';
         }
-        copyBtnWrap.appendChild(copyIcon);
+
+        copyBtnWrap.appendChild(button);
 
         const codeWrapper = document.createElement('div');
         codeWrapper.className = 'promoCode-wrapper';
+
         codeWrapper.appendChild(cardPromoCode);
         codeWrapper.appendChild(copyBtnWrap);
 
         card.appendChild(headingWrapper);
         card.appendChild(codeWrapper);
 
-        DealsCardWrapper.appendChild(card);
+        dealsCardWrapper.appendChild(card);
     });
 }
 
-function remainingValidity(deal) {
-    const daysPassed = Math.floor(
-        (Date.now() - deal.wonAt) / (24 * 60 * 60 * 1000),
-    );
-    return Math.max(deal.validFor - daysPassed, 0);
+function checkExpiryTime(deal) {
+    return Math.max(0, deal.expiryAt - Date.now());
 }
 
 function isExpired(deal) {
-    return remainingValidity(deal) === 0;
+    return Date.now() >= deal.expiryAt;
 }
 
 async function copyPromoCode(button) {
     try {
         await navigator.clipboard.writeText(button.dataset.promoCode);
-        button.textContent = '✅';
+        button.classList.remove('icon-copy');
+        button.classList.add('icon-success');
 
         setTimeout(() => {
-            button.textContent = '';
+            button.classList.remove('icon-success');
             button.classList.add('icon-copy');
         }, 1500);
     } catch {
-        button.textContent = '❌';
+        button.classList.remove('icon-copy');
+        button.classList.add('icon-x');
+        alert("Couldn't copy");
+        setTimeout(() => {
+            button.classList.remove('icon-x');
+            button.classList.add('icon-copy');
+        }, 1500);
     }
 }
 
-loadDeals();
-fetchDeals();
+function handleWonCloseBtn(e) {
+    if (e.type === 'keydown' && e.key === 'Tab' && e.shiftKey) {
+        e.preventDefault();
+        goBackBtn.focus();
+        return;
+    } else if (e.type === 'click') {
+        wonDealsWrapper.style.display = 'none';
+        spinWheelWrapper.style.display = 'none';
+        modalContainer.style.display = 'none';
+        document.body.classList.remove('no-scroll');
+    }
+}
+
+function handleSpinCloseBtn(e) {
+    if (e.type === 'keydown' && e.key === 'Tab' && e.shiftKey) {
+        e.preventDefault();
+        viewAllBtn.focus();
+        return;
+    } else if (e.type === 'click') {
+        wonDealsWrapper.style.display = 'none';
+        spinWheelWrapper.style.display = 'none';
+        modalContainer.style.display = 'none';
+        document.body.classList.remove('no-scroll');
+    }
+}
+
+function handleViewAllBtn(e) {
+    if (e.type === 'keydown' && e.key === 'Tab' && !e.shiftKey) {
+        e.preventDefault();
+        WheelSectionCloseBtn.focus();
+    } else if (e.type === 'click') {
+        wonDealsWrapper.style.display = 'flex';
+        spinWheelWrapper.style.display = 'none';
+        wonSectionCloseBtn.focus();
+        renderWonDetails();
+    }
+}
+
+function handleGoBackBtn(e) {
+    if (e.type === 'keydown' && e.key === 'Tab' && !e.shiftKey) {
+        e.preventDefault();
+        wonSectionCloseBtn.focus();
+    } else if (e.type === 'click') {
+        wonDealsWrapper.style.display = 'none';
+        spinWheelWrapper.style.display = 'flex';
+        WheelSectionCloseBtn.focus();
+    }
+}
+
+fetchStoredDeals();
 updateDealsCount();
