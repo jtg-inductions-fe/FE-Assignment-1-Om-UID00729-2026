@@ -5,23 +5,20 @@ import {
 } from './constants.js';
 import getTimeDifference from './utility.js';
 
-const displayCard = document.querySelector('.display-card-wrapper');
-const displayLabel = document.querySelector('.display-card-label');
-const displayExpiry = document.querySelector('.display-card-expiry');
-const displayPromoCode = document.querySelector('.display-card-promoCode');
-const copyBtn = document.querySelector('.copy-btn');
-const spinBtn = document.querySelector('.spin-btn');
-const wheel = document.querySelector('.wheel');
+const displayCard = document.querySelector('.winning-card');
+const spinBtn = document.querySelector('.spin-wheel__spin-btn');
+const wheel = document.querySelector('.spin-wheel__wheel');
 const triggerModal = document.querySelector('.open-modal');
-const modalContainer = document.querySelector('.modal-wrapper');
-const countBadge = document.querySelector('.modal-count');
-const dealsCardWrapper = document.querySelector('.won-deals__wrapper');
-const viewAllBtn = document.querySelector('.viewAllButton');
-const goBackBtn = document.querySelector('.goBackButton');
+const modalContainer = document.querySelector('.modal');
+const countBadge = document.querySelector('.modal__count-badge');
+const buttonText = document.querySelector('.modal__footer-button-text');
+const modalButton = document.querySelector('.modal__footer-button');
 const spinWheelWrapper = document.querySelector('.spin-wheel');
 const wonDealsWrapper = document.querySelector('.won-deals');
-const WheelSectionCloseBtn = document.querySelector('.wheel-close-btn');
-const wonSectionCloseBtn = document.querySelector('.viewAll-close-btn');
+const modalHeading = document.querySelector('.modal__heading');
+const modalDescription = document.querySelector('.modal__description');
+const CloseBtn = document.querySelector('.modal__close-btn');
+const dealCardTemplate = document.getElementById('deal-card-template');
 
 const STOP_ANGLES = [45, 315, 225, 135];
 
@@ -36,7 +33,7 @@ triggerModal.addEventListener('click', (e) => {
     modalContainer.style.display = 'flex';
     spinWheelWrapper.style.display = 'flex';
     wonDealsWrapper.style.display = 'none';
-    WheelSectionCloseBtn.focus();
+    CloseBtn.focus();
     document.body.classList.add('no-scroll');
     fetchDeals();
 });
@@ -54,25 +51,26 @@ spinBtn.addEventListener('click', () => {
     selectWinner();
 });
 
-viewAllBtn.addEventListener('click', handleViewAllBtn);
+modalButton.addEventListener('click', handleModalButton);
 
-viewAllBtn.addEventListener('keydown', handleViewAllBtn);
+modalButton.addEventListener('keydown', handleModalButton);
 
-goBackBtn.addEventListener('click', handleGoBackBtn);
+CloseBtn.addEventListener('click', handleCloseButton);
 
-goBackBtn.addEventListener('keydown', handleGoBackBtn);
+CloseBtn.addEventListener('keydown', handleCloseButton);
 
-WheelSectionCloseBtn.addEventListener('click', handleSpinCloseBtn);
+modalContainer.addEventListener('click', (event) => {
+    if (event.target.classList.contains('deal-card__copy-btn')) {
+        copyPromoCode(event.target);
+    }
+});
 
-WheelSectionCloseBtn.addEventListener('keydown', handleSpinCloseBtn);
-
-wonSectionCloseBtn.addEventListener('click', handleWonCloseBtn);
-
-wonSectionCloseBtn.addEventListener('keydown', handleWonCloseBtn);
-
-modalContainer.addEventListener('click', (e) => {
-    if (e.target.classList.contains('copy-btn')) {
-        copyPromoCode(e.target);
+modalContainer.addEventListener('keydown', (event) => {
+    const copyBtn = event.target.querySelector('.deal-card__copy-btn');
+    if (!copyBtn) return;
+    if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        copyPromoCode(copyBtn);
     }
 });
 
@@ -122,18 +120,18 @@ function selectRandomDeals(availableDeals) {
 }
 
 function renderWheel() {
-    if (wheel.classList.contains('wheel--message')) {
-        wheel.classList.remove('wheel--message');
+    if (wheel.classList.contains('spin-wheel__wheel--message')) {
+        wheel.classList.remove('spin-wheel__wheel--message');
         spinBtn.hidden = false;
     }
     wheel.replaceChildren();
     wheelDeals.forEach((deal, idx) => {
         const section = document.createElement('div');
-        section.classList.add('wheel-section');
-        section.classList.add(`wheel-section--${idx + 1}`);
+        section.classList.add('spin-wheel__section');
+        section.classList.add(`spin-wheel__section--${idx + 1}`);
 
         const sectionText = document.createElement('p');
-        sectionText.classList.add('wheel-section-text');
+        sectionText.classList.add('spin-wheel__section-text');
         sectionText.textContent = deal.label;
 
         section.appendChild(sectionText);
@@ -143,7 +141,7 @@ function renderWheel() {
 
 function wheelMessage(message) {
     wheel.replaceChildren();
-    wheel.classList.add('wheel--message');
+    wheel.classList.add('spin-wheel__wheel--message');
     wheel.style.transform = 'rotate(0deg)';
     wheel.style.transition = 'none';
     spinBtn.hidden = true;
@@ -175,7 +173,7 @@ function selectWinner() {
                         Date.now() + (validFor ?? 7) * MILLISECONDS_PER_DAY,
                 };
 
-                renderCard(wonDeal);
+                renderWinningCard(wonDeal);
                 wonDeals.push(wonDeal);
                 saveWonDeals();
                 availableDeals = availableDeals.filter(
@@ -185,7 +183,7 @@ function selectWinner() {
                 updateDealsCount();
             }
             spinBtn.disabled = false;
-            viewAllBtn.disabled = false;
+            modalButton.disabled = false;
         },
         {
             once: true,
@@ -194,7 +192,7 @@ function selectWinner() {
 }
 
 function animateWheel(winnerIdx) {
-    viewAllBtn.disabled = true;
+    modalButton.disabled = true;
     spinBtn.disabled = true;
     rotation -= rotation % 360;
     rotation += 360 * 5 + STOP_ANGLES[winnerIdx];
@@ -202,12 +200,15 @@ function animateWheel(winnerIdx) {
     wheel.style.transition = 'transform 1s ease-out';
 }
 
-function renderCard(wonDeal) {
+function renderWinningCard(wonDeal) {
     displayCard.style.display = 'flex';
-    displayLabel.textContent = wonDeal.label;
-    displayPromoCode.textContent = wonDeal.promoCode;
-    displayExpiry.textContent = getTimeDifference(wonDeal.expiryAt);
-    copyBtn.dataset.promoCode = wonDeal.promoCode;
+
+    const dealCard = displayCard.querySelector('.deal-card');
+    if (dealCard) {
+        dealCard.remove();
+    }
+
+    renderCards(wonDeal, displayCard);
 }
 
 function saveWonDeals() {
@@ -229,14 +230,14 @@ function fetchStoredDeals() {
 
 function renderWonDetails() {
     fetchStoredDeals();
-    dealsCardWrapper.replaceChildren();
+    wonDealsWrapper.replaceChildren();
 
     if (!wonDeals.length) {
         const card = document.createElement('div');
         card.className = 'deal-card';
         card.textContent = 'No Wins to show yet...';
 
-        dealsCardWrapper.appendChild(card);
+        wonDealsWrapper.appendChild(card);
     }
 
     wonDeals.sort((a, b) => {
@@ -251,57 +252,7 @@ function renderWonDetails() {
     });
 
     wonDeals.forEach((deal) => {
-        const { label, promoCode, expiryAt } = deal;
-        const card = document.createElement('div');
-        if (isExpired(deal)) {
-            card.className = 'deal-card deal-card--expired';
-        } else {
-            card.className = 'deal-card';
-        }
-
-        const cardHeading = document.createElement('h3');
-        cardHeading.className = 'card-heading';
-        cardHeading.textContent = label;
-
-        const cardSubHeading = document.createElement('h5');
-        cardSubHeading.className = 'card-subheading';
-        cardSubHeading.textContent = getExpiryLabel(expiryAt);
-
-        const headingWrapper = document.createElement('div');
-        headingWrapper.className = 'heading-wrapper';
-
-        headingWrapper.appendChild(cardHeading);
-        headingWrapper.appendChild(cardSubHeading);
-
-        const cardPromoCode = document.createElement('span');
-        cardPromoCode.className = 'badge badge--text';
-        cardPromoCode.textContent = promoCode;
-
-        const copyBtnWrap = document.createElement('button');
-        copyBtnWrap.setAttribute('aria-label', 'copy Promo Code');
-        copyBtnWrap.className = 'copy-btn-wrapper modal-btn';
-
-        const button = document.createElement('span');
-        button.className = 'icon-copy copy-btn';
-        button.dataset.promoCode = promoCode;
-        button.title = 'Copy Promo Code';
-
-        if (isExpired(deal)) {
-            button.className = 'icon-copy--inactive';
-        }
-
-        copyBtnWrap.appendChild(button);
-
-        const codeWrapper = document.createElement('div');
-        codeWrapper.className = 'promoCode-wrapper';
-
-        codeWrapper.appendChild(cardPromoCode);
-        codeWrapper.appendChild(copyBtnWrap);
-
-        card.appendChild(headingWrapper);
-        card.appendChild(codeWrapper);
-
-        dealsCardWrapper.appendChild(card);
+        renderCards(deal, wonDealsWrapper);
     });
 }
 
@@ -340,10 +291,10 @@ async function copyPromoCode(button) {
     }
 }
 
-function handleWonCloseBtn(e) {
+function handleCloseButton(e) {
     if (e.type === 'keydown' && e.key === 'Tab' && e.shiftKey) {
         e.preventDefault();
-        goBackBtn.focus();
+        modalButton.focus();
         return;
     } else if (e.type === 'click') {
         wonDealsWrapper.style.display = 'none';
@@ -353,40 +304,67 @@ function handleWonCloseBtn(e) {
     }
 }
 
-function handleSpinCloseBtn(e) {
-    if (e.type === 'keydown' && e.key === 'Tab' && e.shiftKey) {
+function handleModalButton(e) {
+    if (e.type === 'keydown' && e.key === 'Tab' && !e.shiftKey) {
         e.preventDefault();
-        viewAllBtn.focus();
-        return;
+        CloseBtn.focus();
     } else if (e.type === 'click') {
-        wonDealsWrapper.style.display = 'none';
-        spinWheelWrapper.style.display = 'none';
-        modalContainer.style.display = 'none';
-        document.body.classList.remove('no-scroll');
+        if (spinWheelWrapper.style.display === 'flex') {
+            spinWheelWrapper.style.display = 'none';
+            displayCard.style.display = 'none';
+            wonDealsWrapper.style.display = 'flex';
+            renderWonDetails();
+            renderModalContent('wonDeals');
+        } else {
+            spinWheelWrapper.style.display = 'flex';
+            displayCard.style.display = 'flex';
+            wonDealsWrapper.style.display = 'none';
+            renderModalContent('spinWheel');
+        }
     }
 }
 
-function handleViewAllBtn(e) {
-    if (e.type === 'keydown' && e.key === 'Tab' && !e.shiftKey) {
-        e.preventDefault();
-        WheelSectionCloseBtn.focus();
-    } else if (e.type === 'click') {
-        wonDealsWrapper.style.display = 'flex';
-        spinWheelWrapper.style.display = 'none';
-        wonSectionCloseBtn.focus();
-        renderWonDetails();
+function renderModalContent(viewName) {
+    if (viewName === 'spinWheel') {
+        countBadge.classList.remove('modal__count-badge--hidden');
+        buttonText.textContent = 'View All Unlocked Deals';
+        modalHeading.textContent = 'Spin & Win!';
+        modalDescription.textContent = 'Tap the center of the wheel to spin';
+    } else {
+        countBadge.classList.add('modal__count-badge--hidden');
+        buttonText.textContent = 'Go Back';
+        modalHeading.textContent = 'Unlocked Deals';
+        modalDescription.textContent = 'All the deals you’ve unlocked yet!';
     }
 }
 
-function handleGoBackBtn(e) {
-    if (e.type === 'keydown' && e.key === 'Tab' && !e.shiftKey) {
-        e.preventDefault();
-        wonSectionCloseBtn.focus();
-    } else if (e.type === 'click') {
-        wonDealsWrapper.style.display = 'none';
-        spinWheelWrapper.style.display = 'flex';
-        WheelSectionCloseBtn.focus();
+function renderCards(deal, wrapperClass) {
+    const { label, promoCode, expiryAt } = deal;
+
+    const templateClone = dealCardTemplate.content.cloneNode(true);
+    const dealCard = templateClone.querySelector('.deal-card');
+
+    const dealCardLabel = templateClone.querySelector('.deal-card__label');
+    dealCardLabel.textContent = label;
+
+    const dealCardSubHeading =
+        templateClone.querySelector('.deal-card__expiry');
+    dealCardSubHeading.textContent = getExpiryLabel(expiryAt);
+
+    const dealCardPromoCode = templateClone.querySelector(
+        '.deal-card__promocode-text',
+    );
+    dealCardPromoCode.textContent = promoCode;
+
+    const dealCardcopyBtn = templateClone.querySelector('.deal-card__copy-btn');
+    dealCardcopyBtn.dataset.promoCode = promoCode;
+
+    if (isExpired) {
+        dealCard.classList.add('deal-card--inactive');
+        dealCardcopyBtn.classList.add('deal-card__copy-btn-inactive');
     }
+
+    wrapperClass.append(dealCard);
 }
 
 fetchStoredDeals();

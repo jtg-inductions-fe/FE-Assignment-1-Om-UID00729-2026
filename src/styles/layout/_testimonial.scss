@@ -71,8 +71,7 @@
         background-image: url('/assets/images/testimonials-bg.webp');
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
-        background-position-y: 46%;
+        background-position-y: 59%;
 
         &__slide {
             gap: to-rem(62px);
@@ -88,8 +87,8 @@
 
     @include respond(desktop) {
         padding-top: to-rem(105px);
-        background-image: url('/assets/images/testimonial-bg.webp');
-        background-position-y: 27%;
+        background-position-y: 12%;
+        background-size: cover;
 
         &__slide-comment {
             width: 71%;

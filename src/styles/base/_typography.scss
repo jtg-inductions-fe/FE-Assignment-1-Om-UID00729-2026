@@ -100,7 +100,7 @@ p {
     @include font-style(to-rem(12px), $semi-bold, 1, $inter);
 }
 
-.modal-content {
+.modal-description {
     color: $modal-content-secondary;
 
     @include font-style(to-rem(12px), $regular, 1, $inter);

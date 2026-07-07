@@ -3,7 +3,7 @@
 
 .footer {
     padding: 0;
-    padding-top: to-rem(128px);
+    padding-block: to-rem(128px) to-rem($space-xl);
     gap: to-rem(80px);
     position: relative;
     display: grid;

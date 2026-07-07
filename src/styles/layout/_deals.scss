@@ -1,7 +1,7 @@
 @use '../abstracts/' as *;
 @use '../themes/' as *;
 
-.modal-wrapper {
+.modal {
     position: fixed;
     inset: 0;
     width: 100%;
@@ -17,187 +17,103 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
-    @include respond(tablet) {
-        justify-content: center;
+    &__container {
+        background-color: $background;
+        width: 83%;
+        padding-block: to-rem(20px);
+        gap: to-rem(20px);
+        border-radius: to-rem(24px) to-rem(24px) 0 0;
+        position: relative;
+        max-height: 72%;
+
+        @include flex-set(center, center, column);
     }
-}
 
-.modal-container {
-    width: min(100%, 1440px);
-    height: 100%;
+    &__close-btn {
+        font-size: to-rem(24px);
+        background-color: $background;
+        color: $primary-font;
+        position: absolute;
+        padding: 10px;
+        top: 0;
+        right: 0;
+        border-radius: to-rem(24px);
+    }
 
-    @include flex-set(center, center, column);
-}
-
-.spin-wheel,
-.won-deals {
-    background-color: $background;
-    width: 83%;
-    padding-block: to-rem($space-md);
-    gap: to-rem(13px);
-    border-radius: to-rem(24px) to-rem(24px) 0 0;
-    position: relative;
-    max-height: 85%;
-
-    @include flex-set(center, center, column);
-
-    &__heading-cont {
+    &__header {
         gap: to-rem(12px);
-        padding-bottom: to-rem(12px);
 
         @include flex-set(center, center, column);
     }
 
     &__subheading {
-        gap: to-rem(9px);
+        gap: to-rem(10px);
 
         @include flex-set;
     }
 
-    &__wrapper {
-        padding-block: to-rem(5px);
-        position: relative;
+    &__content {
         width: 100%;
 
-        @include flex-set;
+        gap: to-rem($space-md);
+
+        @include flex-set(center, center, column);
     }
 
-    &__winText {
-        @include font-style(to-rem(12px), $bold, 1, $inter);
+    &__count-badge {
+        &--hidden {
+            display: none;
+        }
+    }
+
+    &__footer-button {
+        width: 87%;
+        gap: to-rem(10px);
+        padding: to-rem($space-xs) 0;
+
+        @include flex-set;
+        @include font-style(to-rem(14px), $bold, 1, $figtree);
     }
 
     @include respond(tablet) {
-        width: 35%;
-        border-radius: to-rem(24px);
-    }
+        justify-content: center;
 
-    @include respond(desktop) {
-        width: 25%;
+        &__container {
+            max-width: to-rem(360px);
+            border-radius: to-rem(24px);
+        }
+
+        &__footer-button {
+            width: 90%;
+        }
     }
+}
+
+.spin-wheel-container {
+    width: 100%;
 }
 
 .won-deals {
-    max-height: 54%;
+    max-height: to-rem(243px);
     display: none;
+    width: 100%;
+    gap: to-rem(8px);
+    overflow-y: auto;
 
-    &__heading-cont {
-        padding: 0;
-    }
-
-    &__wrapper {
-        width: 100%;
-        gap: to-rem(8px);
-        overflow-y: auto;
-        max-height: 80%;
-
-        @include flex-set(unset, center, column);
-    }
-
-    @include respond(tablet) {
-        max-height: 48%;
-    }
+    @include flex-set(unset, center, column);
 }
 
-.spin-btn {
-    width: 43px;
-    height: 43px;
-    padding: 0;
-    border-radius: $radius-round;
-    border: $border-wheel-btn;
-    position: absolute;
-}
-
-.wheel-section {
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    transform-origin: 100% 100%;
-    border-bottom: $border-wheel;
-
-    @include flex-set;
-
-    &--1 {
-        transform: rotate(0deg);
-        background-color: $modal-primary;
-    }
-
-    &--2 {
-        transform: rotate(90deg);
-        background-color: $modal-secondary;
-    }
-    &--3 {
-        transform: rotate(180deg);
-        background-color: $modal-accent-1;
-    }
-    &--4 {
-        transform: rotate(270deg);
-        background-color: $modal-accent-2;
-    }
-}
-
-.wheel-section-text {
-    transform: rotate(-45deg);
-    color: $background;
-    text-align: center;
-
-    @include font-style(12px, $bold, 1, $inter);
-}
-
-.display-card-wrapper {
+.winning-card {
+    width: 100%;
+    gap: to-rem(6px);
     display: none;
-    gap: to-rem(12px);
-    align-items: center;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-    width: 100%;
-}
 
-.heading-wrapper {
-    width: 50%;
-    gap: 9px;
+    &__win-text {
+        color: $primary-font;
 
-    @include flex-set(center, start, column);
-}
-
-.promoCode-wrapper {
-    width: 50%;
-    height: 100%;
-    padding-bottom: 15px;
-    gap: to-rem(20px);
-
-    @include flex-set;
-}
-
-.icon-copy {
-    color: $card-active-btn;
-    display: block;
-    width: 100%;
-    height: 100%;
-
-    &--inactive {
-        color: $card-inactive-btn;
+        @include font-style(to-rem(12px), $bold, 1, inter);
     }
-}
-
-.wheel-close-btn,
-.viewAll-close-btn {
-    font-size: to-rem(24px);
-    background-color: $background;
-    color: $primary-font;
-    position: absolute;
-    padding: 10px;
-    top: 0;
-    right: 0;
-    border-radius: to-rem(24px);
-}
-
-.icon-wheel-pointer {
-    position: absolute;
-    top: to-rem(-13px);
-    left: 50%;
-    transform: translateX((-50%));
-}
-
-.modal-btn {
-    cursor: pointer;
 }

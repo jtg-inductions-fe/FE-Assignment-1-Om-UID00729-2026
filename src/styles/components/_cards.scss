@@ -28,4 +28,32 @@
         border: $border-modal-expired;
         background-color: $card-expired;
     }
+
+    &__header {
+        width: 50%;
+        gap: 9px;
+
+        @include flex-set(center, start, column);
+    }
+
+    &__promocode {
+        width: 50%;
+        height: 100%;
+        padding-bottom: 15px;
+        gap: to-rem(20px);
+
+        @include flex-set(space-around, center, row);
+    }
+
+    &__copy-btn {
+        color: $card-active-btn;
+        display: block;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+
+        &--inactive {
+            color: $card-inactive-btn;
+        }
+    }
 }
