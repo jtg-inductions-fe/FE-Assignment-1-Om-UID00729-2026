@@ -37,6 +37,7 @@
             @include flex-set;
         }
     }
+
     &__section {
         position: absolute;
         width: 50%;
@@ -89,13 +90,5 @@
         &:hover {
             box-shadow: $box-shadow;
         }
-    }
-
-    &__winText {
-        @include font-style(to-rem(12px), $bold, 1, $inter);
-    }
-
-    @include respond(tablet) {
-        border-radius: to-rem(24px);
     }
 }

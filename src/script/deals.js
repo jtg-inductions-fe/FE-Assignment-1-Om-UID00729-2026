@@ -3,7 +3,7 @@ import {
     API_URIS,
     LOCAL_STORAGE_KEYS,
 } from './constants.js';
-import getTimeDifference from './utility.js';
+import getFormattedRelativeTime from './utility.js';
 
 const displayCard = document.querySelector('.winning-card');
 const spinBtn = document.querySelector('.spin-wheel__spin-btn');
@@ -17,7 +17,7 @@ const spinWheelWrapper = document.querySelector('.spin-wheel');
 const wonDealsWrapper = document.querySelector('.won-deals');
 const modalHeading = document.querySelector('.modal__heading');
 const modalDescription = document.querySelector('.modal__description');
-const CloseBtn = document.querySelector('.modal__close-btn');
+const closeBtn = document.querySelector('.modal__close-btn');
 const dealCardTemplate = document.getElementById('deal-card-template');
 
 const STOP_ANGLES = [45, 315, 225, 135];
@@ -33,7 +33,7 @@ triggerModal.addEventListener('click', (e) => {
     modalContainer.style.display = 'flex';
     spinWheelWrapper.style.display = 'flex';
     wonDealsWrapper.style.display = 'none';
-    CloseBtn.focus();
+    closeBtn.focus();
     document.body.classList.add('no-scroll');
     fetchDeals();
 });
@@ -55,9 +55,9 @@ modalButton.addEventListener('click', handleModalButton);
 
 modalButton.addEventListener('keydown', handleModalButton);
 
-CloseBtn.addEventListener('click', handleCloseButton);
+closeBtn.addEventListener('click', handleCloseButton);
 
-CloseBtn.addEventListener('keydown', handleCloseButton);
+closeBtn.addEventListener('keydown', handleCloseButton);
 
 modalContainer.addEventListener('click', (event) => {
     if (event.target.classList.contains('deal-card__copy-btn')) {
@@ -264,8 +264,8 @@ function isExpired(deal) {
     return Date.now() >= deal.expiryAt;
 }
 
-function getExpiryLabel(expiryAt) {
-    const remainingTime = getTimeDifference(expiryAt);
+function getDealExpiryStatus(expiryAt) {
+    const remainingTime = getFormattedRelativeTime(expiryAt);
 
     return remainingTime ? `Expires in ${remainingTime}` : 'Deal expired';
 }
@@ -301,13 +301,14 @@ function handleCloseButton(e) {
         spinWheelWrapper.style.display = 'none';
         modalContainer.style.display = 'none';
         document.body.classList.remove('no-scroll');
+        renderModalContent('spinWheel');
     }
 }
 
 function handleModalButton(e) {
     if (e.type === 'keydown' && e.key === 'Tab' && !e.shiftKey) {
         e.preventDefault();
-        CloseBtn.focus();
+        closeBtn.focus();
     } else if (e.type === 'click') {
         if (spinWheelWrapper.style.display === 'flex') {
             spinWheelWrapper.style.display = 'none';
@@ -317,7 +318,7 @@ function handleModalButton(e) {
             renderModalContent('wonDeals');
         } else {
             spinWheelWrapper.style.display = 'flex';
-            displayCard.style.display = 'flex';
+            displayCard.style.display = 'none';
             wonDealsWrapper.style.display = 'none';
             renderModalContent('spinWheel');
         }
@@ -326,12 +327,12 @@ function handleModalButton(e) {
 
 function renderModalContent(viewName) {
     if (viewName === 'spinWheel') {
-        countBadge.classList.remove('modal__count-badge--hidden');
+        countBadge.classList.remove('badge--hidden');
         buttonText.textContent = 'View All Unlocked Deals';
         modalHeading.textContent = 'Spin & Win!';
         modalDescription.textContent = 'Tap the center of the wheel to spin';
     } else {
-        countBadge.classList.add('modal__count-badge--hidden');
+        countBadge.classList.add('badge--hidden');
         buttonText.textContent = 'Go Back';
         modalHeading.textContent = 'Unlocked Deals';
         modalDescription.textContent = 'All the deals you’ve unlocked yet!';
@@ -349,7 +350,7 @@ function renderCards(deal, wrapperClass) {
 
     const dealCardSubHeading =
         templateClone.querySelector('.deal-card__expiry');
-    dealCardSubHeading.textContent = getExpiryLabel(expiryAt);
+    dealCardSubHeading.textContent = getDealExpiryStatus(expiryAt);
 
     const dealCardPromoCode = templateClone.querySelector(
         '.deal-card__promocode-text',

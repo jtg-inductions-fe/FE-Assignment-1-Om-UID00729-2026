@@ -17,4 +17,8 @@
         background-color: $background;
         padding: to-rem(4px) to-rem(10px);
     }
+
+    &--hidden {
+        display: none;
+    }
 }

@@ -5,7 +5,7 @@ import {
     MILLISECONDS_PER_SECOND,
 } from './constants.js';
 
-export default function getTimeDifference(
+export default function getFormattedRelativeTime(
     targetTime,
     referenceTime = Date.now(),
 ) {

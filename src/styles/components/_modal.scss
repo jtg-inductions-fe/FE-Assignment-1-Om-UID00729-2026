@@ -1,0 +1,85 @@
+@use '../abstracts/' as *;
+@use '../themes/' as *;
+
+.modal {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: $z-index-20;
+    justify-content: end;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+    padding: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &__container {
+        background-color: $background;
+        width: 83%;
+        padding-block: to-rem(20px);
+        gap: to-rem(20px);
+        border-radius: to-rem(24px) to-rem(24px) 0 0;
+        position: relative;
+        max-height: 72%;
+
+        @include flex-set(center, center, column);
+    }
+
+    &__close-btn {
+        font-size: to-rem(24px);
+        background-color: $background;
+        color: $primary-font;
+        position: absolute;
+        padding: 10px;
+        top: 0;
+        right: 0;
+        border-radius: to-rem(24px);
+        cursor: pointer;
+    }
+
+    &__header {
+        gap: to-rem(12px);
+
+        @include flex-set(center, center, column);
+    }
+
+    &__subheading {
+        gap: to-rem(10px);
+
+        @include flex-set;
+    }
+
+    &__content {
+        width: 100%;
+
+        gap: to-rem($space-md);
+
+        @include flex-set(center, center, column);
+    }
+
+    &__footer-button {
+        width: 87%;
+        gap: to-rem(10px);
+        padding: to-rem($space-xs) 0;
+
+        @include flex-set;
+        @include font-style(to-rem(14px), $bold, 1, $figtree);
+    }
+
+    @include respond(tablet) {
+        justify-content: center;
+
+        &__container {
+            max-width: to-rem(360px);
+            border-radius: to-rem(24px);
+        }
+
+        &__footer-button {
+            width: 90%;
+        }
+    }
+}
