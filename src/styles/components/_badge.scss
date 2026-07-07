@@ -1,0 +1,24 @@
+@use '../abstracts/' as *;
+@use '../themes/' as *;
+
+.badge {
+    @include flex-set;
+
+    &--icon {
+        width: to-rem(18px);
+        height: to-rem(18px);
+        border-radius: $radius-round;
+        background-color: $modal-secondary;
+        color: $background;
+    }
+
+    &--text {
+        border-radius: to-rem(8px);
+        background-color: $background;
+        padding: to-rem(4px) to-rem(10px);
+    }
+
+    &--hidden {
+        display: none;
+    }
+}

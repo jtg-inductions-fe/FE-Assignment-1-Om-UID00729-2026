@@ -3,7 +3,7 @@
 
 .footer {
     padding: 0;
-    margin-top: to-rem(125px);
+    padding-block: to-rem(128px) to-rem($space-xl);
     gap: to-rem(80px);
     position: relative;
     display: grid;
@@ -95,14 +95,14 @@
     }
 
     @include respond(tablet) {
-        margin-block: to-rem(226px) to-rem(53px);
+        padding-block: to-rem(226px) to-rem(53px);
         gap: to-rem($space-xl);
 
         &__icon {
             display: block;
             position: absolute;
             right: 0;
-            top: 27%;
+            top: 45%;
         }
 
         &__head {
@@ -144,7 +144,7 @@
     }
 
     @include respond(desktop) {
-        margin-block: to-rem(230px) 0;
+        padding-block: to-rem(230px) to-rem(98px);
         grid-template-columns: 1fr 1fr;
 
         &__icon {

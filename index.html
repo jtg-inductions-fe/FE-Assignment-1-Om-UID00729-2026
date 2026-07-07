@@ -8,7 +8,6 @@
         <meta name="keywords" content="Travlog, Travel Planner, Best Planner" />
         <link rel="stylesheet" href="src/styles/main.scss" />
         <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-        <link rel="stylesheet" href="/assets/icomoon/style.css" />
     </head>
     <body>
         <nav class="navbar container">
@@ -28,7 +27,9 @@
                         <a href="#" class="links links--sm navbar__focus-tab"
                             >Discover</a
                         >
-                        <a href="#" class="links links--sm navbar__focus-tab"
+                        <a
+                            href="#"
+                            class="links links--sm navbar__focus-tab open-modal"
                             >Special Deals</a
                         >
                         <a href="#" class="links links--sm navbar__focus-tab"
@@ -71,6 +72,7 @@
         <main class="main container">
             <section class="hero">
                 <div class="hero__ellipse"></div>
+                <span class="icon-hero-icon hero__icon"></span>
                 <div class="hero__gallery">
                     <div class="hero__gallery-bg">
                         <img
@@ -241,6 +243,63 @@
                     </div>
                 </div>
             </section>
+            <section class="modal">
+                <div class="modal__container">
+                    <button
+                        type="button"
+                        class="modal__close-btn"
+                        aria-label="close-modal"
+                        title="Close Modal"
+                    >
+                        <span class="icon-x" aria-label="hidden"></span>
+                    </button>
+                    <div class="modal__header">
+                        <h4 class="modal-subheading modal__subheading">
+                            <span class="icon-gift" aria-label="hidden"></span
+                            >SPECIAL DEALS
+                        </h4>
+                        <h3 class="modal-heading modal__heading">Spin & Win</h3>
+                        <p class="modal-description modal__description">
+                            Tap the center of the wheel to spin
+                        </p>
+                    </div>
+                    <div class="modal__content">
+                        <div class="spin-wheel">
+                            <div class="spin-wheel__wheel-wrapper">
+                                <div class="spin-wheel__wheel"></div>
+                                <button
+                                    type="button"
+                                    class="spin-wheel__spin-btn"
+                                >
+                                    Spin
+                                </button>
+                                <span
+                                    class="icon-wheel-pointer spin-wheel__pointer"
+                                    aria-label="hidden"
+                                ></span>
+                            </div>
+                        </div>
+
+                        <div class="winning-card">
+                            <p class="winning-card__win-text">You Won!</p>
+                        </div>
+                    </div>
+                    <div class="won-deals"></div>
+                    <button
+                        type="button"
+                        class="button button--outline modal__footer-button"
+                        aria-label="view All won Deals"
+                    >
+                        <span class="modal__footer-button-text">
+                            View All Unlocked Deals
+                        </span>
+                        <span
+                            class="badge badge--icon modal__count-badge"
+                            aria-hidden="true"
+                        ></span>
+                    </button>
+                </div>
+            </section>
         </main>
 
         <footer class="footer container">
@@ -401,6 +460,30 @@
                 </div>
                 <div class="testimonial__slide-comment-wrapper">
                     <p class="testimonial__slide-comment"></p>
+                </div>
+            </div>
+        </template>
+        <template id="deal-card-template">
+            <div class="deal-card">
+                <div class="deal-card__header">
+                    <h3 class="card-heading deal-card__label"></h3>
+                    <h5 class="card-subheading deal-card__expiry"></h5>
+                </div>
+                <div class="deal-card__promocode">
+                    <span
+                        class="badge badge--text deal-card__promocode-text"
+                    ></span>
+                    <button
+                        type="button"
+                        class="deal-card__copy-btn-wrapper"
+                        aria-label="copy promo code"
+                    >
+                        <span
+                            class="icon-copy deal-card__copy-btn"
+                            aria-label="hidden"
+                            title="Copy Promo Code"
+                        ></span>
+                    </button>
                 </div>
             </div>
         </template>

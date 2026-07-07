@@ -1,5 +1,4 @@
 @use '../abstracts/' as *;
-@use '../themes/' as *;
 
 .card {
     @include flex-set;
@@ -11,5 +10,49 @@
         gap: to-rem($space-xs);
         flex-direction: column;
         background-color: transparent;
+    }
+}
+
+.deal-card {
+    width: 87%;
+    padding: to-rem($space-xs);
+    border: $border-deals;
+    border-radius: $radius-md;
+    justify-content: space-evenly;
+    background-image: $card-active;
+
+    @include flex-set;
+
+    &--expired {
+        border: $border-modal-expired;
+        background-color: $card-expired;
+    }
+
+    &__header {
+        width: 50%;
+        gap: 9px;
+
+        @include flex-set(center, start, column);
+    }
+
+    &__promocode {
+        width: 50%;
+        height: 100%;
+        padding-bottom: 15px;
+        gap: to-rem(20px);
+
+        @include flex-set(space-around, center, row);
+    }
+
+    &__copy-btn {
+        color: $card-active-btn;
+        display: block;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+
+        &--inactive {
+            color: $card-inactive-btn;
+        }
     }
 }

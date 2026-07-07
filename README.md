@@ -14,6 +14,7 @@ Travlog is Assignment 1 built under Josh Technology Group's Frontend induction p
 -   Prettier
 -   Vite Plugins
 -   Husky
+-   Splide.Js
 
 ## User Manual
 
@@ -91,27 +92,64 @@ To set up the project on your local environment, follow these steps:
 │ ├── fonts
 │ │ ├── CircularStd-Bold.woff2
 │ │ ├── CircularStd-Book.woff2
+│ │ ├── figtree-bold.woff2
+│ │ ├── figtree-medium.woff2
 │ │ ├── icomoon.woff
+│ │ ├── Inter-Bold.woff2
+│ │ ├── Inter-Regular.woff2
+│ │ ├── Inter-SemiBold.woff2
+│ │ ├── roboto-mono-bold.woff2
 │ │ └── selection.json
 │ └── images
+│ ├── footer-icon.webp
 │ ├── hero-beach.webp
 │ ├── hero-city.webp
 │ ├── hero-earth-bg.webp
 │ ├── hero-mountain.webp
+│ ├── testimonial-bg.webp
+│ ├── testimonials-bg.webp
+│ ├── testimonials-profile.webp
+│ ├── travelpoint-icon.webp
 │ └── travel-point-img.webp
 ├── src
 │ ├── script
-│ │ └── index.js
+│ │ ├── constants.js
+│ │ ├── deals.js
+│ │ ├── footer.js
+│ │ ├── index.js
+│ │ ├── navbar.js
+│ │ ├── testimonials.js
+│ │ ├── travelpoint.js
+│ │ └── utility.js
 │ └── styles
 │ ├── abstracts
+│ │ ├── \_colors.scss
 │ │ ├── \_functions.scss
 │ │ ├── \_index.scss
 │ │ ├── \_mixins.scss
-│ │ ├── \_typography.scss
 │ │ └── \_variables.scss
 │ ├── base
+│ │ ├── \_base.scss
 │ │ ├── \_index.scss
-│ │ └── \_reset.scss
+│ │ ├── \_reset.scss
+│ │ └── \_typography.scss
+│ ├── components
+│ │ ├── \_arrow.scss
+│ │ ├── \_badge.scss
+│ │ ├── \_buttons.scss
+│ │ ├── \_cards.scss
+│ │ ├── \_index.scss
+│ │ ├── \_links.scss
+│ │ └── \_spin-wheel.scss
+│ ├── layout
+│ │ ├── \_deals.scss
+│ │ ├── \_footer.scss
+│ │ ├── \_hero.scss
+│ │ ├── \_index.scss
+│ │ ├── \_navbar.scss
+│ │ ├── \_partners.scss
+│ │ ├── \_testimonial.scss
+│ │ └── \_travelpoint.scss
 │ ├── main.scss
 │ ├── pages
 │ ├── themes
@@ -119,14 +157,15 @@ To set up the project on your local environment, follow these steps:
 │ │ └── \_theme.scss
 │ └── vendors
 │ ├── \_icomoon.scss
-│ └── \_index.scss
+│ ├── \_index.scss
+│ └── \_splide.scss
+├── vite.config.js
 ├── eslint.config.js
 ├── index.html
 ├── package.json
 ├── package-lock.json
-├── prettier.config.js
 ├── README.md
-└── vite.config.js
+└── prettier.config.js
 
 ## Browser Support
 

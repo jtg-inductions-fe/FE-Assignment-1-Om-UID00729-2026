@@ -1,0 +1,26 @@
+@use '../abstracts/' as *;
+
+.won-deals {
+    max-height: to-rem(243px);
+    display: none;
+    width: 100%;
+    gap: to-rem(8px);
+    overflow-y: auto;
+
+    @include flex-set(unset, center, column);
+}
+
+.winning-card {
+    width: 100%;
+    gap: to-rem(6px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &__win-text {
+        color: $primary-font;
+
+        @include font-style(to-rem(12px), $bold, 1, inter);
+    }
+}

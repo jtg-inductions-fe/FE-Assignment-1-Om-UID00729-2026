@@ -5,6 +5,7 @@
 .hero {
     margin-top: to-rem(144px);
     gap: to-rem($space-lg);
+    position: relative;
 
     @include flex-set(center, center, column);
 
@@ -20,6 +21,10 @@
         z-index: $z-index-20;
         filter: blur(150px);
         pointer-events: none;
+    }
+
+    &__icon {
+        display: none;
     }
 
     &__gallery {
@@ -158,7 +163,7 @@
     &__text-section-buttons {
         width: 100%;
         gap: 24px;
-        padding-top: to-rem(12px);
+        padding-top: to-rem($space-xs);
 
         @include flex-set(center, center, column);
 
@@ -187,6 +192,14 @@
     @include respond(tablet) {
         margin: to-rem(114px) 0;
         gap: to-rem($space-sm);
+
+        &__icon {
+            display: block;
+            position: absolute;
+            top: 91%;
+            left: 4%;
+            font-size: to-rem(170px);
+        }
 
         &__gallery {
             aspect-ratio: 772/713;
@@ -258,6 +271,11 @@
         gap: 0;
 
         @include flex-set;
+
+        &__icon {
+            top: 93%;
+            left: 3%;
+        }
 
         &__gallery {
             order: 2;

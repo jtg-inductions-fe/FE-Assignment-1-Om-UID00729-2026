@@ -1,8 +1,8 @@
-import { TABLET } from './constants.js';
+import { BREAKPOINTS } from './constants.js';
 
 const footerBtns = document.querySelectorAll('.footer__details-btn');
 
-const isMobile = () => window.innerWidth < TABLET;
+const isMobile = () => window.innerWidth < BREAKPOINTS.TABLET;
 
 const setState = (btn, isOpen) => {
     const list = btn.nextElementSibling;

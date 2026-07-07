@@ -74,11 +74,13 @@
 @mixin font-style(
     $font-size: to-rem(14px),
     $font-weight: $bold,
-    $line-height: 1.2
+    $line-height: 1.2,
+    $font-family: $circularstd
 ) {
     font-size: $font-size;
     font-weight: $font-weight;
     line-height: $line-height;
+    font-family: $font-family;
 }
 
 /// Truncates a text after given number of lines

@@ -26,6 +26,25 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-success:before {
+    content: '\e91a';
+}
+.icon-ticket:before {
+    content: '\e914';
+}
+.icon-x:before {
+    content: '\e919';
+}
+.icon-copy:before {
+    content: '\e916';
+}
+.icon-gift:before {
+    content: '\e917';
+}
+.icon-wheel-pointer:before {
+    content: '\e918';
+    color: #aaa;
+}
 .icon-dropdown:before {
     content: '\e915';
 }
@@ -110,7 +129,4 @@
 .icon-add-user:before {
     content: '\e90c';
     color: #fff;
-}
-.icon-ticket:before {
-    content: '\e914';
 }
